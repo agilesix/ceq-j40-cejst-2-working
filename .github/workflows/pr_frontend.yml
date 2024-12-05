@@ -2,7 +2,7 @@ name: Pull Request Frontend
 on:
   pull_request:
     paths:
-      - "client/**/*"
+      - "client/**"
 jobs:
   build:
     runs-on: ubuntu-latest

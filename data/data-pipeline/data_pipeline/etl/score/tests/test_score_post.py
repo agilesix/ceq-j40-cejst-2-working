@@ -83,7 +83,9 @@ def test_create_score_data(
     )
 
 
-def test_create_tile_data(etl, create_tile_score_data_input, create_tile_data_expected):
+def test_create_tile_data(
+    etl, create_tile_score_data_input, create_tile_data_expected
+):
     output_tiles_df_actual = etl._create_tile_data(create_tile_score_data_input)
     pdt.assert_frame_equal(
         output_tiles_df_actual,
@@ -158,8 +160,10 @@ def test_load_downloadable_zip(etl, monkeypatch, score_data_expected):
 def test_create_tract_search_data(census_geojson_sample_data: gpd.GeoDataFrame):
     # Sanity check
     assert len(census_geojson_sample_data) > 0
-    
-    result = PostScoreETL()._create_tract_search_data(census_geojson_sample_data)
+
+    result = PostScoreETL()._create_tract_search_data(
+        census_geojson_sample_data
+    )
     assert isinstance(result, pd.DataFrame)
     assert not result.columns.empty
     columns = ["GEOID10", "INTPTLAT10", "INTPTLON10"]
