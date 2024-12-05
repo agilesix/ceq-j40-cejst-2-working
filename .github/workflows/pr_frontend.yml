@@ -1,13 +1,12 @@
 name: Pull Request Frontend
 on:
   push:
-    branches: [main]
     paths:
       - "client/**/*"
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: Staging
+    environment: PR
     defaults:
       run:
         working-directory: client
