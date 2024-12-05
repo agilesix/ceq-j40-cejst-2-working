@@ -1,0 +1,103 @@
+name: Pull Request Backend 
+on:
+  pull_request:
+    paths:
+      - "data/**"
+env:
+  CENSUS_API_KEY: ${{ secrets.CENSUS_API_KEY }}
+  J40_VERSION_LABEL_STRING: ${{ vars.SCORE_VERSION }}
+
+jobs:
+  generate-score-tiles:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: data/data-pipeline
+    strategy:
+      matrix:
+        python-version: ['3.10']
+    environment: Staging
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+      - name: Print variables to help debug
+        uses: hmarr/debug-action@v3
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Load cached Poetry installation
+        id: cached-poetry-dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pypoetry/virtualenvs
+          key: env-${{ runner.os }}-${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}-${{ hashFiles('.github/workflows/deploy_backend_main.yml') }}
+      - name: Install poetry
+        uses: snok/install-poetry@v1
+      - name: Print Poetry settings
+        run: poetry show -v
+      - name: Install dependencies
+        run: poetry add s4cmd && poetry install
+        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
+      - name: Install GDAL/ogr2ogr
+        run: |
+          sudo apt-get update
+          sudo apt-get -y install gdal-bin
+          ogrinfo --version
+      - name: Cleanup Data
+        run: |
+          poetry run python3 -m data_pipeline.application data-cleanup
+      - name: Get Census Data
+        run: |
+          poetry run python3 -m data_pipeline.application census-data-download
+      - name: Extract Data Sources
+        run: |
+          poetry run python3 -m data_pipeline.application extract-data-sources
+      - name: Run ETL
+        run: |
+          poetry run python3 -m data_pipeline.application etl-run
+      - name: Generate Score
+        run: |
+          poetry run python3 -m data_pipeline.application score-run
+      - name: Score Compare
+        run: |
+          poetry run python3 -m data_pipeline.comparator compare-score
+      - name: Generate Score Post
+        run: |
+          poetry run python3 -m data_pipeline.application generate-score-post
+      - name: Confirm we generated the version of the score we think we did
+        if: ${{ env.J40_VERSION_LABEL_STRING == '1.0' || env.J40_VERSION_LABEL_STRING == 'test' }}
+        run: |
+          grep "Identified as disadvantaged due to tribal overlap" data_pipeline/data/score/downloadable/* > /dev/null
+      - name: Confirm we generated the version of the score we think we did
+        if: ${{ env.J40_VERSION_LABEL_STRING == '2.0' || env.J40_VERSION_LABEL_STRING == 'beta' }}
+        run: |
+          grep -v "Identified as disadvantaged due to tribal overlap" data_pipeline/data/score/downloadable/* > /dev/null
+      - name: Generate Score Geo
+        run: |
+          poetry run python3 -m data_pipeline.application geo-score
+      - name: Run smoketest for 1.0
+        if: ${{ env.J40_VERSION_LABEL_STRING == '1.0' }}
+        run: |
+          poetry run pytest data_pipeline/ -m smoketest
+      - name: Set timezone for tippecanoe
+        uses: szenius/set-timezone@v2.0
+        with:
+          timezoneLinux: "America/Los_Angeles"
+      - name: Get tippecanoe
+        run: |
+          sudo apt-get install -y software-properties-common libsqlite3-dev zlib1g-dev
+          sudo apt-add-repository -y ppa:git-core/ppa
+          sudo mkdir -p /tmp/tippecanoe-src
+          sudo git clone https://github.com/mapbox/tippecanoe.git /tmp/tippecanoe-src
+      - name: Make tippecanoe
+        working-directory: /tmp/tippecanoe-src
+        run: |
+          sudo /usr/bin/bash -c make
+          mkdir -p /usr/local/bin
+          cp tippecanoe /usr/local/bin/tippecanoe
+          tippecanoe -v
+      - name: Generate Tiles
+        run: |
+          poetry run python3 -m data_pipeline.application generate-map-tiles
+

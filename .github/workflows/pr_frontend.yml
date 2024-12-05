@@ -1,0 +1,44 @@
+name: Pull Request Frontend
+on:
+  push:
+    branches: [main]
+    paths:
+      - "client/**/*"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: Staging
+    defaults:
+      run:
+        working-directory: client
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install
+        run: npm ci
+      - name: Build
+        run: npm run build --if-present
+        env:
+          # See the client readme for more info on environment variables:
+          # https://github.com/usds/justice40-tool/blob/main/client/README.md
+          DATA_SOURCE: cdn
+          # TODO: Update main URL when either is back up
+          SITE_URL: "${{ secrets.SITE_URL }}"
+          MAPBOX_STYLES_READ_TOKEN: "${{ secrets.MAPBOX_STYLES_READ_TOKEN }}"
+      - name: Get directory contents
+        run: ls -la public
+      - name: Lint
+        run: npm run lint
+        # Disabling for now due to jsonlint - TODO: put this back
+      # - name: License Check
+      #   run: npm run licenses
+      - name: Test
+        run: npm test
+      # - name: Check for security vulnerabilities
+      #   run: npm audit --production
