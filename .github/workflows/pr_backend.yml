@@ -1,6 +1,9 @@
 name: Pull Request Backend 
 on:
   pull_request:
+    branches:
+      - "**"
+      - "!main"
     paths:
       - "data/**"
 env:

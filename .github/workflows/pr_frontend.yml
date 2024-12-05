@@ -1,6 +1,9 @@
 name: Pull Request Frontend
 on:
   push:
+    branches:
+      - "**"
+      - "!main"
     paths:
       - "client/**/*"
 jobs:
