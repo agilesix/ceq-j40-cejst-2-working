@@ -42,7 +42,7 @@ jobs:
       - name: Check code style consistency
         run: poetry run flake8 -v data_pipeline/
       - name: Run static code analysis
-        run: poetry run pylint data_pipeline/ --ignore-paths data_pipeline/comparator.py
+        run: poetry run pylint data_pipeline/
       - name: Check library safety
         run: poetry run safety check --ignore 51457 --ignore 44715 --ignore 70612
   generate-score-tiles:
