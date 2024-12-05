@@ -213,7 +213,6 @@ When developing, to use a flag:
 5. Install the [CORS chrome extension](https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?hl=en) in the browser that is launched by the debugger.
 6. Set breakpoints in VS code!
 
-
 ## Package Versions
 
 The following attemps to explain why certain packages versions have been chosen and what their current limitations are
