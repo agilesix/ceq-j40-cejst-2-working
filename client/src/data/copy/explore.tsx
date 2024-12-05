@@ -660,6 +660,14 @@ export const PRIORITIZATION_COPY = {
       bold: boldFn,
     }}
   />,
+  PRIO_GRANDFATHERED_LI: <FormattedMessage
+    id={'explore.map.page.side.panel.prio.copy.prio.grandfathered'}
+    defaultMessage={'This tract is considered disadvantaged because it was identified as disadvantaged in version 1.0 of the tool.'}
+    description={`Navigate to the explore the map page. Click on tract, The side panel will show This tract is considered disadvantaged. This tract is considered disadvantaged because it was identified as disadvantaged in version 1.0 of the tool.`}
+    values={{
+      bold: boldFn,
+    }}
+  />,
 };
 
 export const getPrioNBurdenCopy = (burdens:string) => {

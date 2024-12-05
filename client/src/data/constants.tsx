@@ -71,6 +71,7 @@ export const TOTAL_NUMBER_OF_INDICATORS = "THRHLD";
 export const COUNT_OF_CATEGORIES_DISADV = "CC";
 export const SCORE_N_COMMUNITIES = "SN_C";
 export const SCORE_N_TRIBAL = "SN_T";
+export const IS_GRANDFATHERED = "SN_GRAND";
 
 export const SIDE_PANEL_STATE = "UI_EXP";
 export const SIDE_PANEL_STATE_VALUES = {

@@ -10,6 +10,7 @@ interface IPrioritizationCopy {
   isAdjacencyThreshMet: boolean,
   isAdjacencyLowIncome: boolean,
   isIslandLowIncome: boolean,
+  isGrandfathered: boolean,
   tribalCountAK: number | null,
   tribalCountUS: null, // when this signal is supported add number type
   percentTractTribal: number | null
@@ -38,6 +39,7 @@ const PrioritizationCopy =
      totalBurdensPrioritized,
      isAdjacencyThreshMet,
      isAdjacencyLowIncome,
+     isGrandfathered,
      isIslandLowIncome,
      tribalCountAK,
      tribalCountUS,
@@ -57,8 +59,10 @@ const PrioritizationCopy =
        } else if (isAdjacencyThreshMet && !isAdjacencyLowIncome) {
          // if 1-2-1
          if ( tribalCountAK === null && tribalCountUS === null) {
+           if (isGrandfathered) {
+             prioCopyRendered = EXPLORE_COPY.PRIORITIZATION_COPY.PRIO_GRANDFATHERED_LI;
            // if 1-2-1-1
-           if (percentTractTribal === null) {
+           } else if (percentTractTribal === null) {
              prioCopyRendered = EXPLORE_COPY.PRIORITIZATION_COPY.NOT_PRIO_SURR_LI;
              // if 1-2-1-2
            } else if (percentTractTribal === 0) {

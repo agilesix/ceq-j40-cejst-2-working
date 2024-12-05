@@ -282,6 +282,7 @@ TILES_SCORE_COLUMNS = {
     # The NEW final score value INCLUDES the adjacency index.
     field_names.FINAL_SCORE_N_BOOLEAN: "SN_C",
     field_names.FINAL_SCORE_N_BOOLEAN_V1_0: "SN_C_V10",
+    field_names.GRANDFATHERED_N_COMMUNITIES_V1_0: "SN_GRAND",
     field_names.IS_TRIBAL_DAC: "SN_T",
     field_names.DIABETES_LOW_INCOME_FIELD: "DLI",
     field_names.ASTHMA_LOW_INCOME_FIELD: "ALI",

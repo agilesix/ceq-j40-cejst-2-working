@@ -1163,6 +1163,9 @@ const AreaDetail = ({properties}: IAreaDetailProps) => {
                 null
             }
             percentTractTribal={percentTractTribal}
+            isGrandfathered={
+              properties[constants.IS_GRANDFATHERED]
+            }
           />
           <PrioritizationCopy2
             totalCategoriesPrioritized={
@@ -1189,9 +1192,11 @@ const AreaDetail = ({properties}: IAreaDetailProps) => {
         </div>
       </div>
 
-      {/* Only show the DonutCopy if Adjacency index is true and the total number of disadv ind == 0 */}
+      {/* Only show the DonutCopy if Adjacency index is true, the total number of disadv ind == 0,
+          and not grandfathered. */}
       {properties[constants.ADJACENCY_EXCEEDS_THRESH] &&
-        properties[constants.TOTAL_NUMBER_OF_DISADVANTAGE_INDICATORS] === 0 && (
+        properties[constants.TOTAL_NUMBER_OF_DISADVANTAGE_INDICATORS] === 0 &&
+        !properties[constants.IS_GRANDFATHERED] && (
         <DonutCopy
           isAdjacent={properties[constants.ADJACENCY_EXCEEDS_THRESH]}
           povertyBelow200Percentile={

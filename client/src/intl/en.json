@@ -1427,6 +1427,10 @@
     "defaultMessage": "The {numPoints} that are Federally Recognized Tribes in this tract are are {also} considered disadvantaged.",
     "description": "Navigate to the explore the map page. Click on tract, The {numPoints} that are Federally Recognized Tribes in this tract ares are {also} considered disadvantaged."
   },
+  "explore.map.page.side.panel.prio.copy.prio.grandfathered": {
+    "defaultMessage": "This tract is considered disadvantaged because it was identified as disadvantaged in version 1.0 of the tool.",
+    "description": "Navigate to the explore the map page. Click on tract, The side panel will show This tract is considered disadvantaged. This tract is considered disadvantaged because it was identified as disadvantaged in version 1.0 of the tool."
+  },
   "explore.map.page.side.panel.prio.copy.prio.island.li": {
     "defaultMessage": "This tract is considered disadvantaged because it meets the low income threshold <bold>AND</bold> is located in a U.S. Territory.",
     "description": "Navigate to the explore the map page. Click on tract, The side panel will show This tract is considered disadvantaged. It is an island territory that meets an adjusted low income threshold."

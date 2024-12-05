@@ -356,6 +356,7 @@
   "explore.map.page.side.panel.prio.copy.prio.akus": "Los {numAKpoints} pueblos nativos de Alaska y las {numUSpoints} tribus de esta zona que están reconocidas a nivel federal también se consideran desfavorecidos.",
   "explore.map.page.side.panel.prio.copy.prio.anv": "Los {numAKpoints} pueblos nativos de Alaska y las tribus de esta zona que están reconocidas a nivel federal {also} se consideran desfavorecidos.",
   "explore.map.page.side.panel.prio.copy.prio.donut": "Este distrito censal se considera desfavorecido. Está rodeado de distritos censales desfavorecidos <bold>Y</bold> cumple con el umbral ajustado de bajos ingresos. El ajuste no corresponde a ninguna de las categorías.",
+  "explore.map.page.side.panel.prio.copy.prio.grandfathered": "Este distrito censal se considera desfavorecido porque fue identificado como desfavorecido en la versión 1.0 de esta herramienta.",
   "explore.map.page.side.panel.prio.copy.prio.frt": "Las tierras de las tribus reconocidas a nivel federal que cubren {amount} de esta extensión se consideran {also} desfavorecidas.",
   "explore.map.page.side.panel.prio.copy.prio.frt.n.points": "Los {numPoints} que son tribus reconocidas a nivel federal en este distrito censal se consideran {also} desfavorecidos.",
   "explore.map.page.side.panel.prio.copy.prio.n.burden": "Este distrito censal se considera desfavorecido porque cumple con el umbral de carga <bold>Y</bold> con el umbral socioeconómico asociado.",
