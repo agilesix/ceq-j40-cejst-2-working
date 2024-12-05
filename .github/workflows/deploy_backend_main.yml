@@ -60,12 +60,12 @@ jobs:
       - name: Get Census Data
         run: |
           poetry run python3 -m data_pipeline.application census-data-download
-          - name: Extract Data Sources
-          run: |
-            poetry run python3 -m data_pipeline.application extract-data-sources
+      - name: Extract Data Sources
+        run: |
+          poetry run python3 -m data_pipeline.application extract-data-sources
       - name: Run ETL
         run: |
-            poetry run python3 -m data_pipeline.application etl-run
+          poetry run python3 -m data_pipeline.application etl-run
       - name: Generate Score
         run: |
           poetry run python3 -m data_pipeline.application score-run
