@@ -7,7 +7,7 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
   cancel-in-progress: true
 jobs:
-  build:
+  frontend-build:
     runs-on: ubuntu-latest
     environment: PR
     defaults:
