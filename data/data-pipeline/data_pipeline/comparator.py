@@ -17,6 +17,7 @@ pd.set_option("display.width", 10000)
 pd.set_option("display.colheader_justify", "left")
 
 result_text = []
+WORKING_PATH = constants.TMP_PATH / "Comparator" / "Score"
 
 
 def _add_text(text: str):
@@ -38,7 +39,12 @@ def _get_result_doc() -> str:
 
 
 def _read_from_file(file_path: Path):
-    """Read a CSV file into a Dataframe."""
+    """
+    Read a CSV file into a Dataframe.
+
+    Args:
+        file_path (Path): the path of the file to read
+    """
     if not file_path.is_file():
         logger.error(
             f"- No score file exists at {file_path}. "
@@ -51,6 +57,219 @@ def _read_from_file(file_path: Path):
         dtype={"GEOID10_TRACT": str},
         low_memory=False,
     ).sort_index()
+
+
+def _add_tract_list(tract_list: list[str]):
+    """
+    Adds a list of tracts to the output grouped by Census state.
+
+    Args:
+        tract_list (list[str]): a list of tracts
+    """
+    if len(tract_list) > 0:
+        _add_text("Those tracts are:\n")
+        # First extract the Census states/territories
+        states_by_tract = []
+        for tract in tract_list:
+            states_by_tract.append(tract[0:2])
+        states = set(states_by_tract)
+        # Now output the grouped tracts
+        for state in sorted(states):
+            tracts_for_state = [
+                item for item in tract_list if item.startswith(state)
+            ]
+            _add_text(
+                f"\t{state} = {len(tracts_for_state)} = {', '.join(tracts_for_state)}\n"
+            )
+
+
+def _compare_score_columns(prod_df: pd.DataFrame, local_df: pd.DataFrame):
+    """
+    Compare the columns between scores.
+
+    Args:
+        prod_df (pd.DataFrame): the production score
+        local_df (pd.DataFrame): the local score
+    """
+    log_info("Comparing columns (production vs local)")
+    _add_text("## Columns\n")
+    local_score_df_columns = sorted(local_df.columns.array.tolist())
+    production_score_df_columns = sorted(prod_df.columns.array.tolist())
+    extra_cols_in_local = set(local_score_df_columns) - set(
+        production_score_df_columns
+    )
+    extra_cols_in_prod = set(production_score_df_columns) - set(
+        local_score_df_columns
+    )
+    if len(extra_cols_in_local) == 0 and len(extra_cols_in_prod) == 0:
+        _add_text("* There are no differences in the column names.\n")
+    else:
+        _add_text(
+            f"* There are {len(extra_cols_in_local)} columns that were added as compared to the production score."
+        )
+        if len(extra_cols_in_local) > 0:
+            _add_text(f" Those colums are:\n{extra_cols_in_local}")
+        _add_text(
+            f"\n* There are {len(extra_cols_in_prod)} columns that were removed as compared to the production score."
+        )
+        if len(extra_cols_in_prod) > 0:
+            _add_text(f" Those colums are:\n{extra_cols_in_prod}")
+
+
+def _compare_score_results(prod_df: pd.DataFrame, local_df: pd.DataFrame):
+    """
+    Compare the scores.
+
+    Args:
+        prod_df (pd.DataFrame): the production score
+        local_df (pd.DataFrame): the local score
+    """
+    log_info("Comparing dataframe contents (production vs local)")
+    _add_text("\n\n## Scores\n")
+
+    production_row_count = len(prod_df.index)
+    local_row_count = len(local_df.index)
+
+    # Tract comparison
+    _add_text(
+        f"* The production score has {production_row_count:,} census tracts, and the freshly calculated score has {local_row_count:,}."
+    )
+    if production_row_count == local_row_count:
+        _add_text(" They match!\n")
+    else:
+        _add_text(" They don't match. The differences are:\n")
+        _add_text(
+            "  * New tracts added to the local score are:\n"
+            f"{local_df.index.difference(prod_df.index).to_list()}"
+            "\n  * Tracts removed from the local score are:\n"
+            f"{prod_df.index.difference(local_df.index).to_list()}"
+            "\n"
+        )
+
+    # Population comparison
+    production_total_population = prod_df[field_names.TOTAL_POP_FIELD].sum()
+    local_total_population = local_df[field_names.TOTAL_POP_FIELD].sum()
+
+    _add_text(
+        f"* The total population in all census tracts in the production score is {production_total_population:,}. "
+        f"The total population in all census tracts locally is {local_total_population:,}. "
+    )
+    _add_text(
+        "They match!\n"
+        if production_total_population == local_total_population
+        else f"The difference is {abs(production_total_population - local_total_population):,}.\n"
+    )
+
+    dacs_query = f"`{field_names.FINAL_SCORE_N_BOOLEAN}` == True"
+    production_disadvantaged_tracts_df = prod_df.query(dacs_query)
+    local_disadvantaged_tracts_df = local_df.query(dacs_query)
+
+    production_disadvantaged_tracts_set = set(
+        production_disadvantaged_tracts_df.index.array
+    )
+    local_disadvantaged_tracts_set = set(
+        local_disadvantaged_tracts_df.index.array
+    )
+
+    production_pct_of_population_represented = (
+        production_disadvantaged_tracts_df[field_names.TOTAL_POP_FIELD].sum()
+        / production_total_population
+    )
+    local_pct_of_population_represented = (
+        local_disadvantaged_tracts_df[field_names.TOTAL_POP_FIELD].sum()
+        / local_total_population
+    )
+
+    # DACS comparison
+    _add_text(
+        f"* There are {len(production_disadvantaged_tracts_set):,} disadvantaged tracts in the production score representing"
+        f" {production_pct_of_population_represented:.1%} of the total population, and {len(local_disadvantaged_tracts_set):,}"
+    )
+    _add_text(
+        f" in the locally generated score representing {local_pct_of_population_represented:.1%} of the total population."
+    )
+    _add_text(
+        " The number of tracts match!\n "
+        if len(production_disadvantaged_tracts_set)
+        == len(local_disadvantaged_tracts_set)
+        else f" The difference is {abs(len(production_disadvantaged_tracts_set) - len(local_disadvantaged_tracts_set))} tract(s).\n "
+    )
+
+    removed_tracts = production_disadvantaged_tracts_set.difference(
+        local_disadvantaged_tracts_set
+    )
+    added_tracts = local_disadvantaged_tracts_set.difference(
+        production_disadvantaged_tracts_set
+    )
+    _add_text(
+        f"* There are {len(removed_tracts):,} tract(s) marked as disadvantaged in the production score that are not disadvantaged in the locally"
+        f" generated score (i.e. disadvantaged tracts that were removed by the new score). "
+    )
+    _add_tract_list(removed_tracts)
+
+    _add_text(
+        f"\n* There are {len(added_tracts):,} tract(s) marked as disadvantaged in the locally generated score that are not disadvantaged in the"
+        f" production score (i.e. disadvantaged tracts that were added by the new score). "
+    )
+    _add_tract_list(added_tracts)
+
+    # Grandfathered tracts from v1.0
+    grandfathered_tracts = local_df.loc[
+        local_df[field_names.GRANDFATHERED_N_COMMUNITIES_V1_0]
+    ].index
+    if len(grandfathered_tracts) > 0:
+        _add_text(
+            f"* This includes {len(grandfathered_tracts)} grandfathered tract(s) from v1.0 scoring."
+        )
+        _add_tract_list(grandfathered_tracts)
+    else:
+        _add_text("* There are NO grandfathered tracts from v1.0 scoring.\n")
+
+
+def _generate_delta(prod_df: pd.DataFrame, local_df: pd.DataFrame):
+    """
+    Generate a delta of scores
+
+    Args:
+        prod_df (pd.DataFrame): the production score
+        local_df (pd.DataFrame): the local score
+    """
+    _add_text("\n## Delta\n")
+    # First we make the columns on two dataframes to be the same to be able to compare
+    local_score_df_columns = local_df.columns.array.tolist()
+    production_score_df_columns = prod_df.columns.array.tolist()
+    extra_cols_in_local = set(local_score_df_columns) - set(
+        production_score_df_columns
+    )
+    extra_cols_in_prod = set(production_score_df_columns) - set(
+        local_score_df_columns
+    )
+    trimmed_prod_df = prod_df.drop(extra_cols_in_prod, axis=1)
+    trimmed_local_df = local_df.drop(extra_cols_in_local, axis=1)
+    try:
+
+        comparison_results_df = trimmed_prod_df.compare(
+            trimmed_local_df, align_axis=1, keep_shape=False, keep_equal=False
+        ).rename({"self": "Production", "other": "Local"}, axis=1, level=1)
+
+        _add_text(
+            "* I compared all values across all census tracts. Note this ignores any columns that have been added or removed."
+            f" There are {len(comparison_results_df.index):,} tracts with at least one difference.\n"
+        )
+
+        comparison_path = WORKING_PATH / "deltas.csv"
+        comparison_results_df.to_csv(path_or_buf=comparison_path)
+
+        _add_text(f"* Wrote comparison results to {comparison_path}")
+
+    except ValueError as e:
+        _add_text(
+            "* I could not run a full comparison. This is likely because there are column or index (census tract) differences."
+            " Please examine the logs or run the score comparison locally to find out more.\n"
+        )
+        _add_text(
+            f"Encountered an exception while performing the comparison: {repr(e)}\n"
+        )
 
 
 @click.group()
@@ -101,7 +320,6 @@ def compare_score(
     """
 
     FLOAT_ROUNDING_PLACES = 2
-    WORKING_PATH = constants.TMP_PATH / "Comparator" / "Score"
 
     log_title("Compare Score", "Compare production score to local score")
 
@@ -132,188 +350,21 @@ def compare_score(
     production_score_df = production_score_df.round(FLOAT_ROUNDING_PLACES)
     local_score_df = local_score_df.round(FLOAT_ROUNDING_PLACES)
 
-    local_score_df_columns = sorted(local_score_df.columns.array.tolist())
-    production_score_df_columns = sorted(
-        production_score_df.columns.array.tolist()
-    )
-    extra_cols_in_local = set(local_score_df_columns) - set(
-        production_score_df_columns
-    )
-    extra_cols_in_prod = set(production_score_df_columns) - set(
-        local_score_df_columns
-    )
-
     _add_text("# Score Comparison Summary\n")
     _add_text(
         f"Hi! I'm the Score Comparator. I compared the score in production (version {compare_to_version}) to the"
         " locally calculated score. Here are the results:\n\n"
     )
 
-    #####################
-    # Compare the columns
-    #####################
-    log_info("Comparing columns (production vs local)")
-    _add_text("## Columns\n")
-    if len(extra_cols_in_local) == 0 and len(extra_cols_in_prod) == 0:
-        _add_text("* There are no differences in the column names.\n")
-    else:
-        _add_text(
-            f"* There are {len(extra_cols_in_local)} columns that were added as compared to the production score."
-        )
-        if len(extra_cols_in_local) > 0:
-            _add_text(f" Those colums are:\n{extra_cols_in_local}")
-        _add_text(
-            f"\n* There are {len(extra_cols_in_prod)} columns that were removed as compared to the production score."
-        )
-        if len(extra_cols_in_prod) > 0:
-            _add_text(f" Those colums are:\n{extra_cols_in_prod}")
-
-    ####################
-    # Compare the scores
-    ####################
-    log_info("Comparing dataframe contents (production vs local)")
-    _add_text("\n\n## Scores\n")
-
-    production_row_count = len(production_score_df.index)
-    local_row_count = len(local_score_df.index)
-
-    # Tract comparison
-    _add_text(
-        f"* The production score has {production_row_count:,} census tracts, and the freshly calculated score has {local_row_count:,}."
-    )
-    if production_row_count == local_row_count:
-        _add_text(" They match!\n")
-    else:
-        _add_text(" They don't match. The differences are:\n")
-        _add_text(
-            "  * New tracts added to the local score are:\n"
-            f"{local_score_df.index.difference(production_score_df.index).to_list()}"
-            "\n  * Tracts removed from the local score are:\n"
-            f"{production_score_df.index.difference(local_score_df.index).to_list()}"
-            "\n"
-        )
-
-    # Population comparison
-    production_total_population = production_score_df[
-        field_names.TOTAL_POP_FIELD
-    ].sum()
-    local_total_population = local_score_df[field_names.TOTAL_POP_FIELD].sum()
-
-    _add_text(
-        f"* The total population in all census tracts in the production score is {production_total_population:,}. "
-        f"The total population in all census tracts locally is {local_total_population:,}. "
-    )
-    _add_text(
-        "They match!\n"
-        if production_total_population == local_total_population
-        else f"The difference is {abs(production_total_population - local_total_population):,}.\n"
-    )
-
-    dacs_query = f"`{field_names.FINAL_SCORE_N_BOOLEAN}` == True"
-    production_disadvantaged_tracts_df = production_score_df.query(dacs_query)
-    local_disadvantaged_tracts_df = local_score_df.query(dacs_query)
-
-    production_disadvantaged_tracts_set = set(
-        production_disadvantaged_tracts_df.index.array
-    )
-    local_disadvantaged_tracts_set = set(
-        local_disadvantaged_tracts_df.index.array
-    )
-
-    production_pct_of_population_represented = (
-        production_disadvantaged_tracts_df[field_names.TOTAL_POP_FIELD].sum()
-        / production_total_population
-    )
-    local_pct_of_population_represented = (
-        local_disadvantaged_tracts_df[field_names.TOTAL_POP_FIELD].sum()
-        / local_total_population
-    )
-
-    # DACS comparison
-    _add_text(
-        f"* There are {len(production_disadvantaged_tracts_set):,} disadvantaged tracts in the production score representing"
-        f" {production_pct_of_population_represented:.1%} of the total population, and {len(local_disadvantaged_tracts_set):,}"
-    )
-    _add_text(
-        f" in the locally generated score representing {local_pct_of_population_represented:.1%} of the total population."
-    )
-    _add_text(
-        " The number of tracts match!\n "
-        if len(production_disadvantaged_tracts_set)
-        == len(local_disadvantaged_tracts_set)
-        else f" The difference is {abs(len(production_disadvantaged_tracts_set) - len(local_disadvantaged_tracts_set))} tract(s).\n "
-    )
-
-    removed_tracts = production_disadvantaged_tracts_set.difference(
-        local_disadvantaged_tracts_set
-    )
-    added_tracts = local_disadvantaged_tracts_set.difference(
-        production_disadvantaged_tracts_set
-    )
-    _add_text(
-        f"* There are {len(removed_tracts):,} tract(s) marked as disadvantaged in the production score that are not disadvantaged in the locally"
-        f" generated score (i.e. disadvantaged tracts that were removed by the new score). "
-    )
-    if len(removed_tracts) > 0:
-        _add_text(f"Those tracts are:\n{removed_tracts}")
-
-    _add_text(
-        f"\n* There are {len(added_tracts):,} tract(s) marked as disadvantaged in the locally generated score that are not disadvantaged in the"
-        f" production score (i.e. disadvantaged tracts that were added by the new score). "
-    )
-    if len(added_tracts) > 0:
-        _add_text(f"Those tracts are:\n{added_tracts}\n")
-
-    # Grandfathered tracts from v1.0
-    grandfathered_tracts = local_score_df.loc[
-        local_score_df[field_names.GRANDFATHERED_N_COMMUNITIES_V1_0]
-    ].index
-    if len(grandfathered_tracts) > 0:
-        _add_text(
-            f"* This includes {len(grandfathered_tracts)} grandfathered tract(s) from v1.0 scoring. They are:\n"
-            f"{grandfathered_tracts.to_list()}\n"
-        )
-    else:
-        _add_text("* There are NO grandfathered tracts from v1.0 scoring.\n")
-
-    ################
-    # Create a delta
-    ################
-    _add_text("\n## Delta\n")
-    # First we make the columns on two dataframes to be the same to be able to compare
-    trimmed_prod_df = production_score_df.drop(extra_cols_in_prod, axis=1)
-    trimmed_local_df = local_score_df.drop(extra_cols_in_local, axis=1)
-    try:
-
-        comparison_results_df = trimmed_prod_df.compare(
-            trimmed_local_df, align_axis=1, keep_shape=False, keep_equal=False
-        ).rename({"self": "Production", "other": "Local"}, axis=1, level=1)
-
-        _add_text(
-            "* I compared all values across all census tracts. Note this ignores any columns that have been added or removed."
-            f" There are {len(comparison_results_df.index):,} tracts with at least one difference.\n"
-        )
-
-        comparison_path = WORKING_PATH / "deltas.csv"
-        comparison_results_df.to_csv(path_or_buf=comparison_path)
-
-        _add_text(f"* Wrote comparison results to {comparison_path}")
-
-    except ValueError as e:
-        _add_text(
-            "* I could not run a full comparison. This is likely because there are column or index (census tract) differences."
-            " Please examine the logs or run the score comparison locally to find out more.\n"
-        )
-        _add_text(
-            f"Encountered an exception while performing the comparison: {repr(e)}\n"
-        )
+    _compare_score_columns(production_score_df, local_score_df)
+    _compare_score_results(production_score_df, local_score_df)
+    _generate_delta(production_score_df, local_score_df)
 
     result_doc = _get_result_doc()
     print(result_doc)
 
     # Write the report
     summary_path = WORKING_PATH / "comparison-summary.md"
-
     with open(summary_path, "w", encoding="utf-8") as f:
         f.write(result_doc)
         log_info(f"Wrote comparison summary to {summary_path}")
