@@ -1053,6 +1053,8 @@ class ScoreNarwhal(Score):
 
         # Now we set the low income flag only for territories, but we need to rank them
         # with all other tracts.
+        # Note: This specific method call will generate the
+        # CENSUS_DECENNIAL_POVERTY_LESS_THAN_200_FPL_PERCENTILE column in the score.
         (
             self.df,
             island_areas_poverty_200_criteria_field_name,

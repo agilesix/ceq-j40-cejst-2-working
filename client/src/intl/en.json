@@ -1375,6 +1375,10 @@
     "defaultMessage": "Identified as disadvantaged?",
     "description": "Navigate to the explore the map page. When the map is in view, click on the map. The side panel will show asking IF the communities is focused on"
   },
+  "explore.map.page.side.panel.island.copy.low.income": {
+    "defaultMessage": "Low income",
+    "description": "Navigate to the explore the map page. Click on side panel, this copy may show up"
+  },
   "explore.map.page.side.panel.not.community.of.focus": {
     "defaultMessage": "NO",
     "description": "Navigate to the explore the map page. When the map is in view, click on the map. The side panel will show the communities the score currently is not focused on"

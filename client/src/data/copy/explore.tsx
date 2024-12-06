@@ -772,6 +772,13 @@ export const DONUT_COPY = defineMessages({
     description: `Navigate to the explore the map page. Click on side panel, this copy may show up`,
   },
 });
+export const ISLAND_COPY = defineMessages({
+  LOW_INC: {
+    id: 'explore.map.page.side.panel.island.copy.low.income',
+    defaultMessage: 'Low income',
+    description: `Navigate to the explore the map page. Click on side panel, this copy may show up`,
+  },
+});
 export const COMMUNITY = {
   OF_FOCUS: <FormattedMessage
     id={'explore.map.page.side.panel.community.of.focus'}

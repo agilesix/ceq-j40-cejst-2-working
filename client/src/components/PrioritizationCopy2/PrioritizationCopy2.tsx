@@ -40,8 +40,8 @@ const PrioritizationCopy2 =
      tribalCountUS,
      percentTractTribal,
    }:IPrioritizationCopy2) => {
-     let noStyles = false;
-     let prioCopy2Rendered;
+     let prioCopy2Rendered = <></>;
+
 
      // if 1
      if (
@@ -165,13 +165,10 @@ const PrioritizationCopy2 =
       (tribalCountAK !== null && tribalCountAK >= 1)
      ) {
        prioCopy2Rendered = EXPLORE_COPY.getPrioANVCopy(tribalCountAK, false);
-     } else {
-       prioCopy2Rendered = <></>;
-       noStyles = true;
      };
 
      return (
-       <div className={noStyles ? '' : styles.prioritizationCopy2Container}>
+       <div className={prioCopy2Rendered !== <></> ? '' : styles.prioritizationCopy2Container}>
          {prioCopy2Rendered}
        </div>
      );

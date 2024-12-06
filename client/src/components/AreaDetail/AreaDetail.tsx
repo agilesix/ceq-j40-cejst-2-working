@@ -1,8 +1,8 @@
 /* eslint-disable quotes */
 // External Libs:
-import React from "react";
-import {MessageDescriptor, useIntl} from "gatsby-plugin-intl";
 import {Accordion, Button} from "@trussworks/react-uswds";
+import {MessageDescriptor, useIntl} from "gatsby-plugin-intl";
+import React from "react";
 
 // Components:
 import Category from "../Category";
@@ -15,11 +15,12 @@ import TractInfo from "../TractInfo";
 import TractPrioritization from "../TractPrioritization";
 
 // Styles and constants
-import * as styles from "./areaDetail.module.scss";
 import * as constants from "../../data/constants";
 import * as EXPLORE_COPY from "../../data/copy/explore";
+import * as styles from "./areaDetail.module.scss";
 
 // @ts-ignore
+import IslandCopy from "../IslandCopy/IslandCopy";
 import launchIcon from "/node_modules/uswds/dist/img/usa-icons/launch.svg";
 
 interface IAreaDetailProps {
@@ -1191,6 +1192,13 @@ const AreaDetail = ({properties}: IAreaDetailProps) => {
           />
         </div>
       </div>
+
+      {/* Show IslandCopy if the GeoID matches an island prefix */}
+      {constants.TILES_ISLAND_AREA_FIPS_CODES.some((code) => {
+        return properties[constants.GEOID_PROPERTY].startsWith(code);
+      }) && (
+        <IslandCopy povertyPercentile={ properties[constants.CENSUS_DECENNIAL_POVERTY_LESS_THAN_200_FPL_PERCENTILE]} />
+      )}
 
       {/* Only show the DonutCopy if Adjacency index is true, the total number of disadv ind == 0,
           and not grandfathered. */}

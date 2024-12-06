@@ -1,0 +1,44 @@
+@use '../../styles/design-system.scss' as *;
+@import "../utils.scss";
+
+.islandCopyContainer{
+    @include u-display('flex');
+    flex-direction: column;
+    @include u-padding-left(2);
+    @include u-padding-right(2.5);
+    @include u-padding-top(2);
+
+    .islandRow {
+        @include u-display('flex');
+        justify-content: space-between;
+
+        .islandRowLabel {
+            font-weight: bold;
+        }
+
+        .valueSubTextContainer {
+            @include u-display('flex');
+            flex-direction: column;
+            .subTextContainer{
+                @include indicatorValueSubTextContainer();
+            }
+        }
+    }
+
+    .islandRow:first-child {
+        @include u-padding-bottom("05");
+    }
+
+    .valueContainer {
+        @include u-text('bold');
+    }
+
+    .invert {
+        align-self: flex-end;
+        @include invert();
+    }
+
+    .noInvert {
+        align-self: flex-end;
+    }
+}
