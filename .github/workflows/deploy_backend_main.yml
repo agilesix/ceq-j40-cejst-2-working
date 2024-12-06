@@ -95,6 +95,7 @@ jobs:
           poetry run s4cmd put ./data_pipeline/data/score/csv/ s3://${{secrets.S3_DATA_BUCKET}}/data-versions/${{env.J40_VERSION_LABEL_STRING}}/data/score/csv --sync-check --recursive --force
           poetry run s4cmd put ./data_pipeline/files/ s3://${{secrets.S3_DATA_BUCKET}}/data-versions/${{env.J40_VERSION_LABEL_STRING}}/data/score/downloadable --sync-check --recursive --force
           poetry run s4cmd put ./data_pipeline/data/score/downloadable/ s3://${{secrets.S3_DATA_BUCKET}}/data-versions/${{env.J40_VERSION_LABEL_STRING}}/data/score/downloadable --sync-check --recursive --force
+          poetry run s4cmd put ./data_pipeline/data/score/search/ s3://${{secrets.S3_DATA_BUCKET}}/data-versions/${{env.J40_VERSION_LABEL_STRING}}/data/score/search --sync-check --recursive --force
       - name: Deploy 1.0 score post
         if: ${{ env.J40_VERSION_LABEL_STRING == '1.0' }}
         run: |

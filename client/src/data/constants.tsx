@@ -388,6 +388,8 @@ process.env.GATSBY_CDN_TILES_BASE_URL;
 
 export const TILE_PATH = process.env.DATA_SOURCE === "local" ?
 process.env.GATSBY_DATA_PIPELINE_SCORE_PATH_LOCAL :
-process.env.GATSBY_1_0_SCORE_PATH;
+process.env.GATSBY_2_0_SCORE_PATH;
 
-export const MAP_TRACT_SEARCH_PATH = "data_pipeline/data/score/search/tracts.json";
+export const MAP_TRACT_SEARCH_PATH = process.env.DATA_SOURCE === "local" ?
+process.env.GATSBY_DATA_PIPELINE_SEARCH_PATH_LOCAL :
+process.env.GATSBY_2_0_MAP_TRACT_SEARCH_PATH;
