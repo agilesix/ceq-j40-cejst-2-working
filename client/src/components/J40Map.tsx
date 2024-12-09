@@ -57,6 +57,13 @@ export interface IDetailViewInterface {
   properties: constants.J40Properties,
 };
 
+export interface IMapFeature {
+  id: string;
+  geometry: any;
+  properties: any;
+  type: string;
+}
+
 const J40Map = ({location}: IJ40Interface) => {
   /**
    * Initializes the zoom, and the map's center point (lat, lng) via the URL hash #{z}/{lat}/{long}
@@ -108,17 +115,60 @@ const J40Map = ({location}: IJ40Interface) => {
   const zoomLatLngHash = mapRef.current?.getMap()._hash._getCurrentHash();
 
   /**
-   * This function will return the bounding box of the current map. Comment in when needed.
-   *  {
-   *    _ne: {lng:number, lat:number}
-   *    _sw: {lng:number, lat:number}
-   *  }
-   * @returns {LngLatBounds}
+   * Selects the provided feature on the map.
+   * @param feature the feature to select
    */
-  // const getCurrentMapBoundingBox = () => {
-  //   return mapRef.current ? console.log('mapRef getBounds(): ', mapRef.current.getMap().getBounds()) : null;
-  // };
+  const selectFeatureOnMap = (feature: IMapFeature) => {
+    if (feature) {
+      // Get the current selected feature's bounding box:
+      const [minLng, minLat, maxLng, maxLat] = bbox(feature);
 
+      // Set the selectedFeature ID
+      if (feature.id !== selectedFeatureId) {
+        setSelectedFeature(feature);
+      } else {
+        setSelectedFeature(undefined);
+      }
+
+      // Go to the newly selected feature (as long as it's not an Alaska Point)
+      goToPlace([
+        [minLng, minLat],
+        [maxLng, maxLat],
+      ]);
+
+      /**
+       * The following logic is used for the popup for the fullscreen feature
+       */
+      // Create a new viewport using the current viewport dimnesions:
+      const newViewPort = new WebMercatorViewport({height: viewport.height!, width: viewport.width!});
+
+      // Fit the viewport to the new bounds and return a long, lat and zoom:
+      const {longitude, latitude, zoom} = newViewPort.fitBounds(
+          [
+            [minLng, minLat],
+            [maxLng, maxLat],
+          ],
+          {
+            padding: 40,
+          },
+      );
+
+      // Save the popupInfo
+      const popupInfo = {
+        longitude: longitude,
+        latitude: latitude,
+        zoom: zoom,
+        properties: feature.properties,
+      };
+
+      // Update the DetailedView state variable with the new popupInfo object:
+      setDetailViewData(popupInfo);
+
+      /**
+       * End Fullscreen feature specific logic
+       */
+    }
+  };
 
   /**
  * This onClick event handler will listen and handle clicks on the map. It will listen for clicks on the
@@ -174,58 +224,7 @@ const J40Map = ({location}: IJ40Interface) => {
       // @ts-ignore
       const feature = event.features && event.features[0];
 
-      if (feature) {
-        // Get the current selected feature's bounding box:
-        const [minLng, minLat, maxLng, maxLat] = bbox(feature);
-
-
-        // Set the selectedFeature ID
-        if (feature.id !== selectedFeatureId) {
-          setSelectedFeature(feature);
-        } else {
-          setSelectedFeature(undefined);
-        }
-
-
-        // Go to the newly selected feature (as long as it's not an Alaska Point)
-        goToPlace([
-          [minLng, minLat],
-          [maxLng, maxLat],
-        ]);
-
-
-        /**
-         * The following logic is used for the popup for the fullscreen feature
-         */
-        // Create a new viewport using the current viewport dimnesions:
-        const newViewPort = new WebMercatorViewport({height: viewport.height!, width: viewport.width!});
-
-        // Fit the viewport to the new bounds and return a long, lat and zoom:
-        const {longitude, latitude, zoom} = newViewPort.fitBounds(
-            [
-              [minLng, minLat],
-              [maxLng, maxLat],
-            ],
-            {
-              padding: 40,
-            },
-        );
-
-        // Save the popupInfo
-        const popupInfo = {
-          longitude: longitude,
-          latitude: latitude,
-          zoom: zoom,
-          properties: feature.properties,
-        };
-
-        // Update the DetailedView state variable with the new popupInfo object:
-        setDetailViewData(popupInfo);
-
-        /**
-         * End Fullscreen feature specific logic
-         */
-      }
+      selectFeatureOnMap(feature);
     }
   };
 
@@ -390,7 +389,7 @@ const J40Map = ({location}: IJ40Interface) => {
 
           {/* This is the first overlayed row on the map: Search and Geolocation */}
           <div className={styles.mapHeaderRow}>
-            <MapSearch goToPlace={goToPlace}/>
+            <MapSearch goToPlace={goToPlace} mapRef={mapRef} selectFeatureOnMap={selectFeatureOnMap}/>
 
             {/* Geolocate Icon */}
             <div className={styles.geolocateBox}>

@@ -39,6 +39,7 @@
     "@testing-library/react": "^11.2.7",
     "@types/d3-ease": "^3.0.0",
     "@types/jest": "^26.0.24",
+    "@types/js-search": "^1.4.4",
     "@types/maplibre-gl": "^1.14.0",
     "@types/node": "^15.14.9",
     "@types/react": "^17.0.41",
