@@ -1,17 +1,31 @@
 name: Pull Request Backend 
 on:
   pull_request:
-    paths:
-      - "data/**"
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
   cancel-in-progress: true
-env:
-  CENSUS_API_KEY: ${{ secrets.CENSUS_API_KEY }}
-  J40_VERSION_LABEL_STRING: ${{ vars.SCORE_VERSION }}
 
 jobs:
+  # JOB to run change detection
+  detect-be-changes:
+    runs-on: ubuntu-latest
+    # Required permissions
+    permissions:
+      pull-requests: read
+    # Set job outputs to values from filter step
+    outputs:
+      backend: ${{ steps.filter.outputs.backend }}
+    steps:
+    # For pull requests it's not necessary to checkout the code
+    - uses: dorny/paths-filter@v3
+      id: filter
+      with:
+        filters: |
+          backend:
+            - 'data/**'
   code-quality-checks:
+    needs: detect-be-changes
+    if: ${{ needs.detect-be-changes.outputs.backend == 'true' }}
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -48,7 +62,12 @@ jobs:
         run: poetry run pylint data_pipeline/
       - name: Check library safety
         run: poetry run safety check --ignore 51457 --ignore 44715 --ignore 70612
+      - name: Run unit tests
+        run: |
+          poetry run pytest data_pipeline/
   generate-score-tiles:
+    needs: detect-be-changes
+    if: ${{ needs.detect-be-changes.outputs.backend == 'true' }}
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -84,9 +103,6 @@ jobs:
           sudo apt-get update
           sudo apt-get -y install gdal-bin
           ogrinfo --version
-      - name: Run unit tests
-        run: |
-          poetry run pytest data_pipeline/
       - name: Cleanup Data
         run: |
           poetry run python3 -m data_pipeline.application data-cleanup
