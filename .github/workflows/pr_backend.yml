@@ -8,6 +8,7 @@ concurrency:
 jobs:
   # JOB to run change detection
   detect-be-changes:
+    name: Detect backend changes
     runs-on: ubuntu-latest
     # Required permissions
     permissions:
@@ -23,7 +24,9 @@ jobs:
         filters: |
           backend:
             - 'data/**'
+            - '.github/workflows/pr_backend.yml'
   code-quality-checks:
+    name: Code quality checks and tests - ${{ matrix.python-version }}
     needs: detect-be-changes
     if: ${{ needs.detect-be-changes.outputs.backend == 'true' }}
     runs-on: ubuntu-latest
@@ -66,6 +69,7 @@ jobs:
         run: |
           poetry run pytest data_pipeline/
   generate-score-tiles:
+    name: Score and tile generation - ${{ matrix.python-version }}
     needs: detect-be-changes
     if: ${{ needs.detect-be-changes.outputs.backend == 'true' }}
     runs-on: ubuntu-latest

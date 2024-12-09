@@ -7,6 +7,7 @@ concurrency:
 jobs:
   # JOB to run change detection
   detect-fe-changes:
+    name: Detect frontend changes
     runs-on: ubuntu-latest
     # Required permissions
     permissions:
@@ -22,7 +23,9 @@ jobs:
         filters: |
           frontend:
             - 'client/**'
+            - '.github/workflows/pr_frontend.yml'
   frontend-build:
+    name: Frontend build - ${{ matrix.node-version }}
     needs: detect-fe-changes
     if: ${{ needs.detect-fe-changes.outputs.frontend == 'true' }}
     runs-on: ubuntu-latest
