@@ -80,7 +80,7 @@ def generate_tiles(data_path: Path, generate_tribal_layer: bool) -> None:
         USA_TRIBAL_MAX_ZOOM = 11
 
         tribal_tiles_path = data_path / "tribal" / "tiles"
-        tribal_geojson_dir = data_path / "tribal" / "geojson"
+        tribal_geojson_dir = data_path / "tribal" / "geographic_data"
 
         # remove existing mbtiles file
         remove_all_from_dir(tribal_tiles_path)
