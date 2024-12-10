@@ -393,7 +393,8 @@ const J40Map = ({location}: IJ40Interface) => {
 
           {/* This is the first overlayed row on the map: Search and Geolocation */}
           <div className={styles.mapHeaderRow}>
-            <MapSearch goToPlace={goToPlace} mapRef={mapRef} selectFeatureOnMap={selectFeatureOnMap}/>
+            <MapSearch goToPlace={goToPlace} mapRef={mapRef} selectFeatureOnMap={selectFeatureOnMap}
+              selectedFeatureId={selectedFeatureId}/>
 
             {/* Geolocate Icon */}
             <div className={styles.geolocateBox}>

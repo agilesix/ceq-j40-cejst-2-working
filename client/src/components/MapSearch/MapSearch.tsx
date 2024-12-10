@@ -18,6 +18,7 @@ interface IMapSearch {
   goToPlace(bounds: LngLatBoundsLike):void;
   mapRef:RefObject<MapRef>;
   selectFeatureOnMap: (feature: any) => void;
+  selectedFeatureId: string;
 }
 
 interface ISearchTractRecord {
@@ -26,7 +27,7 @@ interface ISearchTractRecord {
   INTPTLON10: string;
 }
 
-const MapSearch = ({goToPlace, mapRef, selectFeatureOnMap}:IMapSearch) => {
+const MapSearch = ({goToPlace, mapRef, selectFeatureOnMap, selectedFeatureId}:IMapSearch) => {
   // State to hold if the search results are empty or not:
   const [isSearchResultsNull, setIsSearchResultsNull] = useState(false);
   const intl = useIntl();
@@ -82,6 +83,10 @@ const MapSearch = ({goToPlace, mapRef, selectFeatureOnMap}:IMapSearch) => {
    * @param {string} tract the 11 digit tract ID as a string
    */
   const searchForTract = async (tract: string) => {
+    // We create a bounding box just to get the tract in the view box.
+    // The size is not important.
+    const BOUNDING_BOX_SIZE_DD = 0.1;
+
     /**
      * Wait for the map to be done loading and moving.
      * @param {function()} callback the callback to run after the map is ready
@@ -97,14 +102,15 @@ const MapSearch = ({goToPlace, mapRef, selectFeatureOnMap}:IMapSearch) => {
       }
     };
 
+    // Convert 10 digit tracts to 11.
+    const searchTerm = tract.length == 10 ? '0' + tract : tract;
+
+    // If the search is for the same tract then do nothing.
+    if (selectedFeatureId == searchTerm) return;
+
     setIsSearchResultsNull(true);
 
-    // We create a bounding box just to get the tract in the view box.
-    // The size is not important.
-    const BOUNDING_BOX_SIZE_DD = 0.1;
     if (tractSearch) {
-      // Convert 10 digit tracts to 11.
-      const searchTerm = tract.length == 10 ? '0' + tract : tract;
       const result = tractSearch.search(searchTerm);
       if (result.length > 0) {
         const searchTractRecord = result[0] as ISearchTractRecord;
