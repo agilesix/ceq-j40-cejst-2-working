@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 // External Libs:
 import React, {useRef, useState} from 'react';
-import {Map, MapboxGeoJSONFeature, LngLatBoundsLike} from 'maplibre-gl';
+import {Map, MapGeoJSONFeature, LngLatBoundsLike} from 'maplibre-gl';
 import ReactMapGL, {
   MapEvent,
   ViewportProps,
@@ -28,9 +28,8 @@ import AreaDetail from './AreaDetail';
 import MapInfoPanel from './mapInfoPanel';
 import MapSearch from './MapSearch';
 import MapTractLayers from './MapTractLayers/MapTractLayers';
-// import MapTribalLayer from './MapTribalLayers/MapTribalLayers';
+import MapTribalLayer from './MapTribalLayers/MapTribalLayers';
 import TerritoryFocusControl from './territoryFocusControl';
-import {getOSBaseMap} from '../data/getOSBaseMap';
 
 // Styles and constants
 import 'maplibre-gl/dist/maplibre-gl.css';
@@ -87,7 +86,7 @@ const J40Map = ({location}: IJ40Interface) => {
     zoom: zoom && parseFloat(zoom) ? parseFloat(zoom) : constants.GLOBAL_MIN_ZOOM,
   });
 
-  const [selectedFeature, setSelectedFeature] = useState<MapboxGeoJSONFeature>();
+  const [selectedFeature, setSelectedFeature] = useState<MapGeoJSONFeature>();
   const [detailViewData, setDetailViewData] = useState<IDetailViewInterface>();
   const [transitionInProgress, setTransitionInProgress] = useState<boolean>(false);
   const [geolocationInProgress, setGeolocationInProgress] = useState<boolean>(false);
@@ -303,11 +302,6 @@ const J40Map = ({location}: IJ40Interface) => {
     setGeolocationInProgress(true);
   };
 
-  const mapBoxBaseLayer = {
-    customColorsWithUpdatedTribal: `mapbox://styles/justice40/cl9g30qh7000p15l9cp1ftw16`,
-    streetsWithUpdatedTribal: `mapbox://styles/justice40/cl98rlidr002c14obpsvz6zzs`,
-  };
-
 
   return (
     <>
@@ -347,8 +341,11 @@ const J40Map = ({location}: IJ40Interface) => {
           // ****** Map state props: ******
           // http://visgl.github.io/react-map-gl/docs/api-reference/interactive-map#map-state
           {...viewport}
-          mapStyle={process.env.MAPBOX_STYLES_READ_TOKEN ?
-            mapBoxBaseLayer.customColorsWithUpdatedTribal : getOSBaseMap()}
+          mapStyle={
+            process.env.MAPBOX_STYLES_READ_TOKEN ?
+            'mapbox://styles/justice40/cl9g30qh7000p15l9cp1ftw16' :
+            'https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json'
+          }
           width="100%"
           // Ajusting this height with a conditional statement will not render the map on staging.
           // The reason for this issue is unknown. Consider styling the parent container via SASS.
@@ -381,6 +378,13 @@ const J40Map = ({location}: IJ40Interface) => {
           ref={mapRef}
           data-cy={'reactMapGL'}
         >
+
+          { /* Tribal layer is baked into Mapbox source,
+             * only render here if we're not using that
+             **/
+            process.env.MAPBOX_STYLES_READ_TOKEN ||
+            <MapTribalLayer />
+          }
 
           <MapTractLayers
             selectedFeature={selectedFeature}

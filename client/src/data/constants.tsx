@@ -261,10 +261,10 @@ export const LOW_ZOOM_LAYER_ID = "low-zoom-layer-id";
 export const FEATURE_BORDER_LAYER_ID = "feature-border-layer-id";
 export const SELECTED_FEATURE_BORDER_LAYER_ID =
   "selected-feature-border-layer-id";
+
 export const TRIBAL_LAYER_ID = "tribal-layer-id";
-export const SELECTED_TRIBAL_FEATURE_BORDER_LAYER_ID =
-  "selected-feature-tribal-border-layer-id";
 export const TRIBAL_ALASKA_POINTS_LAYER_ID = "tribal-alaska-points-layer-id";
+export const TRIBAL_LABELS_LAYER_ID = "tribal-labels-layer-id";
 
 // Used in layer filters:
 export const SCORE_PROPERTY_LOW = "SCORE";
@@ -282,8 +282,10 @@ export const GLOBAL_MAX_ZOOM_HIGH = 11;
 
 export const GLOBAL_MIN_ZOOM_FEATURE_BORDER = 5;
 export const GLOBAL_MAX_ZOOM_FEATURE_BORDER = 22;
-export const TRIBAL_MIN_ZOOM = 3;
+export const TRIBAL_MIN_ZOOM = 6.6;
 export const TRIBAL_MAX_ZOOM = 22;
+export const ALASKA_MIN_ZOOM = 3;
+export const ALASKA_MAX_ZOOM = 22;
 
 // Opacity
 export const FEATURE_BORDER_OPACITY = 0.5;
@@ -297,7 +299,7 @@ export const FEATURE_BORDER_COLOR = "#4EA5CF";
 export const SELECTED_FEATURE_BORDER_COLOR = "#1A4480";
 export const PRIORITIZED_FEATURE_FILL_COLOR = "#768FB3";
 
-export const TRIBAL_BORDER_COLOR = "##4EA5CF";
+export const TRIBAL_BORDER_COLOR = "#4EA5CF";
 export const SELECTED_TRIBAL_BORDER_COLOR = "#1A4480";
 export const TRIBAL_FILL_COLOR = "#768FB3";
 export const TRIBAL_ALASKA_CIRCLE_FILL_COLOR = "#768FB3";
@@ -395,3 +397,7 @@ process.env.GATSBY_2_0_SCORE_PATH;
 export const MAP_TRACT_SEARCH_PATH = process.env.DATA_SOURCE === "local" ?
 process.env.GATSBY_DATA_PIPELINE_SEARCH_PATH_LOCAL :
 process.env.GATSBY_2_0_MAP_TRACT_SEARCH_PATH;
+
+export const GATSBY_DATA_PIPELINE_TRIBAL_PATH = process.env.DATA_SOURCE === "local" ?
+process.env.GATSBY_DATA_PIPELINE_TRIBAL_PATH_LOCAL :
+process.env.GATSBY_2_0_TRIBAL_PATH;

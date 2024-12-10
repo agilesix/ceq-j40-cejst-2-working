@@ -1,13 +1,16 @@
-require('dotenv').config({
-  // NODE_ENV is automatically set to
-  //   'development' when the app is launched via 'npm start' or 'npm develop'
-  //   'production' when the app is launched via 'npm build'
+const dotenv = require('dotenv');
 
-  // Depending on the node environment, the app will then use
-  // .env.production or .env.development for application
-  // env variables.
-  path: `.env.${process.env.NODE_ENV}`,
-});
+// load .env first so any local settings take precedence over environmental defaults loaded next
+dotenv.config();
+
+// NODE_ENV is automatically set to
+//   'development' when the app is launched via 'npm start' or 'npm develop'
+//   'production' when the app is launched via 'npm build'
+
+// Depending on the node environment, the app will then use
+// .env.production or .env.development for application
+// env variables.
+dotenv.config({path: `.env.${process.env.NODE_ENV}`});
 
 module.exports = {
   siteMetadata: {
