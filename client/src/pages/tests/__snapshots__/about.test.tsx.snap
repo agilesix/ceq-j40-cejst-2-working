@@ -503,7 +503,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
             </div>
             <p>
               
-      CEQ will update the tool each year based on public feedback, research, and the availability of new data. The current version of the tool is version 1.0. 
+      CEQ will update the tool each year based on public feedback, research, and the availability of new data. The current version of the tool is version 2.0. 
               <a
                 class="usa-link usa-link--external"
                 data-cy=""
@@ -815,7 +815,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                   <a
                     class="usa-link usa-link--external"
                     data-cy=""
-                    href="https://github.com/usds/justice40-tool"
+                    href="https://github.com/DOI-DO/ceq-j40-cejst-2"
                     rel="noreferrer"
                     target="_blank"
                   >
@@ -1047,7 +1047,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                   <a
                     class="usa-link usa-link--external footer-link-first-child"
                     data-cy="check-out-the-code-on-github"
-                    href="https://github.com/usds/justice40-tool"
+                    href="https://github.com/DOI-DO/ceq-j40-cejst-2"
                     rel="noreferrer"
                     target="_blank"
                   >

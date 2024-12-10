@@ -12,6 +12,7 @@ import DatasetsButton from '../components/DatasetsButton';
 import SubPageNav from '../components/SubPageNav';
 
 import * as ABOUT_COPY from '../data/copy/about';
+import {GITHUB_LINK, GITHUB_LINK_ES} from '../constants';
 import {FEEDBACK_EMAIL} from '../data/copy/common';
 import {PAGES_ENDPOINTS, USWDS_BREAKPOINTS, DATA_SURVEY_LINKS} from '../data/constants';
 
@@ -164,7 +165,7 @@ const AboutPage = ({location}: IAboutPageProps) => {
             imgSrc={githubIcon}
             header={intl.formatMessage(ABOUT_COPY.GET_INVOLVED.JOIN_OSC_HEADING)}
             linkText={intl.formatMessage(ABOUT_COPY.GET_INVOLVED.JOIN_OSC_LINK_TEXT)}
-            url={intl.locale === 'es' ? ABOUT_COPY.GITHUB_LINK_ES : ABOUT_COPY.GITHUB_LINK}
+            url={intl.locale === 'es' ? GITHUB_LINK_ES : GITHUB_LINK}
             openUrlNewTab={true}
             internal={false}>
             <p>

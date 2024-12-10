@@ -431,7 +431,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
           <h2
             class="j40-mt-0 j40-mb-3"
           >
-            Version 1.0 file formats
+            Version 2.0 file formats
           </h2>
           <section>
             <div>
@@ -458,7 +458,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
               >
                 <div>
                   <div>
-                    Version 1.0 Release update - Nov 22, 2022
+                    Version 2.0 Release update - Nov 22, 2022
                   </div>
                   <div>
                     New & improved
@@ -669,14 +669,14 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                     </ul>
                   </div>
                   <div>
-                    release version 1.0
+                    release version 2.0
                   </div>
                 </div>
               </section>
             </div>
           </section>
           <p>
-            The dataset used in the 1.0 version of the tool, along with a codebook, and information about how to use the list of communities (.pdf) are available for download:
+            The dataset used in the 2.0 version of the tool, along with a codebook, and information about how to use the list of communities (.pdf) are available for download:
           </p>
           <p>
             
@@ -926,7 +926,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                   <a
                     class="usa-link usa-link--external footer-link-first-child"
                     data-cy="check-out-the-code-on-github"
-                    href="https://github.com/usds/justice40-tool"
+                    href="https://github.com/DOI-DO/ceq-j40-cejst-2"
                     rel="noreferrer"
                     target="_blank"
                   >

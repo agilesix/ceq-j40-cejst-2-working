@@ -23,9 +23,6 @@ export const USE_MAP_TUTORIAL_LINK_ES = process.env.GATSBY_CDN_TILES_BASE_URL +`
 export const USE_DATA_TUTORIAL_LINK = process.env.GATSBY_CDN_TILES_BASE_URL +`/data-versions/2.0/data/score/downloadable/Using-the-CEJST-Spreadsheet-Tutorial.pdf`;
 export const USE_DATA_TUTORIAL_LINK_ES = process.env.GATSBY_CDN_TILES_BASE_URL +`/data-versions/2.0/data/score/downloadable/Using-the-CEJST-Spreadsheet-Tutorial-es.pdf`;
 
-export const GITHUB_LINK = 'https://github.com/usds/justice40-tool';
-export const GITHUB_LINK_ES = 'https://github.com/usds/justice40-tool/blob/main/README-es.md';
-
 export const PAGE = defineMessages({
   TITLE: {
     id: 'about.page.title.text',

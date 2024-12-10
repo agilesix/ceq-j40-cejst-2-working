@@ -26,7 +26,7 @@ exports[`rendering of ReleaseUpdate Component checks if component renders 1`] = 
     >
       <div>
         <div>
-          Version 1.0 Release update - Nov 22, 2022
+          Version 2.0 Release update - Nov 22, 2022
         </div>
         <div>
           New & improved
@@ -237,7 +237,7 @@ exports[`rendering of ReleaseUpdate Component checks if component renders 1`] = 
           </ul>
         </div>
         <div>
-          release version 1.0
+          release version 2.0
         </div>
       </div>
     </section>

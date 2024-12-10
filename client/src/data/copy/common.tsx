@@ -5,6 +5,7 @@ import {FormattedDate, FormattedMessage} from 'gatsby-plugin-intl';
 import {defineMessages} from 'react-intl';
 import LinkTypeWrapper from '../../components/LinkTypeWrapper';
 import DownloadLink from '../../components/DownloadLink';
+import {GITHUB_LINK} from '../../constants';
 
 export interface IDefineMessage {
   id: string,
@@ -234,7 +235,7 @@ export const FOOTER = defineMessages({
   },
   GITHUB_LINK: {
     id: 'common.pages.footer.gatsby.link',
-    defaultMessage: 'https://github.com/usds/justice40-tool',
+    defaultMessage: GITHUB_LINK,
     description: 'Navigate to the about page. This is Footer find contact link text',
   },
   CONTACT: {

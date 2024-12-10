@@ -161,7 +161,7 @@ exports[`J40Footer renders correctly 1`] = `
                   <a
                     class="usa-link usa-link--external footer-link-first-child"
                     data-cy="check-out-the-code-on-github"
-                    href="https://github.com/usds/justice40-tool"
+                    href="https://github.com/DOI-DO/ceq-j40-cejst-2"
                     rel="noreferrer"
                     target="_blank"
                   >

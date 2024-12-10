@@ -14,7 +14,7 @@ import SurveyButton from '../SurveyButton';
 // @ts-ignore
 import whitehouseIcon from '../../images/eop-seal.svg';
 import * as COMMON_COPY from '../../data/copy/common';
-import {GITHUB_LINK, GITHUB_LINK_ES} from '../../../src/data/copy/about';
+import {GITHUB_LINK, GITHUB_LINK_ES} from '../../constants';
 
 const J40Footer = () => {
   const intl = useIntl();

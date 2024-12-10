@@ -172,7 +172,6 @@
     "description": "Navigate to the about page. This is Footer FOIA link text"
   },
   "common.pages.footer.gatsby.link": {
-    "defaultMessage": "https://github.com/usds/justice40-tool",
     "description": "Navigate to the about page. This is Footer find contact link text"
   },
   "common.pages.footer.github.link.text": {
