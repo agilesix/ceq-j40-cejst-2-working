@@ -56,14 +56,33 @@ class CensusACSETL(ExtractTransformLoad):
         self.MEDIAN_INCOME_FIELD_NAME = (
             "Median household income in the past 12 months"
         )
+
+        self.POVERTY_DATASET_TOTAL = "C17002_001E"  # Estimate!!Total,
+        self.POVERTY_UNDER_50PCT = "C17002_002E"  # Estimate!!Total!!Under .50
+        self.POVERTY_50PCT_TO_99PCT = (
+            "C17002_003E"  # Estimate!!Total!!.50 to .99
+        )
+        self.POVERTY_100PCT_TO_124PCT = (
+            "C17002_004E"  # Estimate!!Total!!1.00 to 1.24
+        )
+        self.POVERTY_125PCT_TO_149PCT = (
+            "C17002_005E"  # Estimate!!Total!!1.25 to 1.49
+        )
+        self.POVERTY_150PCT_TO_184PCT = (
+            "C17002_006E"  # Estimate!!Total!!1.50 to 1.84
+        )
+        self.POVERTY_185PCT_TO_199PCT = (
+            "C17002_007E"  # Estimate!!Total!!1.85 to 1.99
+        )
+
         self.POVERTY_FIELDS = [
-            "C17002_001E",  # Estimate!!Total,
-            "C17002_002E",  # Estimate!!Total!!Under .50
-            "C17002_003E",  # Estimate!!Total!!.50 to .99
-            "C17002_004E",  # Estimate!!Total!!1.00 to 1.24
-            "C17002_005E",  # Estimate!!Total!!1.25 to 1.49
-            "C17002_006E",  # Estimate!!Total!!1.50 to 1.84
-            "C17002_007E",  # Estimate!!Total!!1.85 to 1.99
+            self.POVERTY_DATASET_TOTAL,
+            self.POVERTY_UNDER_50PCT,
+            self.POVERTY_50PCT_TO_99PCT,
+            self.POVERTY_100PCT_TO_124PCT,
+            self.POVERTY_125PCT_TO_149PCT,
+            self.POVERTY_150PCT_TO_184PCT,
+            self.POVERTY_185PCT_TO_199PCT,
         ]
 
         self.POVERTY_LESS_THAN_100_PERCENT_FPL_FIELD_NAME = (
@@ -75,19 +94,30 @@ class CensusACSETL(ExtractTransformLoad):
         self.POVERTY_LESS_THAN_200_PERCENT_FPL_FIELD_NAME = (
             "Percent of individuals < 200% Federal Poverty Line"
         )
-        self.IMPUTED_POVERTY_LESS_THAN_200_PERCENT_FPL_FIELD_NAME = (
-            "Percent of individuals < 200% Federal Poverty Line, imputed"
+        self.POVERTY_LESS_THAN_200_PERCENT_FPL_COUNT_FIELD_NAME = (
+            "Total population of individuals < 200% Federal Poverty Line"
         )
-
+        self.IMPUTED_POVERTY_LESS_THAN_200_PERCENT_FPL_FIELD_NAME = (
+            "Percent of individuals < 200% Federal Poverty Line," + " imputed"
+        )
+        self.IMPUTED_POVERTY_LESS_THAN_200_PERCENT_FPL_COUNT_FIELD_NAME = (
+            "Total population of individuals < 200% Federal Poverty Line,"
+            + " imputed"
+        )
+        self.POVERTY_LESS_THAN_100_PERCENT_FPL_COUNT_FIELD_NAME = (
+            "Total population of individuals < 100% Federal Poverty Line"
+        )
+        self.IMPUTED_POVERTY_LESS_THAN_100_PERCENT_FPL_COUNT_FIELD_NAME = (
+            "Total population of individuals < 100% Federal Poverty Line,"
+            + " imputed"
+        )
         self.ADJUSTED_POVERTY_LESS_THAN_200_PERCENT_FPL_FIELD_NAME = (
             "Adjusted percent of individuals < 200% Federal Poverty Line"
         )
-
         self.ADJUSTED_AND_IMPUTED_POVERTY_LESS_THAN_200_PERCENT_FPL_FIELD_NAME_PRELIMINARY = (
             "Preliminary adjusted percent of individuals < 200% Federal Poverty Line,"
             + " imputed"
         )
-
         self.ADJUSTED_AND_IMPUTED_POVERTY_LESS_THAN_200_PERCENT_FPL_FIELD_NAME = (
             "Adjusted percent of individuals < 200% Federal Poverty Line,"
             + " imputed"
@@ -148,32 +178,102 @@ class CensusACSETL(ExtractTransformLoad):
         )
         self.HIGH_SCHOOL_ED_FIELD = "Percent individuals age 25 or over with less than high school degree"
 
-        # College attendance fields
-        self.COLLEGE_ATTENDANCE_TOTAL_POPULATION_ASKED = (
-            "B14004_001E"  # Estimate!!Total
-        )
-        self.COLLEGE_ATTENDANCE_MALE_ENROLLED_PUBLIC = "B14004_003E"  # Estimate!!Total!!Male!!Enrolled in public college or graduate school
-        self.COLLEGE_ATTENDANCE_MALE_ENROLLED_PRIVATE = "B14004_008E"  # Estimate!!Total!!Male!!Enrolled in private college or graduate school
-        self.COLLEGE_ATTENDANCE_FEMALE_ENROLLED_PUBLIC = "B14004_019E"  # Estimate!!Total!!Female!!Enrolled in public college or graduate school
-        self.COLLEGE_ATTENDANCE_FEMALE_ENROLLED_PRIVATE = "B14004_024E"  # Estimate!!Total!!Female!!Enrolled in private college or graduate school
+        ## Off-Campus University Student Poverty Fields
+        # Estimate!!Total:!!Income in the past 12 months below the poverty level:!!
+        # Enrolled in school:!!Enrolled in college undergraduate years
+        self.OFFCAMPUS_UNIVERSITY_BELOW_POVERTY_UNDERGRADUATE = "B14006_009E"
+        # Estimate!!Total:!!Income in the past 12 months below the poverty level:!!
+        # Enrolled in school:!!Enrolled in graduate or professional school
+        self.OFFCAMPUS_UNIVERSITY_BELOW_POVERTY_GRADUATE = "B14006_010E"
+        # Estimate!!Total:!!Income in the past 12 months at or above the poverty level:!!
+        # Enrolled in school:!!Enrolled in college undergraduate years
+        self.OFFCAMPUS_UNIVERSITY_ABOVE_POVERTY_UNDERGRADUATE = "B14006_019E"
+        # Estimate!!Total:!!Income in the past 12 months at or above the poverty level:!!
+        # Enrolled in school:!!Enrolled in graduate or professional school
+        self.OFFCAMPUS_UNIVERSITY_ABOVE_POVERTY_GRADUATE = "B14006_020E"
 
-        self.COLLEGE_ATTENDANCE_FIELDS = [
-            self.COLLEGE_ATTENDANCE_TOTAL_POPULATION_ASKED,
-            self.COLLEGE_ATTENDANCE_MALE_ENROLLED_PUBLIC,
-            self.COLLEGE_ATTENDANCE_MALE_ENROLLED_PRIVATE,
-            self.COLLEGE_ATTENDANCE_FEMALE_ENROLLED_PUBLIC,
-            self.COLLEGE_ATTENDANCE_FEMALE_ENROLLED_PRIVATE,
+        self.UNIVERSITY_POVERTY_FIELDS = [
+            self.OFFCAMPUS_UNIVERSITY_BELOW_POVERTY_UNDERGRADUATE,
+            self.OFFCAMPUS_UNIVERSITY_BELOW_POVERTY_GRADUATE,
+            self.OFFCAMPUS_UNIVERSITY_ABOVE_POVERTY_UNDERGRADUATE,
+            self.OFFCAMPUS_UNIVERSITY_ABOVE_POVERTY_GRADUATE,
         ]
 
-        self.COLLEGE_ATTENDANCE_FIELD = (
+        self.OFFCAMPUS_UNDERGRADUATE_POVERTY_FIELD = (
+            "Population below poverty line enrolled in an undergraduate program"
+            + " (excluding students living in university housing)"
+        )
+        self.IMPUTED_OFFCAMPUS_UNDERGRADUATE_POVERTY_FIELD = (
+            "Population below poverty line enrolled in an undergraduate program"
+            + " (excluding students living in university housing), imputed"
+        )
+        self.OFFCAMPUS_UNDERGRADUATE_FIELD = (
+            "Population enrolled in an undergraduate program"
+            + " (excluding students living in university housing)"
+        )
+        self.IMPUTED_OFFCAMPUS_UNDERGRADUATE_FIELD = (
+            "Population enrolled in an undergraduate program"
+            + " (excluding students living in university housing), imputed"
+        )
+        self.OFFCAMPUS_UNIVERSITY_POVERTY_FIELD = (
+            "Population below poverty line enrolled in an undergraduate, graduate, or professional program"
+            + " (excluding students living in university housing)"
+        )
+        self.IMPUTED_OFFCAMPUS_UNIVERSITY_POVERTY_FIELD = (
+            "Population below poverty line enrolled in an undergraduate, graduate, or professional program"
+            + " (excluding students living in university housing), imputed"
+        )
+        self.OFFCAMPUS_UNIVERSITY_FIELD = (
+            "Population enrolled in an undergraduate, graduate, or professional program"
+            + " (excluding students living in university housing)"
+        )
+        self.IMPUTED_OFFCAMPUS_UNIVERSITY_FIELD = (
+            "Population enrolled in an undergraduate, graduate, or professional program"
+            + " (excluding students living in university housing), imputed"
+        )
+        self.IMPUTED_POVERTY_DATASET_TOTAL = (
+            "Total population in poverty dataset (all income levels)"
+            + ", imputed"
+        )
+        self.OVERALL_RATIO_200FPL_TO_100FPL = (
+            "Ratio <200% FPL to <100% FPL, overall"
+        )
+        self.OFFCAMPUS_UNIVERSITY_POPULATION_COUNT_UNDER_200PCT_FPL = "Estimated population count of off-campus university students <200% FPL"
+        self.POPULATION_COUNT_UNDER_200PCT_FPL_MINUS_OFFCAMPUS_UNIVERSITY_ESTIMATE = (
+            "Estimated population count of people in a househould with income <200% FPL"
+            + ", excluding all university students"
+        )
+        self.POPULATION_TOTAL_IN_POVERTY_DATASET_MINUS_OFFCAMPUS_UNVERSITY = (
+            "Everyone in poverty dataset"
+            + ", minus all off-campus university students"
+        )
+
+        # University Enrollment Rates (15+ population, includes students in dorms)
+        self.UNIVERSITY_ATTENDANCE_TOTAL_POPULATION_ASKED = (
+            "B14004_001E"  # Estimate!!Total
+        )
+        self.UNIVERSITY_ATTENDANCE_MALE_ENROLLED_PUBLIC = "B14004_003E"  # Estimate!!Total!!Male!!Enrolled in public college or graduate school
+        self.UNIVERSITY_ATTENDANCE_MALE_ENROLLED_PRIVATE = "B14004_008E"  # Estimate!!Total!!Male!!Enrolled in private college or graduate school
+        self.UNIVERSITY_ATTENDANCE_FEMALE_ENROLLED_PUBLIC = "B14004_019E"  # Estimate!!Total!!Female!!Enrolled in public college or graduate school
+        self.UNIVERSITY_ATTENDANCE_FEMALE_ENROLLED_PRIVATE = "B14004_024E"  # Estimate!!Total!!Female!!Enrolled in private college or graduate school
+
+        self.UNIVERSITY_ATTENDANCE_FIELDS = [
+            self.UNIVERSITY_ATTENDANCE_TOTAL_POPULATION_ASKED,
+            self.UNIVERSITY_ATTENDANCE_MALE_ENROLLED_PUBLIC,
+            self.UNIVERSITY_ATTENDANCE_MALE_ENROLLED_PRIVATE,
+            self.UNIVERSITY_ATTENDANCE_FEMALE_ENROLLED_PUBLIC,
+            self.UNIVERSITY_ATTENDANCE_FEMALE_ENROLLED_PRIVATE,
+        ]
+
+        self.UNIVERSITY_ATTENDANCE_FIELD = (
             "Percent enrollment in college or graduate school"
         )
 
-        self.IMPUTED_COLLEGE_ATTENDANCE_FIELD = (
+        self.IMPUTED_UNIVERSITY_ATTENDANCE_FIELD = (
             "Percent enrollment in college or graduate school, imputed"
         )
 
-        self.COLLEGE_NON_ATTENDANCE_FIELD = "Percent of population not currently enrolled in college or graduate school"
+        self.UNIVERSITY_NON_ATTENDANCE_FIELD = "Percent of population not currently enrolled in college or graduate school"
 
         self.RE_FIELDS = [
             "B02001_001E",
@@ -295,11 +395,29 @@ class CensusACSETL(ExtractTransformLoad):
                 self.POVERTY_LESS_THAN_100_PERCENT_FPL_FIELD_NAME,
                 self.POVERTY_LESS_THAN_150_PERCENT_FPL_FIELD_NAME,
                 self.IMPUTED_POVERTY_LESS_THAN_200_PERCENT_FPL_FIELD_NAME,
+                self.POVERTY_LESS_THAN_200_PERCENT_FPL_COUNT_FIELD_NAME,
+                self.IMPUTED_POVERTY_LESS_THAN_200_PERCENT_FPL_COUNT_FIELD_NAME,
                 self.MEDIAN_HOUSE_VALUE_FIELD_NAME,
                 self.HIGH_SCHOOL_ED_FIELD,
-                self.COLLEGE_ATTENDANCE_FIELD,
-                self.COLLEGE_NON_ATTENDANCE_FIELD,
-                self.IMPUTED_COLLEGE_ATTENDANCE_FIELD,
+                self.OFFCAMPUS_UNIVERSITY_BELOW_POVERTY_UNDERGRADUATE,
+                self.OFFCAMPUS_UNIVERSITY_BELOW_POVERTY_GRADUATE,
+                self.OFFCAMPUS_UNIVERSITY_ABOVE_POVERTY_UNDERGRADUATE,
+                self.OFFCAMPUS_UNIVERSITY_ABOVE_POVERTY_GRADUATE,
+                self.OVERALL_RATIO_200FPL_TO_100FPL,
+                self.OFFCAMPUS_UNIVERSITY_POPULATION_COUNT_UNDER_200PCT_FPL,
+                self.POPULATION_COUNT_UNDER_200PCT_FPL_MINUS_OFFCAMPUS_UNIVERSITY_ESTIMATE,
+                self.POPULATION_TOTAL_IN_POVERTY_DATASET_MINUS_OFFCAMPUS_UNVERSITY,
+                self.UNIVERSITY_ATTENDANCE_FIELD,
+                self.UNIVERSITY_NON_ATTENDANCE_FIELD,
+                self.IMPUTED_UNIVERSITY_ATTENDANCE_FIELD,
+                self.OFFCAMPUS_UNIVERSITY_FIELD,
+                self.IMPUTED_OFFCAMPUS_UNIVERSITY_FIELD,
+                self.POVERTY_LESS_THAN_100_PERCENT_FPL_COUNT_FIELD_NAME,
+                self.IMPUTED_POVERTY_LESS_THAN_100_PERCENT_FPL_COUNT_FIELD_NAME,
+                self.OFFCAMPUS_UNIVERSITY_POVERTY_FIELD,
+                self.IMPUTED_OFFCAMPUS_UNIVERSITY_POVERTY_FIELD,
+                self.POVERTY_DATASET_TOTAL,
+                self.IMPUTED_POVERTY_DATASET_TOTAL,
                 field_names.IMPUTED_INCOME_FLAG_FIELD_NAME,
             ]
             + self.RE_OUTPUT_FIELDS
@@ -315,6 +433,7 @@ class CensusACSETL(ExtractTransformLoad):
         )
 
         self.df: pd.DataFrame
+        self.geo_df: gpd.GeoDataFrame
 
     def get_data_sources(self) -> [DataSource]:
         # Define the variables to retrieve
@@ -328,7 +447,8 @@ class CensusACSETL(ExtractTransformLoad):
             + self.POVERTY_FIELDS
             + self.EDUCATIONAL_FIELDS
             + self.RE_FIELDS
-            + self.COLLEGE_ATTENDANCE_FIELDS
+            + self.UNIVERSITY_POVERTY_FIELDS
+            + self.UNIVERSITY_ATTENDANCE_FIELDS
             + self.AGE_INPUT_FIELDS
         )
 
@@ -383,11 +503,7 @@ class CensusACSETL(ExtractTransformLoad):
             dtype={field_names.GEOID_TRACT_FIELD: "string"},
         )
 
-    def transform(self) -> None:
-        df = self.df
-
-        # Here we join the geometry of the US to the dataframe so that we can impute
-        # The income of neighbors. first this looks locally; if there's no local
+        # Load the census GeoJSON. irst this looks locally; if there's no local
         # geojson file for all of the US, this will read it off of S3
         logger.debug("Reading in geojson for the country")
         if not os.path.exists(
@@ -400,13 +516,18 @@ class CensusACSETL(ExtractTransformLoad):
                 self.DATA_PATH,
             )
 
-        geo_df = gpd.read_file(
+        self.geo_df = gpd.read_file(
             self.DATA_PATH / "census" / "geojson" / "us.json",
         )
 
+    def transform(self) -> None:
+        df = self.df
+
+        # Here we join the geometry of the US to the dataframe so that we can impute
+        # The income of neighbors.
         df = CensusACSETL.merge_geojson(
             df=df,
-            usa_geo_df=geo_df,
+            usa_geo_df=self.geo_df,
         )
 
         # Rename some fields.
@@ -455,24 +576,57 @@ class CensusACSETL(ExtractTransformLoad):
 
         # Calculate percent at different poverty thresholds
         df[self.POVERTY_LESS_THAN_100_PERCENT_FPL_FIELD_NAME] = (
-            df["C17002_002E"] + df["C17002_003E"]
-        ) / df["C17002_001E"]
+            df[self.POVERTY_UNDER_50PCT] + df[self.POVERTY_50PCT_TO_99PCT]
+        ) / df[self.POVERTY_DATASET_TOTAL]
 
         df[self.POVERTY_LESS_THAN_150_PERCENT_FPL_FIELD_NAME] = (
-            df["C17002_002E"]
-            + df["C17002_003E"]
-            + df["C17002_004E"]
-            + df["C17002_005E"]
-        ) / df["C17002_001E"]
+            df[self.POVERTY_UNDER_50PCT]
+            + df[self.POVERTY_50PCT_TO_99PCT]
+            + df[self.POVERTY_100PCT_TO_124PCT]
+            + df[self.POVERTY_125PCT_TO_149PCT]
+        ) / df[self.POVERTY_DATASET_TOTAL]
 
         df[self.POVERTY_LESS_THAN_200_PERCENT_FPL_FIELD_NAME] = (
-            df["C17002_002E"]
-            + df["C17002_003E"]
-            + df["C17002_004E"]
-            + df["C17002_005E"]
-            + df["C17002_006E"]
-            + df["C17002_007E"]
-        ) / df["C17002_001E"]
+            df[self.POVERTY_UNDER_50PCT]
+            + df[self.POVERTY_50PCT_TO_99PCT]
+            + df[self.POVERTY_100PCT_TO_124PCT]
+            + df[self.POVERTY_125PCT_TO_149PCT]
+            + df[self.POVERTY_150PCT_TO_184PCT]
+            + df[self.POVERTY_185PCT_TO_199PCT]
+        ) / df[self.POVERTY_DATASET_TOTAL]
+
+        # COUNT of Povery less than 200%
+        df[self.POVERTY_LESS_THAN_200_PERCENT_FPL_COUNT_FIELD_NAME] = (
+            df[self.POVERTY_UNDER_50PCT]
+            + df[self.POVERTY_50PCT_TO_99PCT]
+            + df[self.POVERTY_100PCT_TO_124PCT]
+            + df[self.POVERTY_125PCT_TO_149PCT]
+            + df[self.POVERTY_150PCT_TO_184PCT]
+            + df[self.POVERTY_185PCT_TO_199PCT]
+        )
+
+        df[self.POVERTY_LESS_THAN_100_PERCENT_FPL_COUNT_FIELD_NAME] = (
+            df[self.POVERTY_UNDER_50PCT] + df[self.POVERTY_50PCT_TO_99PCT]
+        )
+
+        # Off-Campus University Fields:
+        df[self.OFFCAMPUS_UNDERGRADUATE_POVERTY_FIELD] = df[
+            self.OFFCAMPUS_UNIVERSITY_BELOW_POVERTY_UNDERGRADUATE
+        ]
+        df[self.OFFCAMPUS_UNDERGRADUATE_FIELD] = (
+            df[self.OFFCAMPUS_UNIVERSITY_BELOW_POVERTY_UNDERGRADUATE]
+            + df[self.OFFCAMPUS_UNIVERSITY_ABOVE_POVERTY_UNDERGRADUATE]
+        )
+        df[self.OFFCAMPUS_UNIVERSITY_POVERTY_FIELD] = (
+            df[self.OFFCAMPUS_UNIVERSITY_BELOW_POVERTY_UNDERGRADUATE]
+            + df[self.OFFCAMPUS_UNIVERSITY_BELOW_POVERTY_GRADUATE]
+        )
+        df[self.OFFCAMPUS_UNIVERSITY_FIELD] = (
+            df[self.OFFCAMPUS_UNIVERSITY_BELOW_POVERTY_UNDERGRADUATE]
+            + df[self.OFFCAMPUS_UNIVERSITY_BELOW_POVERTY_GRADUATE]
+            + df[self.OFFCAMPUS_UNIVERSITY_ABOVE_POVERTY_UNDERGRADUATE]
+            + df[self.OFFCAMPUS_UNIVERSITY_ABOVE_POVERTY_GRADUATE]
+        )
 
         # Calculate educational attainment
         educational_numerator_fields = [
@@ -596,16 +750,16 @@ class CensusACSETL(ExtractTransformLoad):
                 df[sum_columns].sum(axis=1) / df[field_names.TOTAL_POP_FIELD]
             )
 
-        # Calculate college attendance and adjust low income
-        df[self.COLLEGE_ATTENDANCE_FIELD] = (
-            df[self.COLLEGE_ATTENDANCE_MALE_ENROLLED_PUBLIC]
-            + df[self.COLLEGE_ATTENDANCE_MALE_ENROLLED_PRIVATE]
-            + df[self.COLLEGE_ATTENDANCE_FEMALE_ENROLLED_PUBLIC]
-            + df[self.COLLEGE_ATTENDANCE_FEMALE_ENROLLED_PRIVATE]
-        ) / df[self.COLLEGE_ATTENDANCE_TOTAL_POPULATION_ASKED]
+        # Calculate university attendance and adjust low income
+        df[self.UNIVERSITY_ATTENDANCE_FIELD] = (
+            df[self.UNIVERSITY_ATTENDANCE_MALE_ENROLLED_PUBLIC]
+            + df[self.UNIVERSITY_ATTENDANCE_MALE_ENROLLED_PRIVATE]
+            + df[self.UNIVERSITY_ATTENDANCE_FEMALE_ENROLLED_PUBLIC]
+            + df[self.UNIVERSITY_ATTENDANCE_FEMALE_ENROLLED_PRIVATE]
+        ) / df[self.UNIVERSITY_ATTENDANCE_TOTAL_POPULATION_ASKED]
 
-        df[self.COLLEGE_NON_ATTENDANCE_FIELD] = (
-            1 - df[self.COLLEGE_ATTENDANCE_FIELD]
+        df[self.UNIVERSITY_NON_ATTENDANCE_FIELD] = (
+            1 - df[self.UNIVERSITY_ATTENDANCE_FIELD]
         )
 
         # we impute income for both income measures
@@ -618,8 +772,36 @@ class CensusACSETL(ExtractTransformLoad):
                     imputed_field_name=self.IMPUTED_POVERTY_LESS_THAN_200_PERCENT_FPL_FIELD_NAME,
                 ),
                 CensusACSETL.ImputeVariables(
-                    raw_field_name=self.COLLEGE_ATTENDANCE_FIELD,
-                    imputed_field_name=self.IMPUTED_COLLEGE_ATTENDANCE_FIELD,
+                    raw_field_name=self.POVERTY_LESS_THAN_200_PERCENT_FPL_COUNT_FIELD_NAME,
+                    imputed_field_name=self.IMPUTED_POVERTY_LESS_THAN_200_PERCENT_FPL_COUNT_FIELD_NAME,
+                ),
+                CensusACSETL.ImputeVariables(
+                    raw_field_name=self.OFFCAMPUS_UNDERGRADUATE_POVERTY_FIELD,
+                    imputed_field_name=self.IMPUTED_OFFCAMPUS_UNDERGRADUATE_POVERTY_FIELD,
+                ),
+                CensusACSETL.ImputeVariables(
+                    raw_field_name=self.OFFCAMPUS_UNDERGRADUATE_FIELD,
+                    imputed_field_name=self.IMPUTED_OFFCAMPUS_UNDERGRADUATE_FIELD,
+                ),
+                CensusACSETL.ImputeVariables(
+                    raw_field_name=self.OFFCAMPUS_UNIVERSITY_POVERTY_FIELD,
+                    imputed_field_name=self.IMPUTED_OFFCAMPUS_UNIVERSITY_POVERTY_FIELD,
+                ),
+                CensusACSETL.ImputeVariables(
+                    raw_field_name=self.OFFCAMPUS_UNIVERSITY_FIELD,
+                    imputed_field_name=self.IMPUTED_OFFCAMPUS_UNIVERSITY_FIELD,
+                ),
+                CensusACSETL.ImputeVariables(
+                    raw_field_name=self.UNIVERSITY_ATTENDANCE_FIELD,
+                    imputed_field_name=self.IMPUTED_UNIVERSITY_ATTENDANCE_FIELD,
+                ),
+                CensusACSETL.ImputeVariables(
+                    raw_field_name=self.POVERTY_DATASET_TOTAL,
+                    imputed_field_name=self.IMPUTED_POVERTY_DATASET_TOTAL,
+                ),
+                CensusACSETL.ImputeVariables(
+                    raw_field_name=self.POVERTY_LESS_THAN_100_PERCENT_FPL_COUNT_FIELD_NAME,
+                    imputed_field_name=self.IMPUTED_POVERTY_LESS_THAN_100_PERCENT_FPL_COUNT_FIELD_NAME,
                 ),
             ],
             geo_df=df,
@@ -629,21 +811,156 @@ class CensusACSETL(ExtractTransformLoad):
 
         logger.debug("Calculating with imputed values")
 
+        # pylint: disable=pointless-string-statement
+        """
+        POVERTY CALCULATION
+
+        Goal: Calculate the portion of people in in households where income
+              is less than or equal to twice the federal poverty level,
+              not including students enrolled in higher ed.
+
+        Approach: To do this, we must make an adjustment to remove off-campus university students
+                  from numbers reported by the ACS. We use the "interpolated" method to estimate
+                  the number of off-campus university students actually included in the unadjusted numerator.
+
+        Interpolated Poverty Calculation, Step-by-Step Methodology
+
+        Step 1: Estimate ratio of overall population <200% FPL : overall population <100% FPL
+        Overall ratio 200:100 FPL =
+            max(
+                max[
+                    Total population <200% FPL,
+                    1
+                ]
+                /
+                max[
+                    Total population <100% FPL,
+                    1
+                ],
+            1)
+
+        Step 2: Interpolate the number of off-campus university students <200% FPL
+        Estimated university population <200% FPL =
+            min(
+                max[
+                    University population <100% FPL x Overall ratio 200:100 FPL,
+                    0   # nb: actual lower bound is the population university <100%, because ratio is clipped at 1
+                ],
+                Total number of off-campus university students
+            )
+
+        Step 3: Subtract off-campus university students from both numerator and denominator of the unadjusted poverty rate
+        Adjusted poverty rate =
+            min(
+                max [
+                    (
+                        max[
+                            Overall <200% FPL population - Estimated university population <200% FPL,
+                            0
+                        ]
+                        /
+                        max[
+                            Everyone in poverty dataset - University total population,
+                            1
+                        ],
+                    ),
+                    0
+                ],
+                1
+            )
+        """
+        # pylint: enable=pointless-string-statement
+
+        ### Add fields for poverty calculation numerator
+
+        # Step 1: Estimate ratio of overall population <200% FPL : overall population <100% FPL
+        df[self.OVERALL_RATIO_200FPL_TO_100FPL] = (
+            df[self.POVERTY_LESS_THAN_200_PERCENT_FPL_COUNT_FIELD_NAME]
+            .fillna(
+                df[
+                    self.IMPUTED_POVERTY_LESS_THAN_200_PERCENT_FPL_COUNT_FIELD_NAME
+                ]
+                # Use clip to for consistency with denominator
+            )
+            .clip(lower=1)
+            / df[self.POVERTY_LESS_THAN_100_PERCENT_FPL_COUNT_FIELD_NAME]
+            .fillna(
+                df[
+                    self.IMPUTED_POVERTY_LESS_THAN_100_PERCENT_FPL_COUNT_FIELD_NAME
+                ]
+                # Use clip to ensure we never divide by 0
+            )
+            .clip(lower=1)
+            # Use clip to ensure that the ratio of poverty <200%:<100% is not lower than 1
+        ).clip(lower=1)
+
+        # Step 2: Interpolate the number of off-campus university students <200% FPL
+        df[self.OFFCAMPUS_UNIVERSITY_POPULATION_COUNT_UNDER_200PCT_FPL] = (
+            df[self.OVERALL_RATIO_200FPL_TO_100FPL]
+            * (
+                df[
+                    self.OFFCAMPUS_UNIVERSITY_POVERTY_FIELD
+                ].fillna(  # corresponds to <100% FPL
+                    df[self.IMPUTED_OFFCAMPUS_UNIVERSITY_POVERTY_FIELD]
+                )
+            )
+            # ensure that estimated count of university <200% is between 0 and the total number of university students
+            # nb: actual lower bound is university <100%, because ratio is clipped at 1
+        ).clip(
+            lower=0,
+            upper=df[self.OFFCAMPUS_UNIVERSITY_FIELD].fillna(
+                df[self.IMPUTED_OFFCAMPUS_UNIVERSITY_FIELD]
+            ),
+        )
+
+        # Step 3a: Subtract off-campus university students from numerator of the unadjusted poverty rate
         df[
-            self.ADJUSTED_AND_IMPUTED_POVERTY_LESS_THAN_200_PERCENT_FPL_FIELD_NAME
+            self.POPULATION_COUNT_UNDER_200PCT_FPL_MINUS_OFFCAMPUS_UNIVERSITY_ESTIMATE
         ] = (
-            df[self.POVERTY_LESS_THAN_200_PERCENT_FPL_FIELD_NAME].fillna(
-                df[self.IMPUTED_POVERTY_LESS_THAN_200_PERCENT_FPL_FIELD_NAME]
+            df[self.POVERTY_LESS_THAN_200_PERCENT_FPL_COUNT_FIELD_NAME].fillna(
+                df[
+                    self.IMPUTED_POVERTY_LESS_THAN_200_PERCENT_FPL_COUNT_FIELD_NAME
+                ]
             )
-            - df[self.COLLEGE_ATTENDANCE_FIELD].fillna(
-                df[self.IMPUTED_COLLEGE_ATTENDANCE_FIELD]
-            )
-            # Use clip to ensure that the values are not negative if college attendance
-            # is very high
+            - df[self.OFFCAMPUS_UNIVERSITY_POPULATION_COUNT_UNDER_200PCT_FPL]
+            # Use clip as extra precaution against values <=0
         ).clip(
             lower=0
         )
 
+        ### Add denominator field for poverty calculation
+        # Step 3b: Subtract off-campus university students from denominator of the unadjusted poverty rate
+        df[
+            self.POPULATION_TOTAL_IN_POVERTY_DATASET_MINUS_OFFCAMPUS_UNVERSITY
+        ] = (
+            df[self.POVERTY_DATASET_TOTAL].fillna(
+                df[self.IMPUTED_POVERTY_DATASET_TOTAL]
+            )
+            - df[self.OFFCAMPUS_UNIVERSITY_FIELD].fillna(
+                df[self.IMPUTED_OFFCAMPUS_UNIVERSITY_FIELD]
+            )
+            # Use clip as extra precaution against values <=0
+        ).clip(
+            lower=1
+        )
+
+        # Step 3c: Put the numerator and denominator together to calculate the final adjusted poverty rate
+        # NB: numerator and denominator are both already imputed and clipped
+        df[
+            self.ADJUSTED_AND_IMPUTED_POVERTY_LESS_THAN_200_PERCENT_FPL_FIELD_NAME
+        ] = (
+            df[
+                self.POPULATION_COUNT_UNDER_200PCT_FPL_MINUS_OFFCAMPUS_UNIVERSITY_ESTIMATE
+            ]
+            / df[
+                self.POPULATION_TOTAL_IN_POVERTY_DATASET_MINUS_OFFCAMPUS_UNVERSITY
+            ]
+            # Clip to ensure percentage is between 0 and
+        ).clip(
+            lower=0, upper=1
+        )
+
+        ## CHECK OUTPUT AND SAVE RESULTS
         # All values should have a value at this point
         assert (
             # For tracts with >0 population
