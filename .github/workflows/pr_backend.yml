@@ -4,7 +4,9 @@ on:
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
   cancel-in-progress: true
-
+env:
+  python-version: '3.10'
+  J40_VERSION_LABEL_STRING: ${{ vars.SCORE_VERSION }}
 jobs:
   # JOB to run change detection
   detect-be-changes:
@@ -26,32 +28,29 @@ jobs:
             - 'data/**'
             - '.github/workflows/pr_backend.yml'
   code-quality-checks:
-    name: Code quality checks and tests - ${{ matrix.python-version }}
+    name: Code quality checks and tests
     needs: detect-be-changes
     if: ${{ needs.detect-be-changes.outputs.backend == 'true' }}
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: data/data-pipeline
-    strategy:
-      matrix:
-        python-version: ['3.10']
     environment: PR
     steps:
       - name: Checkout source
         uses: actions/checkout@v4
       - name: Print variables to help debug
         uses: hmarr/debug-action@v3
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Set up Python ${{ env.python-version }}
         uses: actions/setup-python@v5
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: ${{ env.python-version }}
       - name: Load cached Poetry installation
         id: cached-poetry-dependencies
         uses: actions/cache@v4
         with:
           path: ~/.cache/pypoetry/virtualenvs
-          key: env-${{ runner.os }}-${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}-${{ hashFiles('.github/workflows/deploy_backend_main.yml') }}
+          key: env-${{ runner.os }}-${{ env.python-version }}-${{ hashFiles('**/poetry.lock') }}-${{ hashFiles('.github/workflows/deploy_backend_main.yml') }}
       - name: Install poetry
         uses: snok/install-poetry@v1
       - name: Install dependencies
@@ -69,32 +68,29 @@ jobs:
         run: |
           poetry run pytest data_pipeline/
   generate-score-tiles:
-    name: Score and tile generation - ${{ matrix.python-version }}
+    name: Score and tile generation
     needs: detect-be-changes
     if: ${{ needs.detect-be-changes.outputs.backend == 'true' }}
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: data/data-pipeline
-    strategy:
-      matrix:
-        python-version: ['3.10']
     environment: PR
     steps:
       - name: Checkout source
         uses: actions/checkout@v4
       - name: Print variables to help debug
         uses: hmarr/debug-action@v3
-      - name: Set up Python ${{ matrix.python-version }}
+      - name: Set up Python ${{ env.python-version }}
         uses: actions/setup-python@v5
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version: ${{ env.python-version }}
       - name: Load cached Poetry installation
         id: cached-poetry-dependencies
         uses: actions/cache@v4
         with:
           path: ~/.cache/pypoetry/virtualenvs
-          key: env-${{ runner.os }}-${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}-${{ hashFiles('.github/workflows/deploy_backend_main.yml') }}
+          key: env-${{ runner.os }}-${{ env.python-version }}-${{ hashFiles('**/poetry.lock') }}-${{ hashFiles('.github/workflows/deploy_backend_main.yml') }}
       - name: Install poetry
         uses: snok/install-poetry@v1
       - name: Print Poetry settings
@@ -113,9 +109,6 @@ jobs:
       - name: Get Census Data
         run: |
           poetry run python3 -m data_pipeline.application census-data-download
-      - name: Extract Data Sources
-        run: |
-          poetry run python3 -m data_pipeline.application extract-data-sources
       - name: Run ETL
         run: |
           poetry run python3 -m data_pipeline.application etl-run
@@ -129,10 +122,6 @@ jobs:
       - name: Generate Score Post
         run: |
           poetry run python3 -m data_pipeline.application generate-score-post
-      - name: Confirm we generated the version of the score we think we did
-        if: ${{ env.J40_VERSION_LABEL_STRING == '1.0' || env.J40_VERSION_LABEL_STRING == 'test' }}
-        run: |
-          grep "Identified as disadvantaged due to tribal overlap" data_pipeline/data/score/downloadable/* > /dev/null
       - name: Confirm we generated the version of the score we think we did
         if: ${{ env.J40_VERSION_LABEL_STRING == '2.0' || env.J40_VERSION_LABEL_STRING == 'beta' }}
         run: |

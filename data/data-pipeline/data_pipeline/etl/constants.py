@@ -160,13 +160,15 @@ DATASET_LIST = [
         "name": "census_acs",
         "module_dir": "census_acs",
         "class_name": "CensusACSETL",
-        "is_memory_intensive": False,
+        # Not memory intensive, but run at the end
+        "is_memory_intensive": True,
     },
     {
         "name": "census_acs_2010",
         "module_dir": "census_acs_2010",
         "class_name": "CensusACS2010ETL",
-        "is_memory_intensive": False,
+        # Not memory intensive, but run at the end
+        "is_memory_intensive": True,
     },
     {
         "name": "us_army_fuds",

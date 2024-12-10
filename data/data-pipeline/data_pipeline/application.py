@@ -439,7 +439,6 @@ def full_run(ctx, use_cache):
     if not use_cache:
         ctx.invoke(data_cleanup)
     ctx.invoke(census_data_download, zip_compress=False, use_cache=use_cache)
-    ctx.invoke(extract_data_sources, dataset=None, use_cache=use_cache)
     ctx.invoke(etl_run, dataset=None, use_cache=use_cache)
     ctx.invoke(full_post_etl)
 
