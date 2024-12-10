@@ -66,6 +66,7 @@ jobs:
       - name: Run ETL
         run: |
           poetry run python3 -m data_pipeline.application etl-run
+          poetry run python3 -m data_pipeline.application etl-run --dataset tribal
       - name: Generate Score
         run: |
           poetry run python3 -m data_pipeline.application score-run
@@ -76,43 +77,12 @@ jobs:
         run: |
           poetry run python3 -m data_pipeline.application generate-score-post
       - name: Confirm we generated the version of the score we think we did
-        if: ${{ env.J40_VERSION_LABEL_STRING == '1.0' || env.J40_VERSION_LABEL_STRING == 'test' }}
-        run: |
-          grep "Identified as disadvantaged due to tribal overlap" data_pipeline/data/score/downloadable/* > /dev/null
-      - name: Confirm we generated the version of the score we think we did
         if: ${{ env.J40_VERSION_LABEL_STRING == '2.0' || env.J40_VERSION_LABEL_STRING == 'beta' }}
         run: |
           grep -v "Identified as disadvantaged due to tribal overlap" data_pipeline/data/score/downloadable/* > /dev/null
       - name: Generate Score Geo
         run: |
           poetry run python3 -m data_pipeline.application geo-score
-      - name: Run smoketest for 1.0
-        if: ${{ env.J40_VERSION_LABEL_STRING == '1.0' }}
-        run: |
-          poetry run pytest data_pipeline/ -m smoketest
-      - name: Deploy Score to Geoplatform AWS
-        run: |
-          poetry run s4cmd put ./data_pipeline/data/score/csv/ s3://${{secrets.S3_DATA_BUCKET}}/data-versions/${{env.J40_VERSION_LABEL_STRING}}/data/score/csv --sync-check --recursive --force
-          poetry run s4cmd put ./data_pipeline/files/ s3://${{secrets.S3_DATA_BUCKET}}/data-versions/${{env.J40_VERSION_LABEL_STRING}}/data/score/downloadable --sync-check --recursive --force
-          poetry run s4cmd put ./data_pipeline/data/score/downloadable/ s3://${{secrets.S3_DATA_BUCKET}}/data-versions/${{env.J40_VERSION_LABEL_STRING}}/data/score/downloadable --sync-check --recursive --force
-          poetry run s4cmd put ./data_pipeline/data/score/search/ s3://${{secrets.S3_DATA_BUCKET}}/data-versions/${{env.J40_VERSION_LABEL_STRING}}/data/score/search --sync-check --recursive --force
-      - name: Deploy 1.0 score post
-        if: ${{ env.J40_VERSION_LABEL_STRING == '1.0' }}
-        run: |
-          curl "${{secrets.DATA_URL}}/data-versions/1.0/data/score/downloadable/1.0-shapefile-codebook.zip" -s -f -I -o /dev/null && \
-          curl "${{secrets.DATA_URL}}/data-versions/1.0/data/score/downloadable/1.0-communities.xlsx" -s -f -I -o /dev/null && \
-          curl "${{secrets.DATA_URL}}/data-versions/1.0/data/score/downloadable/1.0-communities.csv" -s -f -I -o /dev/null && \
-          curl "${{secrets.DATA_URL}}/data-versions/1.0/data/score/downloadable/cejst-technical-support-document.pdf" -s -f -I -o /dev/null && \
-          curl "${{secrets.DATA_URL}}/data-versions/1.0/data/score/downloadable/draft-communities-list.pdf" -s -f -I -o /dev/null
-      - name: Deploy 2.0 score post
-        if: ${{ env.J40_VERSION_LABEL_STRING == '2.0' }}
-        run: |
-          curl "${{secrets.DATA_URL}}/data-versions/2.0/data/score/downloadable/2.0-data-documentation.zip" -s -f -I -o /dev/null && \
-          curl "${{secrets.DATA_URL}}/data-versions/2.0/data/score/downloadable/2.0-shapefile-codebook.zip" -s -f -I -o /dev/null
-          curl "${{secrets.DATA_URL}}/data-versions/2.0/data/score/downloadable/2.0-communities.xlsx" -s -f -I -o /dev/null && \
-          curl "${{secrets.DATA_URL}}/data-versions/2.0/data/score/downloadable/2.0-communities.csv" -s -f -I -o /dev/null && \
-          curl "${{secrets.DATA_URL}}/data-versions/2.0/data/score/downloadable/cejst-technical-support-document.pdf" -s -f -I -o /dev/null && \
-          curl "${{secrets.DATA_URL}}/data-versions/2.0/data/score/downloadable/draft-communities-list.pdf" -s -f -I -o /dev/null
       - name: Set timezone for tippecanoe
         uses: szenius/set-timezone@v2.0
         with:
@@ -133,16 +103,26 @@ jobs:
       - name: Generate Tiles
         run: |
           poetry run python3 -m data_pipeline.application generate-map-tiles
-      - name: Deploy Map to Geoplatform AWS
+          poetry run python3 -m data_pipeline.application generate-map-tiles --generate-tribal-layer
+      - name: Deploy Score and Map to Geoplatform AWS
+        if: ${{ env.J40_VERSION_LABEL_STRING == '2.0' }}
         run: |
-          poetry run s4cmd put ./data_pipeline/data/score/geojson/ s3://${{secrets.S3_DATA_BUCKET}}/data-versions/${{env.J40_VERSION_LABEL_STRING}}/data/score/geojson --sync-check --recursive --force --delete-removed --num-threads=250
-          poetry run s4cmd put ./data_pipeline/data/score/shapefile/ s3://${{secrets.S3_DATA_BUCKET}}/data-versions/${{env.J40_VERSION_LABEL_STRING}}/data/score/shapefile --sync-check --recursive --force --delete-removed
-          poetry run s4cmd put ./data_pipeline/data/score/tiles/ s3://${{secrets.S3_DATA_BUCKET}}/data-versions/${{env.J40_VERSION_LABEL_STRING}}/data/score/tiles --sync-check --recursive --force --delete-removed --num-threads=250
+          poetry run s4cmd put ./data_pipeline/data/score/* s3://${{secrets.S3_DATA_BUCKET}}/data-versions/${{env.J40_VERSION_LABEL_STRING}}/data/score/ --sync-check --recursive --force --num-threads=250
+          poetry run s4cmd put ./data_pipeline/files/* s3://${{secrets.S3_DATA_BUCKET}}/data-versions/${{env.J40_VERSION_LABEL_STRING}}/data/score/downloadable/ --sync-check --recursive --force
+          poetry run s4cmd put ./data_pipeline/data/tribal/* s3://${{secrets.S3_DATA_BUCKET}}/data-versions/${{env.J40_VERSION_LABEL_STRING}}/data/tribal/ --recursive --force  --API-ACL=public-read --num-threads=250
+      - name: 2.0 Post-deploy Score Check
+        run: |
+          curl "${{secrets.DATA_URL}}/data-versions/2.0/data/score/downloadable/2.0-data-documentation.zip" -s -f -I -o /dev/null && \
+          curl "${{secrets.DATA_URL}}/data-versions/2.0/data/score/downloadable/2.0-shapefile-codebook.zip" -s -f -I -o /dev/null
+          curl "${{secrets.DATA_URL}}/data-versions/2.0/data/score/downloadable/2.0-communities.xlsx" -s -f -I -o /dev/null && \
+          curl "${{secrets.DATA_URL}}/data-versions/2.0/data/score/downloadable/2.0-communities.csv" -s -f -I -o /dev/null && \
+          curl "${{secrets.DATA_URL}}/data-versions/2.0/data/score/downloadable/cejst-technical-support-document.pdf" -s -f -I -o /dev/null && \
+          curl "${{secrets.DATA_URL}}/data-versions/2.0/data/score/downloadable/draft-communities-list.pdf" -s -f -I -o /dev/null
       - name: Invalidate cache on AWS CDN
         uses: chetan/invalidate-cloudfront-action@master
         env:
           DISTRIBUTION: ${{secrets.DATA_CDN_ID}}
           PATHS: "/*"
           AWS_REGION: "us-east-1"
-          AWS_ACCESS_KEY_ID: ${{ secrets.CLIENT_DEV_AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.CLIENT_DEV_AWS_SECRET_ACCESS_KEY }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.DATA_DEV_AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.DATA_DEV_AWS_SECRET_ACCESS_KEY }}

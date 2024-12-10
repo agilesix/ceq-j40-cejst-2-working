@@ -119,6 +119,7 @@ jobs:
       - name: Run ETL
         run: |
           poetry run python3 -m data_pipeline.application etl-run
+          poetry run python3 -m data_pipeline.application etl-run --dataset tribal
       - name: Generate Score
         run: |
           poetry run python3 -m data_pipeline.application score-run
@@ -163,4 +164,5 @@ jobs:
       - name: Generate Tiles
         run: |
           poetry run python3 -m data_pipeline.application generate-map-tiles
+          poetry run python3 -m data_pipeline.application generate-map-tiles --generate-tribal-layer
 
