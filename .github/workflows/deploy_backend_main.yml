@@ -106,7 +106,7 @@ jobs:
         run: |
           poetry run s4cmd put ./data_pipeline/data/score/* s3://${{secrets.S3_DATA_BUCKET}}/data-versions/${{env.J40_VERSION_LABEL_STRING}}/data/score/ --sync-check --recursive --force --num-threads=250
           poetry run s4cmd put ./data_pipeline/files/* s3://${{secrets.S3_DATA_BUCKET}}/data-versions/${{env.J40_VERSION_LABEL_STRING}}/data/score/downloadable/ --sync-check --recursive --force
-          poetry run s4cmd put ./data_pipeline/data/tribal/* s3://${{secrets.S3_DATA_BUCKET}}/data-versions/${{env.J40_VERSION_LABEL_STRING}}/data/tribal/ --recursive --force  --API-ACL=public-read --num-threads=250
+          poetry run s4cmd put ./data_pipeline/data/tribal/* s3://${{secrets.S3_DATA_BUCKET}}/data-versions/${{env.J40_VERSION_LABEL_STRING}}/data/tribal/ --recursive --force --num-threads=250
       - name: 2.0 Post-deploy Score Check
         run: |
           curl "${{secrets.DATA_URL}}/data-versions/2.0/data/score/downloadable/2.0-data-documentation.zip" -s -f -I -o /dev/null && \
