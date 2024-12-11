@@ -1,10 +1,10 @@
 /* eslint-disable max-len */
 /* eslint-disable react/display-name */
-import React from 'react';
 import {FormattedDate, FormattedMessage} from 'gatsby-plugin-intl';
+import React from 'react';
 import {defineMessages} from 'react-intl';
-import LinkTypeWrapper from '../../components/LinkTypeWrapper';
 import DownloadLink from '../../components/DownloadLink';
+import LinkTypeWrapper from '../../components/LinkTypeWrapper';
 import {GITHUB_LINK} from '../../constants';
 
 export interface IDefineMessage {
@@ -29,17 +29,37 @@ export const linkFn = (to:string | IDefineMessage, isInternal:boolean, isOpenNew
 
 export const FEEDBACK_EMAIL = 'Screeningtool-Support@omb.eop.gov';
 
-export const METH_2_0_RELEASE_DATE = new Date(2022, 10, 22, 11, 59, 59); // Nov 22 2022
-export const METH_BETA_RELEASE_DATE = new Date(2022, 1, 18, 11, 59, 59); // Feb 18 2022
+export const METH_1_0_RELEASE_DATE = new Date(2022, 10, 22, 11, 59, 59); // Nov 22 2022
+export const METH_2_0_RELEASE_DATE = new Date(2024, 11, 19, 11, 59, 59); // Dec 19 2024
 
 
-// Beta Banner
-export const BETA_BANNER_CONTENT = <FormattedMessage
-  id={'common.pages.alerts.banner.beta.content'}
-  defaultMessage={`<bold1>This tool has been updated.</bold1> The 1.0 version of the tool was released on {relDate}.`}
-  description={`Alert body that appears on landing page.`}
+// Update Banner
+export const UPDATE_BANNER_HEADING_LARGE = <FormattedMessage
+  id={'common.pages.alerts.banner.update.heading.large'}
+  defaultMessage={'Version 2.0 of the tool is now available'}
+  description={'Alert heading that appears at the top of pages'}
+/>;
+
+export const UPDATE_BANNER_CONTENT_LARGE = <FormattedMessage
+  id={'common.pages.alerts.banner.update.content.large'}
+  defaultMessage={`The Council on Environmental Quality (CEQ) made the 2.0 version of the tool available on {releaseDate}.`}
+  description={`Alert body that appears at the top of pages.`}
   values={{
-    bold1: boldFn,
+    releaseDate: <FormattedDate
+      value={METH_2_0_RELEASE_DATE}
+      year="numeric"
+      month="short"
+      day="numeric"
+    />,
+  }}
+/>;
+
+export const UPDATE_BANNER_CONTENT_SMALL = <FormattedMessage
+  id={'common.pages.alerts.banner.update.content.small'}
+  defaultMessage={`<bold>This tool has been updated.</bold> The 2.0 version of the tool was released on {relDate}.`}
+  description={`Alert body that appears at the top of pages.`}
+  values={{
+    bold: boldFn,
     relDate: <FormattedDate
       value={METH_2_0_RELEASE_DATE}
       year="numeric"
@@ -53,7 +73,7 @@ export const TSD = defineMessages({
   URL: {
     id: 'common.pages.tsd.url',
     defaultMessage: `https://static-data-screeningtool.geoplatform.gov/data-pipeline/data/score/downloadable/cejst_technical_support_document.pdf`,
-    description: 'Navigate to the Alerts on any page. This will be the link to the techinical support document.',
+    description: 'Navigate to the Alerts on any page. This will be the link to the technical support document.',
   },
 });
 

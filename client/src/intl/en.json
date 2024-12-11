@@ -127,9 +127,17 @@
     "defaultMessage": "Download new <link1>technical support</link1> and other documentation and <link2>send feedback</link2>.",
     "description": "Alert title that appears at the top of pages."
   },
-  "common.pages.alerts.banner.beta.content": {
-    "defaultMessage": "<bold1>This tool has been updated.</bold1> The 1.0 version of the tool was released on {relDate}.",
-    "description": "Alert body that appears on landing page."
+  "common.pages.alerts.banner.update.content.large": {
+    "defaultMessage": "The Council on Environmental Quality (CEQ) made the 2.0 version of the tool available on {releaseDate}.",
+    "description": "Alert body that appears at the top of pages."
+  },
+  "common.pages.alerts.banner.update.content.small": {
+    "defaultMessage": "<bold>This tool has been updated.</bold> The 2.0 version of the tool was released on {relDate}.",
+    "description": "Alert body that appears at the top of pages."
+  },
+  "common.pages.alerts.banner.update.heading.large": {
+    "defaultMessage": "Version 2.0 of the tool is now available",
+    "description": "Alert heading that appears at the top of pages"
   },
   "common.pages.alerts.census.tract.title": {
     "defaultMessage": "Additional documentation now available",
@@ -256,7 +264,7 @@
   },
   "common.pages.tsd.url": {
     "defaultMessage": "https://static-data-screeningtool.geoplatform.gov/data-pipeline/data/score/downloadable/cejst_technical_support_document.pdf",
-    "description": "Navigate to the Alerts on any page. This will be the link to the techinical support document."
+    "description": "Navigate to the Alerts on any page. This will be the link to the technical support document."
   },
   "contact.page.census.tract.feedback.para3": {
     "defaultMessage": "The best way to contact the Council on Environmental Quality (CEQ) is by filling out <link1>this form</link1>.",
@@ -1591,11 +1599,11 @@
     "description": "Navigate to the FAQs page, this will be Q9"
   },
   "faqs.page.answers.Q10": {
-    "defaultMessage": "Recent historic legislation, such as the Bipartisan Infrastructure Law and the Inflation Reduction Act, have created new programs or directed funds to existing programs. These investments are included in the Justice40 Initiative if they meet the eligibility criteria. Agencies will use the tool to help identify disadvantaged communities that will receive 40% of the overall benefits of those Justice40 programs.",
+    "defaultMessage": "Historic legislation, such as the Bipartisan Infrastructure Law and the Inflation Reduction Act, has created new programs and directed funds to existing ones. These investments are included in the Justice40 Initiative if they meet the eligibility criteria. Agencies will use the tool to help identify disadvantaged communities that will receive 40% of the overall benefits of those Justice40 programs.",
     "description": "Navigate to the FAQs page, this will be an answer, Q10"
   },
   "faqs.page.answers.Q11": {
-    "defaultMessage": "The Council on Environmental Quality (CEQ), the Office of Management and Budget (OMB), and the Climate Policy Office (CPO) released the Justice40 Interim Implementation Guidance on July 20, 2021. It directed agencies to develop interim definitions of disadvantaged communities. Agencies used their interim definitions during the tool’s beta phase. Agencies will now transition to using version 1.0 of the tool to geographically identify disadvantaged communities.",
+    "defaultMessage": "The Council on Environmental Quality (CEQ), the Office of Management and Budget (OMB), and the Climate Policy Office (CPO) released the Justice40 Interim Implementation Guidance on July 20, 2021. It directed agencies to develop interim definitions of disadvantaged communities. Agencies used their interim definitions during the CEJST’s beta phase, and are now using version {currentVersion} as the primary tool to geographically identify disadvantaged communities.",
     "description": "Navigate to the FAQs page, this will be an answer, Q11"
   },
   "faqs.page.answers.Q12_P1": {
@@ -1683,7 +1691,7 @@
     "description": "Navigate to the FAQs page, this will be an answer, Q16"
   },
   "faqs.page.answers.Q17_P1": {
-    "defaultMessage": "The tool is now considered official because Federal agencies can now use version 1.0 of the Climate and Economic Justice Screening Tool (CEJST) to help identify disadvantaged communities. The 1.0 version was released in <link1>November, 2022</link1>. The tool is no longer in beta.",
+    "defaultMessage": "The tool was considered official when Federal agencies started using version 1.0 of the Climate and Economic Justice Screening Tool (CEJST) to help identify disadvantaged communities. The 1.0 version was released in <link1>November 2022</link1>. The current version, version {currentVersion}, was released in {currentVersionRelease}.",
     "description": "Navigate to the FAQs page, this will be an answer, Q17_P1"
   },
   "faqs.page.answers.Q17_P2": {
@@ -1767,7 +1775,7 @@
     "description": "Navigate to the FAQs page, this will be an answer, Q3_P3"
   },
   "faqs.page.answers.Q4_P1": {
-    "defaultMessage": "Yes, the version 1.0 of the CEJST has some data for all the territories but not all the CEJST data are available or used for all U.S. territories.",
+    "defaultMessage": "Yes, version {currentVersion} of the CEJST has some data for all the territories, but not all the CEJST data are available or used for all U.S. territories.",
     "description": "Navigate to the FAQs page, this will be an answer, Q4_P1"
   },
   "faqs.page.answers.Q4_P2": {

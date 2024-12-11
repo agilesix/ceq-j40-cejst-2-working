@@ -140,32 +140,27 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
             </div>
           </div>
         </section>
-        <div>
-          <img
-            alt="language icon for selecting language"
-            src="test-file-stub"
-          />
-          <a
-            class="usa-link"
-            href="#"
-          >
-            English
-          </a>
-          <a
-            class="usa-link"
-            href="#"
-          >
-            Español
-          </a>
-        </div>
       </div>
     </div>
     <div>
-      <div>
-        <strong>
-          This tool has been updated.
-        </strong>
-         The 1.0 version of the tool was released on Nov 22, 2022.
+      <div
+        class="usa-alert usa-alert--info"
+        data-testid="alert"
+      >
+        <div
+          class="usa-alert__body"
+        >
+          <h1
+            class="usa-alert__heading"
+          >
+            Version 2.0 of the tool is now available
+          </h1>
+          <p
+            class="usa-alert__text"
+          >
+            The Council on Environmental Quality (CEQ) made the 2.0 version of the tool available on Dec 19, 2024.
+          </p>
+        </div>
       </div>
     </div>
     <div

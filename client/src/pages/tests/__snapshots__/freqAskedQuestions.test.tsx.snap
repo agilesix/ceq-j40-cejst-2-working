@@ -140,32 +140,27 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
             </div>
           </div>
         </section>
-        <div>
-          <img
-            alt="language icon for selecting language"
-            src="test-file-stub"
-          />
-          <a
-            class="usa-link"
-            href="#"
-          >
-            English
-          </a>
-          <a
-            class="usa-link"
-            href="#"
-          >
-            Español
-          </a>
-        </div>
       </div>
     </div>
     <div>
-      <div>
-        <strong>
-          This tool has been updated.
-        </strong>
-         The 1.0 version of the tool was released on Nov 22, 2022.
+      <div
+        class="usa-alert usa-alert--info"
+        data-testid="alert"
+      >
+        <div
+          class="usa-alert__body"
+        >
+          <h1
+            class="usa-alert__heading"
+          >
+            Version 2.0 of the tool is now available
+          </h1>
+          <p
+            class="usa-alert__text"
+          >
+            The Council on Environmental Quality (CEQ) made the 2.0 version of the tool available on Dec 19, 2024.
+          </p>
+        </div>
       </div>
     </div>
     <div
@@ -611,7 +606,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                 id="faq-id-3"
               >
                 <p>
-                  Yes, the version 1.0 of the CEJST has some data for all the territories but not all the CEJST data are available or used for all U.S. territories. 
+                  Yes, version 2.0 of the CEJST has some data for all the territories, but not all the CEJST data are available or used for all U.S. territories.
                 </p>
                 <p>
                   <strong>
@@ -874,7 +869,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                 id="faq-id-9"
               >
                 <p>
-                  Recent historic legislation, such as the Bipartisan Infrastructure Law and the Inflation Reduction Act, have created new programs or directed funds to existing programs. These investments are included in the Justice40 Initiative if they meet the eligibility criteria. Agencies will use the tool to help identify disadvantaged communities that will receive 40% of the overall benefits of those Justice40 programs.
+                  Historic legislation, such as the Bipartisan Infrastructure Law and the Inflation Reduction Act, has created new programs and directed funds to existing ones. These investments are included in the Justice40 Initiative if they meet the eligibility criteria. Agencies will use the tool to help identify disadvantaged communities that will receive 40% of the overall benefits of those Justice40 programs.
                 </p>
               </div>
               <h2
@@ -897,7 +892,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                 id="faq-id-10"
               >
                 <p>
-                  The Council on Environmental Quality (CEQ), the Office of Management and Budget (OMB), and the Climate Policy Office (CPO) released the Justice40 Interim Implementation Guidance on July 20, 2021. It directed agencies to develop interim definitions of disadvantaged communities. Agencies used their interim definitions during the tool’s beta phase. Agencies will now transition to using version 1.0 of the tool to geographically identify disadvantaged communities.
+                  The Council on Environmental Quality (CEQ), the Office of Management and Budget (OMB), and the Climate Policy Office (CPO) released the Justice40 Interim Implementation Guidance on July 20, 2021. It directed agencies to develop interim definitions of disadvantaged communities. Agencies used their interim definitions during the CEJST’s beta phase, and are now using version 2.0 as the primary tool to geographically identify disadvantaged communities.
                 </p>
               </div>
               <h2
@@ -1167,7 +1162,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                 id="faq-id-16"
               >
                 <p>
-                  The tool is now considered official because Federal agencies can now use version 1.0 of the Climate and Economic Justice Screening Tool (CEJST) to help identify disadvantaged communities. The 1.0 version was released in 
+                  The tool was considered official when Federal agencies started using version 1.0 of the Climate and Economic Justice Screening Tool (CEJST) to help identify disadvantaged communities. The 1.0 version was released in 
                   <a
                     class="usa-link usa-link--external"
                     data-cy=""
@@ -1175,9 +1170,9 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                     rel="noreferrer"
                     target="_blank"
                   >
-                    November, 2022
+                    November 2022
                   </a>
-                  . The tool is no longer in beta.
+                  . The current version, version 2.0, was released in December 2024.
                 </p>
                 <p>
                   The tool will be improved over time. The Council on Environmental Quality (CEQ) will update the tool each year based on public feedback, research, and the availability of new data.

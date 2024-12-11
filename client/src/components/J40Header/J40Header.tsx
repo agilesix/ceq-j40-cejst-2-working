@@ -1,25 +1,25 @@
-import React, {useEffect, useState} from 'react';
-import {Link, useIntl} from 'gatsby-plugin-intl';
 import {
+  Grid,
   // Alert,
   Header,
+  Menu,
+  NavDropDownButton,
   NavMenuButton,
   PrimaryNav,
-  Grid,
-  NavDropDownButton,
-  Menu,
 } from '@trussworks/react-uswds';
-import BetaBanner from '../BetaBanner';
-import J40MainGridContainer from '../J40MainGridContainer';
-import GovernmentBanner from '../GovernmentBanner';
-import Language from '../Language';
+import {Link, useIntl} from 'gatsby-plugin-intl';
+import React, {useEffect, useState} from 'react';
 import {useWindowSize} from 'react-use';
+import GovernmentBanner from '../GovernmentBanner';
+import J40MainGridContainer from '../J40MainGridContainer';
+import Language from '../Language';
 
 // @ts-ignore
-import siteLogo from '../../images/j40-logo-v2.png';
-import * as styles from './J40Header.module.scss';
-import * as COMMON_COPY from '../../data/copy/common';
 import {PAGES_ENDPOINTS, USWDS_BREAKPOINTS} from '../../data/constants';
+import * as COMMON_COPY from '../../data/copy/common';
+import siteLogo from '../../images/j40-logo-v2.png';
+import UpdateBanner from '../UpdateBanner';
+import * as styles from './J40Header.module.scss';
 
 
 interface IJ40Header {
@@ -247,7 +247,7 @@ const J40Header = ({location}:IJ40Header) => {
 
       {/* Banners */}
       <GovernmentBanner />
-      <BetaBanner/>
+      <UpdateBanner/>
 
       {/* Logo and Navigation */}
       <J40MainGridContainer>

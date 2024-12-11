@@ -1,14 +1,15 @@
 /* eslint-disable max-len */
+import {defineMessages, FormattedDate, FormattedMessage} from 'gatsby-plugin-intl';
 import React from 'react';
-import {defineMessages, FormattedMessage} from 'gatsby-plugin-intl';
 
 import LinkTypeWrapper from '../../components/LinkTypeWrapper';
 
-import {EJSCREEN, EXEC_ORDER_LINK, FED_RECOGNIZED_INDIAN_ENTITIES, CEJST_INSTRUCT, CEJST_MEMO, CEJST_INSTRUCT_ES, CEJST_MEMO_ES} from './about';
-import {boldFn, linkFn, FEEDBACK_EMAIL} from './common';
-import {PAGES_ENDPOINTS, DATA_SURVEY_LINKS, SITE_SATISFACTION_SURVEY_LINKS} from '../constants';
-import {EXPLORE_PAGE_LINKS} from './explore';
+import {DATA_SURVEY_LINKS, PAGES_ENDPOINTS, SITE_SATISFACTION_SURVEY_LINKS} from '../constants';
+import {CEJST_INSTRUCT, CEJST_INSTRUCT_ES, CEJST_MEMO, CEJST_MEMO_ES, EJSCREEN, EXEC_ORDER_LINK, FED_RECOGNIZED_INDIAN_ENTITIES} from './about';
+import {boldFn, FEEDBACK_EMAIL, linkFn, METH_2_0_RELEASE_DATE} from './common';
 import {DOWNLOAD_FILES} from './downloads';
+import {EXPLORE_PAGE_LINKS} from './explore';
+import {VERSION_NUMBER} from './methodology';
 
 export const PAGE_INTRO = defineMessages({
   PAGE_TILE: {
@@ -345,8 +346,11 @@ export const FAQ_ANSWERS = {
   />,
   Q4_P1: <FormattedMessage
     id={ 'faqs.page.answers.Q4_P1'}
-    defaultMessage={ 'Yes, the version 1.0 of the CEJST has some data for all the territories but not all the CEJST data are available or used for all U.S. territories. '}
+    defaultMessage={ 'Yes, version {currentVersion} of the CEJST has some data for all the territories, but not all the CEJST data are available or used for all U.S. territories.'}
     description={ 'Navigate to the FAQs page, this will be an answer, Q4_P1'}
+    values={{
+      currentVersion: VERSION_NUMBER,
+    }}
   />,
   Q4_P2: <FormattedMessage
     id={ 'faqs.page.answers.Q4_P2'}
@@ -472,7 +476,7 @@ export const FAQ_ANSWERS = {
   />,
   Q10: <FormattedMessage
     id={ 'faqs.page.answers.Q10'}
-    defaultMessage={ `Recent historic legislation, such as the Bipartisan Infrastructure Law and the Inflation Reduction Act, have created new programs or directed funds to existing programs. These investments are included in the Justice40 Initiative if they meet the eligibility criteria. Agencies will use the tool to help identify disadvantaged communities that will receive 40% of the overall benefits of those Justice40 programs.`}
+    defaultMessage={ `Historic legislation, such as the Bipartisan Infrastructure Law and the Inflation Reduction Act, has created new programs and directed funds to existing ones. These investments are included in the Justice40 Initiative if they meet the eligibility criteria. Agencies will use the tool to help identify disadvantaged communities that will receive 40% of the overall benefits of those Justice40 programs.`}
     description={ 'Navigate to the FAQs page, this will be an answer, Q10'}
     // values={{
     //   link1: linkFn(`https://www.whitehouse.gov/wp-content/uploads/2021/07/M-21-28.pdf`, false, true),
@@ -480,8 +484,11 @@ export const FAQ_ANSWERS = {
   />,
   Q11: <FormattedMessage
     id={ 'faqs.page.answers.Q11'}
-    defaultMessage={ `The Council on Environmental Quality (CEQ), the Office of Management and Budget (OMB), and the Climate Policy Office (CPO) released the Justice40 Interim Implementation Guidance on July 20, 2021. It directed agencies to develop interim definitions of disadvantaged communities. Agencies used their interim definitions during the tool’s beta phase. Agencies will now transition to using version 1.0 of the tool to geographically identify disadvantaged communities.`}
+    defaultMessage={ `The Council on Environmental Quality (CEQ), the Office of Management and Budget (OMB), and the Climate Policy Office (CPO) released the Justice40 Interim Implementation Guidance on July 20, 2021. It directed agencies to develop interim definitions of disadvantaged communities. Agencies used their interim definitions during the CEJST’s beta phase, and are now using version {currentVersion} as the primary tool to geographically identify disadvantaged communities.`}
     description={ 'Navigate to the FAQs page, this will be an answer, Q11'}
+    values={{
+      currentVersion: VERSION_NUMBER,
+    }}
   />,
   Q12_P1: <FormattedMessage
     id={ 'faqs.page.answers.Q12_P1'}
@@ -616,10 +623,15 @@ export const FAQ_ANSWERS = {
   />,
   Q17_P1: <FormattedMessage
     id={ 'faqs.page.answers.Q17_P1'}
-    defaultMessage={ `The tool is now considered official because Federal agencies can now use version 1.0 of the Climate and Economic Justice Screening Tool (CEJST) to help identify disadvantaged communities. The 1.0 version was released in <link1>November, 2022</link1>. The tool is no longer in beta.`}
+    defaultMessage={`The tool was considered official when Federal agencies started using version 1.0 of the Climate and Economic Justice Screening Tool (CEJST) to help identify disadvantaged communities. The 1.0 version was released in <link1>November 2022</link1>. The current version, version {currentVersion}, was released in {currentVersionRelease}.`}
     description={ 'Navigate to the FAQs page, this will be an answer, Q17_P1'}
     values={{
       link1: linkFn('https://www.whitehouse.gov/ceq/news-updates/2022/11/22/biden-harris-administration-launches-version-1-0-of-climate-and-economic-justice-screening-tool-key-step-in-implementing-president-bidens-justice40-initiative/', false, true),
+      currentVersion: VERSION_NUMBER,
+      currentVersionRelease: (<FormattedDate value={METH_2_0_RELEASE_DATE}
+        year="numeric"
+        month="long"
+      />),
     }}
   />,
   Q17_P2: <FormattedMessage
