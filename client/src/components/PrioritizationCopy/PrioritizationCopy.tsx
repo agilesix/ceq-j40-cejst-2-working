@@ -47,8 +47,10 @@ const PrioritizationCopy =
    }:IPrioritizationCopy) => {
      let prioCopyRendered;
 
+     if (isGrandfathered) {
+       prioCopyRendered = EXPLORE_COPY.PRIORITIZATION_COPY.PRIO_GRANDFATHERED_LI;
      // if 1
-     if (totalCategoriesPrioritized === 0) {
+     } else if (totalCategoriesPrioritized === 0) {
        // if 1-1
        if (isAdjacencyThreshMet && isAdjacencyLowIncome) {
          prioCopyRendered = EXPLORE_COPY.PRIORITIZATION_COPY.PRIO_SURR_LI;
@@ -59,10 +61,8 @@ const PrioritizationCopy =
        } else if (isAdjacencyThreshMet && !isAdjacencyLowIncome) {
          // if 1-2-1
          if ( tribalCountAK === null && tribalCountUS === null) {
-           if (isGrandfathered) {
-             prioCopyRendered = EXPLORE_COPY.PRIORITIZATION_COPY.PRIO_GRANDFATHERED_LI;
            // if 1-2-1-1
-           } else if (percentTractTribal === null) {
+           if (percentTractTribal === null) {
              prioCopyRendered = EXPLORE_COPY.PRIORITIZATION_COPY.NOT_PRIO_SURR_LI;
              // if 1-2-1-2
            } else if (percentTractTribal === 0) {
