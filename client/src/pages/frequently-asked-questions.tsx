@@ -1,18 +1,17 @@
-import * as React from 'react';
 import {Accordion, Grid} from '@trussworks/react-uswds';
 import {AccordionItemProps} from '@trussworks/react-uswds/lib/components/Accordion/Accordion';
 import {useIntl} from 'gatsby-plugin-intl';
+import * as React from 'react';
 import {useWindowSize} from 'react-use';
 
+import DatasetsButton from '../components/DatasetsButton';
 import J40MainGridContainer from '../components/J40MainGridContainer';
 import Layout from '../components/layout';
-import DatasetsButton from '../components/DatasetsButton';
 import SubPageNav from '../components/SubPageNav';
 
-import {USWDS_BREAKPOINTS, DATA_SURVEY_LINKS} from '../data/constants';
-import * as FAQS_COPY from '../data/copy/faqs';
-import {PAGES_ENDPOINTS} from '../data/constants';
+import {DATA_SURVEY_LINKS, PAGES_ENDPOINTS, USWDS_BREAKPOINTS} from '../data/constants';
 import {SIDE_PANEL_INIT_STATE_ICON_ALT_TEXT} from '../data/copy/explore';
+import * as FAQS_COPY from '../data/copy/faqs';
 
 // @ts-ignore
 import censusDotIcon from '../images/sidePanelIcons/census-tract.svg';
@@ -47,12 +46,6 @@ const FAQPage = ({location}: IFAQPageProps) => {
       <>
         <p key={1}>{FAQS_COPY.FAQ_ANSWERS.Q1_P1}</p>
         <p>{FAQS_COPY.FAQ_ANSWERS.Q1_P2}</p>
-        <p>{FAQS_COPY.FAQ_ANSWERS.Q1_P3}</p>
-        <ul>
-          <li>{FAQS_COPY.FAQ_ANSWERS.Q1_P3_1}</li>
-          <li>{FAQS_COPY.FAQ_ANSWERS.Q1_P3_2}</li>
-        </ul>
-        <p>{FAQS_COPY.FAQ_ANSWERS.Q1_P4}</p>
       </>
     ),
     (
@@ -65,6 +58,7 @@ const FAQPage = ({location}: IFAQPageProps) => {
         </ul>
         <p>{FAQS_COPY.FAQ_ANSWERS.Q2_P3}</p>
         <p>{FAQS_COPY.FAQ_ANSWERS.Q2_P4}</p>
+        <p>{FAQS_COPY.FAQ_ANSWERS.Q2_P5}</p>
       </>
     ),
     (
@@ -117,53 +111,9 @@ const FAQPage = ({location}: IFAQPageProps) => {
     ),
     (
       <>
-        <p key={8}>{FAQS_COPY.FAQ_ANSWERS.Q8_P1}</p>
-        <p>{FAQS_COPY.FAQ_ANSWERS.Q8_P2}</p>
-      </>
-    ),
-    (
-      <>
-        <p key={9}>{FAQS_COPY.FAQ_ANSWERS.Q9_P1}</p>
-        <p>{FAQS_COPY.FAQ_ANSWERS.Q9_P2}</p>
-        <ul>
-          <li>{FAQS_COPY.FAQ_ANSWERS.Q9_P2_1}</li>
-          <li>{FAQS_COPY.FAQ_ANSWERS.Q9_P2_2}</li>
-          <li>{FAQS_COPY.FAQ_ANSWERS.Q9_P2_3}</li>
-          <li>{FAQS_COPY.FAQ_ANSWERS.Q9_P2_4}</li>
-          <li>{FAQS_COPY.FAQ_ANSWERS.Q9_P2_5}</li>
-          <li>{FAQS_COPY.FAQ_ANSWERS.Q9_P2_6}</li>
-          <li>{FAQS_COPY.FAQ_ANSWERS.Q9_P2_7}</li>
-        </ul>
-      </>
-    ),
-    (
-      <>
-        <p key={10}>{FAQS_COPY.FAQ_ANSWERS.Q10}</p>
-      </>
-    ),
-    (
-      <>
-        <p key={11}>{FAQS_COPY.FAQ_ANSWERS.Q11}</p>
-      </>
-    ),
-    (
-      <>
         <p key={12}>{FAQS_COPY.FAQ_ANSWERS.Q12_P1}</p>
-        <ul>
-          <li>{FAQS_COPY.FAQ_ANSWERS.Q12_P1_1}</li>
-          <li>{FAQS_COPY.FAQ_ANSWERS.Q12_P1_2}</li>
-          <ul>
-            <li>{FAQS_COPY.FAQ_ANSWERS.Q12_P1_2_1}</li>
-            <li>{FAQS_COPY.FAQ_ANSWERS.Q12_P1_2_2}</li>
-            <li>{FAQS_COPY.FAQ_ANSWERS.Q12_P1_2_3}</li>
-            <li>{FAQS_COPY.FAQ_ANSWERS.Q12_P1_2_4}</li>
-          </ul>
-          <li>{FAQS_COPY.FAQ_ANSWERS.Q12_P1_3}</li>
-          <li>{FAQS_COPY.FAQ_ANSWERS.Q12_P1_4}</li>
-        </ul>
         <p>{FAQS_COPY.FAQ_ANSWERS.Q12_P2}</p>
         <p>{FAQS_COPY.FAQ_ANSWERS.Q12_P3}</p>
-        <p>{FAQS_COPY.FAQ_ANSWERS.Q12_P4}</p>
       </>
     ),
     (
@@ -190,13 +140,8 @@ const FAQPage = ({location}: IFAQPageProps) => {
     ),
     (
       <>
-        <p key={16}>{FAQS_COPY.FAQ_ANSWERS.Q16}</p>
-      </>
-    ),
-    (
-      <>
-        <p key={17}>{FAQS_COPY.FAQ_ANSWERS.Q17_P1}</p>
-        <p>{FAQS_COPY.FAQ_ANSWERS.Q17_P2}</p>
+        <p key={16}>{FAQS_COPY.FAQ_ANSWERS.Q16_P1}</p>
+        <p key={16}>{FAQS_COPY.FAQ_ANSWERS.Q16_P2}</p>
       </>
     ),
     (
@@ -215,6 +160,16 @@ const FAQPage = ({location}: IFAQPageProps) => {
         <p>{FAQS_COPY.FAQ_ANSWERS.Q20_P2}</p>
       </>
     ),
+    (
+      <>
+        <p key={21}>{FAQS_COPY.FAQ_ANSWERS.Q21}</p>
+      </>
+    ),
+    (
+      <>
+        <p key={22}>{FAQS_COPY.FAQ_ANSWERS.Q22}</p>
+      </>
+    ),
 
   ];
 
@@ -227,6 +182,7 @@ const FAQPage = ({location}: IFAQPageProps) => {
       content: ANSWERS[questionNum],
       expanded: false,
       headingLevel: 'h2',
+      className: '-faq',
     };
   });
 

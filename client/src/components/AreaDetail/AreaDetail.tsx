@@ -1,6 +1,6 @@
 /* eslint-disable quotes */
 // External Libs:
-import {Accordion, Button} from "@trussworks/react-uswds";
+import {Accordion, Button, Icon} from "@trussworks/react-uswds";
 import {MessageDescriptor, useIntl} from "gatsby-plugin-intl";
 import React from "react";
 
@@ -21,7 +21,6 @@ import * as styles from "./areaDetail.module.scss";
 
 // @ts-ignore
 import IslandCopy from "../IslandCopy/IslandCopy";
-import launchIcon from "/node_modules/uswds/dist/img/usa-icons/launch.svg";
 
 interface IAreaDetailProps {
   properties: constants.J40Properties;
@@ -1231,19 +1230,14 @@ const AreaDetail = ({properties}: IAreaDetailProps) => {
             <div className={styles.buttonText}>
               {EXPLORE_COPY.COMMUNITY.SEND_FEEDBACK.TITLE}
             </div>
-            <img
-              className={styles.buttonImage}
-              src={launchIcon}
-              alt={intl.formatMessage(
-                  EXPLORE_COPY.COMMUNITY.SEND_FEEDBACK.IMG_ICON.ALT_TAG,
-              )}
-            />
+
+            <Icon.Launch aria-label={intl.formatMessage(EXPLORE_COPY.COMMUNITY.SEND_FEEDBACK.IMG_ICON.ALT_TAG)} />
           </div>
         </Button>
       </a>
 
       {/* All category accordions in this component */}
-      {<Accordion multiselectable={true} items={categoryItems} />}
+      {<Accordion multiselectable={true} items={categoryItems} className="-AreaDetail" />}
 
       {/* Methodology version */}
       <div className={styles.versionInfo}>

@@ -1,16 +1,17 @@
 /* eslint-disable max-len */
+import {FormattedMessage} from 'gatsby-plugin-intl';
 import React from 'react';
 import {defineMessages} from 'react-intl';
-import {FormattedMessage} from 'gatsby-plugin-intl';
 
+import {CONTACT_SURVEY_LINKS, DATA_SURVEY_LINKS, PAGES_ENDPOINTS, SITE_SATISFACTION_SURVEY_LINKS} from '../constants';
 import {italicFn, linkFn} from './common';
 import {VERSION_NUMBER} from './methodology';
-import {PAGES_ENDPOINTS, DATA_SURVEY_LINKS, SITE_SATISFACTION_SURVEY_LINKS, CONTACT_SURVEY_LINKS} from '../constants';
 
 export const EXEC_ORDER_LINK = 'https://www.federalregister.gov/documents/2021/02/01/2021-02177/tackling-the-climate-crisis-at-home-and-abroad#:~:text=Sec.%20223.%20Justice40,40-percent%20goal.';
 export const FAQS_LINK = 'https://www.whitehouse.gov/wp-content/uploads/2022/02/CEQ-CEJST-QandA.pdf';
 export const FED_RECOGNIZED_INDIAN_ENTITIES = `https://www.federalregister.gov/documents/2022/01/28/2022-01789/indian-entities-recognized-by-and-eligible-to-receive-services-from-the-united-states-bureau-of`;
 export const EJSCREEN = 'https://www.epa.gov/ejscreen/how-does-epa-use-ejscreen';
+export const WHEJAC_RECOMMENDATIONS = 'https://www.epa.gov/environmentaljustice/white-house-environmental-justice-advisory-council';
 
 export const CEJST_INSTRUCT = process.env.GATSBY_CDN_TILES_BASE_URL +`/data-versions/2.0/data/score/downloadable/CEQ-CEJST-Instructions.pdf`;
 export const CEJST_INSTRUCT_ES = process.env.GATSBY_CDN_TILES_BASE_URL +`/data-versions/2.0/data/score/downloadable/CEQ-CEJST-Instructions-es.pdf`;
@@ -112,7 +113,7 @@ export const CONTENT = {
   <FormattedMessage
     id={'about.page.use.data.paragraph'}
     defaultMessage={`
-      The tool's data is available for <link1>download</link1>. This data can be used to filter by state or county. 
+      The tool’s data is available for <link1>download</link1>. This data can be used to filter by state or county.
     `}
     description={'Navigate to the About page. This is the paragraph 4'}
     values={{
@@ -279,7 +280,7 @@ export const HOW_YOU_CAN_HELP_LIST_ITEMS = {
   PARA1: <FormattedMessage
     id={'about.page.how.you.can.help.para.1'}
     defaultMessage={`
-      The Council on Environmental Quality plans to issue a Request for Information in 2023. This will give the public time to use the tool before providing comments.    
+      The Council on Environmental Quality plans to issue a Request for Information in 2023. This will give the public time to use the tool before providing comments.
     `}
     description={`Navigate to the about page. You will see How you can help list item 3`}
   />,

@@ -660,14 +660,14 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                   </h3>
                   <p>
                     
-      The tool's data is available for 
+      The tool’s data is available for 
                     <a
                       class="usa-link"
                       href="/en/downloads"
                     >
                       download
                     </a>
-                    . This data can be used to filter by state or county. 
+                    . This data can be used to filter by state or county.
     
                   </p>
                   <div
@@ -876,7 +876,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
           </ul>
           <p>
             
-      The Council on Environmental Quality plans to issue a Request for Information in 2023. This will give the public time to use the tool before providing comments.    
+      The Council on Environmental Quality plans to issue a Request for Information in 2023. This will give the public time to use the tool before providing comments.
     
           </p>
         </div>

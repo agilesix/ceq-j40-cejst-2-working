@@ -431,7 +431,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
               data-testid="accordion"
             >
               <h2
-                class="usa-accordion__heading"
+                class="usa-accordion__heading -faq"
               >
                 <button
                   aria-controls="faq-id-0"
@@ -440,66 +440,24 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                   data-testid="accordionButton_faq-id-0"
                   type="button"
                 >
-                  Q: What is the Climate and Economic Justice Screening Tool (CEJST)?
+                  What is the Climate and Economic Justice Screening Tool (CEJST)?
                 </button>
               </h2>
               <div
-                class="usa-accordion__content usa-prose"
+                class="usa-accordion__content usa-prose -faq"
                 data-testid="accordionItem_faq-id-0"
                 hidden=""
                 id="faq-id-0"
               >
                 <p>
-                  The CEJST is a critical component of the Biden-Harris Administration’s historic commitment to advancing environmental justice. In 
-                  <a
-                    class="usa-link usa-link--external"
-                    data-cy=""
-                    href="https://www.federalregister.gov/documents/2021/02/01/2021-02177/tackling-the-climate-crisis-at-home-and-abroad#:~:text=Sec.%20223.%20Justice40,40-percent%20goal."
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    Executive Order 14008
-                  </a>
-                   on Tackling the Climate Crisis at Home and Abroad, President Biden directed the White House Council on Environmental Quality (CEQ) to develop a geospatial mapping tool to identify disadvantaged communities that face burdens. The tool has an interactive map and uses datasets that are indicators of burdens.
+                  The CEJST is a geospatial mapping tool that identifies disadvantaged communities that face burdens. The tool has an interactive map and uses datasets that are indicators of burdens.
                 </p>
-                <p>
-                  Federal agencies will use the tool for the Justice40 Initiative. It will help them identify disadvantaged communities that should receive 40% of the overall benefits of programs included in the Justice40 Initiative. The Justice40 Initiative seeks to deliver 40% of the overall benefits in climate, clean energy, and other related areas to disadvantaged communities.
-                </p>
-                <p>
-                  Other useful links for Federal agencies:
-                </p>
-                <ul>
-                  <li>
-                    <a
-                      class="usa-link usa-link--external"
-                      data-cy=""
-                      href="https://www.whitehouse.gov/wp-content/uploads/2023/01/M-23-09_Signed_CEQ_CPO.pdf"
-                      rel="noreferrer"
-                      target="_blank"
-                    >
-                      Memorandum
-                    </a>
-                     on using the CEJST for the Justice40 Initiative
-                  </li>
-                  <li>
-                    <a
-                      class="usa-link usa-link--external"
-                      data-cy=""
-                      href="undefined/data-versions/2.0/data/score/downloadable/CEQ-CEJST-Instructions.pdf"
-                      rel="noreferrer"
-                      target="_blank"
-                    >
-                      Instructions
-                    </a>
-                     to Federal agencies on using the CEJST
-                  </li>
-                </ul>
                 <p>
                   The public can find communities of interest and provide feedback. This feedback will be used to improve the tool.
                 </p>
               </div>
               <h2
-                class="usa-accordion__heading"
+                class="usa-accordion__heading -faq"
               >
                 <button
                   aria-controls="faq-id-1"
@@ -508,40 +466,31 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                   data-testid="accordionButton_faq-id-1"
                   type="button"
                 >
-                  Q: How does the tool identify and define communities?
+                  How does the tool identify and define communities?
                 </button>
               </h2>
               <div
-                class="usa-accordion__content usa-prose"
+                class="usa-accordion__content usa-prose -faq"
                 data-testid="accordionItem_faq-id-1"
                 hidden=""
                 id="faq-id-1"
               >
                 <p>
-                  <a
-                    class="usa-link usa-link--external"
-                    data-cy=""
-                    href="https://www.federalregister.gov/documents/2021/02/01/2021-02177/tackling-the-climate-crisis-at-home-and-abroad#:~:text=Sec.%20223.%20Justice40,40-percent%20goal."
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    Executive Order 14008
-                  </a>
-                   recognizes that some communities are disadvantaged because they face burdens. The CEJST uses datasets that are indicators of burden. These burdens are related to climate change and the environment. They are also related to health and lack of economic opportunity.
+                  The CEJST uses datasets that are indicators of burden related to climate change and the environment to assess communities that are disadvantaged by these burdens. They are also related to health and lack of economic opportunity.
                 </p>
                 <p>
-                  The tool highlights disadvantaged communities across all 50 states, the District of Columbia, and the U.S. territories. Communities are considered disadvantaged:
+                  The tool highlights disadvantaged communities across all 50 states, the District of Columbia, and the U.S. territories. Communities are shown on the map as disadvantaged:
                 </p>
                 <ul>
                   <li>
-                    If they are in a census tract that meets the thresholds for at least one of the tool’s categories of burden, or
+                    If they are in a census tract that meets the threshold for at least one of the tool’s categories of burden, or
                   </li>
                   <li>
                     If they are on land within the boundaries of Federally Recognized Tribes
                   </li>
                 </ul>
                 <p>
-                  Not all disadvantaged communities can be shown on the map. Some communities do not live in just one place. The Interim Implementation Guidance on the Justice40 Initiative also directs Federal agencies to consider geographically dispersed communities when implementing programs included in the Justice40 Initiative.
+                  Not all disadvantaged communities can be shown on the map. The map shows point locations for Alaska Native Villages and landless Federally Recognized Tribes in the lower 48 states. Some communities do not live in just one place. This tool focuses on identifying communities that can be geographically defined.
                 </p>
                 <p>
                   The tool uses census tracts. Census tracts are small units of geography. Census tract boundaries for 
@@ -554,11 +503,14 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                   >
                     statistical areas
                   </a>
-                   are determined by the U.S. Census Bureau once every ten years. The tool utilizes the census tract boundaries from 2010. This was chosen primarily because many of the data sources in the tool currently use the 2010 census boundaries.
+                   are determined by the U.S. Census Bureau once every ten years. The tool utilizes the census tract boundaries from 2010. Tracts that were identified as disadvantaged in the 1.0 version of the tool remain disadvantaged in the 2.0 version of the tool.
+                </p>
+                <p>
+                  Due to limited data availability, tracts in American Samoa, Guam, the Northern Mariana Islands, and the U.S. Virgin Islands are considered disadvantaged if they meet the low income threshold only.
                 </p>
               </div>
               <h2
-                class="usa-accordion__heading"
+                class="usa-accordion__heading -faq"
               >
                 <button
                   aria-controls="faq-id-2"
@@ -567,11 +519,11 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                   data-testid="accordionButton_faq-id-2"
                   type="button"
                 >
-                  Q: Is race included in the tool’s methodology?
+                  Is race included in the tool’s methodology?
                 </button>
               </h2>
               <div
-                class="usa-accordion__content usa-prose"
+                class="usa-accordion__content usa-prose -faq"
                 data-testid="accordionItem_faq-id-2"
                 hidden=""
                 id="faq-id-2"
@@ -587,7 +539,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                 </p>
               </div>
               <h2
-                class="usa-accordion__heading"
+                class="usa-accordion__heading -faq"
               >
                 <button
                   aria-controls="faq-id-3"
@@ -596,11 +548,11 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                   data-testid="accordionButton_faq-id-3"
                   type="button"
                 >
-                  Q: Does the Climate and Economic Justice Screening Tool (CEJST) include the U.S. territories? 
+                  Does the tool include the U.S. territories? 
                 </button>
               </h2>
               <div
-                class="usa-accordion__content usa-prose"
+                class="usa-accordion__content usa-prose -faq"
                 data-testid="accordionItem_faq-id-3"
                 hidden=""
                 id="faq-id-3"
@@ -618,11 +570,11 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                   <strong>
                     American Samoa, Guam, the Northern Mariana Islands, and the U.S. Virgin Islands:
                   </strong>
-                   For these U.S. territories, the tool uses the following data: unemployment, poverty, low median income, and high school education. These burdens are in the workforce development category. 
+                   For these U.S. Territories, the tool uses the following data: unemployment, poverty, low median income, and high school education. These burdens are in the workforce development category. Due to limited data availability, tracts in these U.S. Territories are considered disadvantaged if they meet the low income only.
                 </p>
               </div>
               <h2
-                class="usa-accordion__heading"
+                class="usa-accordion__heading -faq"
               >
                 <button
                   aria-controls="faq-id-4"
@@ -631,18 +583,18 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                   data-testid="accordionButton_faq-id-4"
                   type="button"
                 >
-                  Q: Does the tool include Tribal Nations?
+                  Does the tool include Tribal Nations?
                 </button>
               </h2>
               <div
-                class="usa-accordion__content usa-prose"
+                class="usa-accordion__content usa-prose -faq"
                 data-testid="accordionItem_faq-id-4"
                 hidden=""
                 id="faq-id-4"
               >
                 <p>
                   
-      To respect Tribal sovereignty and self-government and to fulfill Federal trust and treaty responsibilities to Tribal Nations, land within the boundaries of Federally Recognized tribes are highlighted as disadvantaged on the map. Alaska Native Villages are included as point locations that are smaller than census tracts. The boundaries of census tracts and the lands of Federally Recognized Tribes are different.
+      To respect Tribal sovereignty and self-government and to fulfill Federal trust and treaty responsibilities to Tribal Nations, land within the boundaries of Federally Recognized Tribes are highlighted as disadvantaged on the map. Alaska Native Villages are included as point locations that are smaller than census tracts. The boundaries of census tracts and the lands of Federally Recognized Tribes are different.
     
                 </p>
                 <p>
@@ -669,7 +621,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                   >
                     Action Plan
                   </a>
-                   for Consultation and Coordination with Tribal Nations, President Biden’s 
+                   for Consultation and Coordination with Tribal Nations, the 
                   <a
                     class="usa-link usa-link--external"
                     data-cy=""
@@ -693,7 +645,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                 </p>
               </div>
               <h2
-                class="usa-accordion__heading"
+                class="usa-accordion__heading -faq"
               >
                 <button
                   aria-controls="faq-id-5"
@@ -702,11 +654,11 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                   data-testid="accordionButton_faq-id-5"
                   type="button"
                 >
-                  Q: Why do some areas of the map have different shades?
+                  Why do some areas of the map have different shades?
                 </button>
               </h2>
               <div
-                class="usa-accordion__content usa-prose"
+                class="usa-accordion__content usa-prose -faq"
                 data-testid="accordionItem_faq-id-5"
                 hidden=""
                 id="faq-id-5"
@@ -748,11 +700,11 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                   </div>
                 </div>
                 <p>
-                  Any area that is highlighted is considered disadvantaged, regardless of whether it is a light shade or dark shade. The tool will show if a whole census tract is considered disadvantaged or just the parts that are within the boundaries of Federally Recognized Tribes.
+                  Any area that is highlighted is considered disadvantaged, regardless of whether it is a light shade or dark shade. The tool will show if a whole census tract is considered disadvantaged or just the parts that contain land within the boundaries of Federally Recognized Tribes.
                 </p>
               </div>
               <h2
-                class="usa-accordion__heading"
+                class="usa-accordion__heading -faq"
               >
                 <button
                   aria-controls="faq-id-6"
@@ -761,11 +713,11 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                   data-testid="accordionButton_faq-id-6"
                   type="button"
                 >
-                  Q: Why does the tool have “partially disadvantaged” census tracts?
+                  Why does the tool have “partially disadvantaged” census tracts?
                 </button>
               </h2>
               <div
-                class="usa-accordion__content usa-prose"
+                class="usa-accordion__content usa-prose -faq"
                 data-testid="accordionItem_faq-id-6"
                 hidden=""
                 id="faq-id-6"
@@ -775,7 +727,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                 </p>
               </div>
               <h2
-                class="usa-accordion__heading"
+                class="usa-accordion__heading -faq"
               >
                 <button
                   aria-controls="faq-id-7"
@@ -784,182 +736,20 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                   data-testid="accordionButton_faq-id-7"
                   type="button"
                 >
-                  Q: How does this tool relate to the Justice40 Initiative?
+                  How is the Climate and Economic Justice Screening Tool (CEJST) different from other Federal environmental screening tools, such as EJScreen?
                 </button>
               </h2>
               <div
-                class="usa-accordion__content usa-prose"
+                class="usa-accordion__content usa-prose -faq"
                 data-testid="accordionItem_faq-id-7"
                 hidden=""
                 id="faq-id-7"
               >
                 <p>
-                  The Biden administration is advancing environmental justice across the whole-of-government. The Justice40 Initiative is a critical part of this effort. The Justice40 Initiative seeks to deliver 40% of the overall benefits of climate, clean energy, and related investments to disadvantaged communities.
+                  The CEJST uses lessons learned from the EPA's EJScreen. EJScreen is an environmental justice mapping and screening tool. EJScreen shows some environmental and demographic information and combines that information together into indices.
                 </p>
                 <p>
-                  The CEJST will play an important role in the Justice40 Initiative. It will help to provide a single, consistent definition of disadvantaged communities for programs  included in the Justice40 Initiative.
-                </p>
-              </div>
-              <h2
-                class="usa-accordion__heading"
-              >
-                <button
-                  aria-controls="faq-id-8"
-                  aria-expanded="false"
-                  class="usa-accordion__button"
-                  data-testid="accordionButton_faq-id-8"
-                  type="button"
-                >
-                  Q: How will Federal agencies use the Climate and Economic Justice Screening Tool (CEJST) for the Justice40 Initiative? 
-                </button>
-              </h2>
-              <div
-                class="usa-accordion__content usa-prose"
-                data-testid="accordionItem_faq-id-8"
-                hidden=""
-                id="faq-id-8"
-              >
-                <p>
-                  Federal agencies will use the tool to help identify disadvantaged communities that will benefit from programs included in the Justice40 Initiative. The Justice40 Initiative seeks to deliver 40% of the overall benefits of certain investments to disadvantaged communities.
-                </p>
-                <p>
-                  Federal agencies will use this definition to direct Justice40 investment benefits in the following areas:
-                </p>
-                <ul>
-                  <li>
-                    Climate
-                  </li>
-                  <li>
-                    Clean energy and energy efficiency
-                  </li>
-                  <li>
-                    Clean transit
-                  </li>
-                  <li>
-                    Affordable and sustainable housing
-                  </li>
-                  <li>
-                    Training and workforce development
-                  </li>
-                  <li>
-                    Remediation and reduction of legacy pollution
-                  </li>
-                  <li>
-                    Development of clean water and wastewater infrastructure
-                  </li>
-                </ul>
-              </div>
-              <h2
-                class="usa-accordion__heading"
-              >
-                <button
-                  aria-controls="faq-id-9"
-                  aria-expanded="false"
-                  class="usa-accordion__button"
-                  data-testid="accordionButton_faq-id-9"
-                  type="button"
-                >
-                  Q: How will this tool be used to inform decisions relating to new investments made through the Bipartisan Infrastructure Law and the Inflation Reduction Act?
-                </button>
-              </h2>
-              <div
-                class="usa-accordion__content usa-prose"
-                data-testid="accordionItem_faq-id-9"
-                hidden=""
-                id="faq-id-9"
-              >
-                <p>
-                  Historic legislation, such as the Bipartisan Infrastructure Law and the Inflation Reduction Act, has created new programs and directed funds to existing ones. These investments are included in the Justice40 Initiative if they meet the eligibility criteria. Agencies will use the tool to help identify disadvantaged communities that will receive 40% of the overall benefits of those Justice40 programs.
-                </p>
-              </div>
-              <h2
-                class="usa-accordion__heading"
-              >
-                <button
-                  aria-controls="faq-id-10"
-                  aria-expanded="false"
-                  class="usa-accordion__button"
-                  data-testid="accordionButton_faq-id-10"
-                  type="button"
-                >
-                  Q: Will agencies use the Climate and Economic Justice Screening Tool (CEJST) if they have already created their own tools or criteria to identify disadvantaged communities?
-                </button>
-              </h2>
-              <div
-                class="usa-accordion__content usa-prose"
-                data-testid="accordionItem_faq-id-10"
-                hidden=""
-                id="faq-id-10"
-              >
-                <p>
-                  The Council on Environmental Quality (CEQ), the Office of Management and Budget (OMB), and the Climate Policy Office (CPO) released the Justice40 Interim Implementation Guidance on July 20, 2021. It directed agencies to develop interim definitions of disadvantaged communities. Agencies used their interim definitions during the CEJST’s beta phase, and are now using version 2.0 as the primary tool to geographically identify disadvantaged communities.
-                </p>
-              </div>
-              <h2
-                class="usa-accordion__heading"
-              >
-                <button
-                  aria-controls="faq-id-11"
-                  aria-expanded="false"
-                  class="usa-accordion__button"
-                  data-testid="accordionButton_faq-id-11"
-                  type="button"
-                >
-                  Q: How is the Climate and Economic Justice Screening Tool (CEJST) different from other Federal environmental screening tools, such as EJScreen?
-                </button>
-              </h2>
-              <div
-                class="usa-accordion__content usa-prose"
-                data-testid="accordionItem_faq-id-11"
-                hidden=""
-                id="faq-id-11"
-              >
-                <p>
-                  The CEJST uses lessons learned from the EPA's EJScreen. EJScreen is an environmental justice mapping and screening tool. EJScreen shows environmental and demographic information and combines that information together into indices. The EPA, Federal agencies, and state and local governments will continue to use EJScreen to understand and analyze for environmental and EJ issues. For example, EPA uses 
-                  <a
-                    class="usa-link usa-link--external"
-                    data-cy=""
-                    href="https://www.epa.gov/ejscreen/how-does-epa-use-ejscreen"
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                     EJScreen 
-                  </a>
-                   to:
-                </p>
-                <ul>
-                  <li>
-                    Inform outreach and engagement practices
-                  </li>
-                  <li>
-                    Implement aspects of the following programs:
-                  </li>
-                  <ul>
-                    <li>
-                      Permitting programs
-                    </li>
-                    <li>
-                      Enforcement programs
-                    </li>
-                    <li>
-                      Compliance programs
-                    </li>
-                    <li>
-                      Voluntary programs
-                    </li>
-                  </ul>
-                  <li>
-                    Develop retrospective reports of EPA work
-                  </li>
-                  <li>
-                    Enhance geographically based initiatives
-                  </li>
-                </ul>
-                <p>
-                  However, EPA does not use EJScreen to identify or label an area as an "EJ community" or as the sole basis for agency-decision-making.
-                </p>
-                <p>
-                  In contrast, the CEJST will help Federal agencies to identify disadvantaged communities that will benefit from programs included in the Justice40 Initiative.
+                  In contrast, the CEJST helps to identify geographically defined disadvantaged communities that are marginalized by underinvestment and overburdened by pollution.
                 </p>
                 <p>
                   <a
@@ -975,72 +765,82 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                 </p>
               </div>
               <h2
-                class="usa-accordion__heading"
+                class="usa-accordion__heading -faq"
               >
                 <button
-                  aria-controls="faq-id-12"
+                  aria-controls="faq-id-8"
                   aria-expanded="false"
                   class="usa-accordion__button"
-                  data-testid="accordionButton_faq-id-12"
+                  data-testid="accordionButton_faq-id-8"
                   type="button"
                 >
-                  Q: How is this tool different from state screening tools?
+                  How is this tool different from state screening tools?
                 </button>
               </h2>
               <div
-                class="usa-accordion__content usa-prose"
-                data-testid="accordionItem_faq-id-12"
+                class="usa-accordion__content usa-prose -faq"
+                data-testid="accordionItem_faq-id-8"
                 hidden=""
-                id="faq-id-12"
+                id="faq-id-8"
               >
                 <p>
-                  Several states that have environmental justice screening tools. CalEnviroScreen is an environmental justice screening tool for California. Other states, like New York and Michigan have screening tools as well. The Climate and Economic Justice Screening Tool (CEJST)  incorporates lessons learned from these efforts.
+                  Several states that have environmental justice screening tools. CalEnviroScreen is an environmental justice screening tool for California. Other states, like New York and Michigan have screening tools as well. The Climate and Economic Justice Screening Tool (CEJST) incorporates lessons learned from these efforts.
                 </p>
                 <p>
                   There is an important difference between state-based tools and the CEJST. State tools use data that may not be available for other states. The CEJST only uses data that are nationally-consistent and publicly-available.
                 </p>
               </div>
               <h2
-                class="usa-accordion__heading"
+                class="usa-accordion__heading -faq"
               >
                 <button
-                  aria-controls="faq-id-13"
+                  aria-controls="faq-id-9"
                   aria-expanded="false"
                   class="usa-accordion__button"
-                  data-testid="accordionButton_faq-id-13"
+                  data-testid="accordionButton_faq-id-9"
                   type="button"
                 >
-                  Q: How were the White House Environmental Justice Advisory Council (WHEJAC) recommendations used for this tool?
+                  How were the White House Environmental Justice Advisory Council’s (WHEJAC)  recommendations considered for this tool?
                 </button>
               </h2>
               <div
-                class="usa-accordion__content usa-prose"
-                data-testid="accordionItem_faq-id-13"
+                class="usa-accordion__content usa-prose -faq"
+                data-testid="accordionItem_faq-id-9"
                 hidden=""
-                id="faq-id-13"
+                id="faq-id-9"
               >
                 <p>
-                  The WHEJAC provided recommendations on the Climate and Economic Justice Screening Tool (CEJST). The CEJST follows many of these recommendations.
+                  The WHEJAC provided 
+                  <a
+                    class="usa-link usa-link--external"
+                    data-cy=""
+                    href="https://www.epa.gov/environmentaljustice/white-house-environmental-justice-advisory-council"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    recommendations
+                  </a>
+                   on the Climate and Economic Justice Screening Tool (CEJST). The CEJST versions 1.0 and 2.0 include components that were informed by many of these recommendations.
                 </p>
               </div>
               <h2
-                class="usa-accordion__heading"
+                class="usa-accordion__heading -faq"
               >
                 <button
-                  aria-controls="faq-id-14"
+                  aria-controls="faq-id-10"
                   aria-expanded="false"
                   class="usa-accordion__button"
-                  data-testid="accordionButton_faq-id-14"
+                  data-testid="accordionButton_faq-id-10"
                   type="button"
                 >
-                  Q: Can the public provide feedback on this tool?
+                  Can the public provide feedback on this tool?
                 </button>
               </h2>
               <div
-                class="usa-accordion__content usa-prose"
-                data-testid="accordionItem_faq-id-14"
+                class="usa-accordion__content usa-prose -faq"
+                data-testid="accordionItem_faq-id-10"
                 hidden=""
-                id="faq-id-14"
+                id="faq-id-10"
               >
                 <p>
                   Yes. The CEJST website has multiple ways to offer feedback on the tool.
@@ -1090,26 +890,26 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                 </ul>
               </div>
               <h2
-                class="usa-accordion__heading"
+                class="usa-accordion__heading -faq"
               >
                 <button
-                  aria-controls="faq-id-15"
+                  aria-controls="faq-id-11"
                   aria-expanded="false"
                   class="usa-accordion__button"
-                  data-testid="accordionButton_faq-id-15"
+                  data-testid="accordionButton_faq-id-11"
                   type="button"
                 >
-                  Q: Why was the CEJST initially released in a beta version?
+                  When was the CEJST released?
                 </button>
               </h2>
               <div
-                class="usa-accordion__content usa-prose"
-                data-testid="accordionItem_faq-id-15"
+                class="usa-accordion__content usa-prose -faq"
+                data-testid="accordionItem_faq-id-11"
                 hidden=""
-                id="faq-id-15"
+                id="faq-id-11"
               >
                 <p>
-                  CEQ launched a beta – or draft – version of the CEJST on February 18, 2022 with support from the U.S. Digital Service (USDS), and in collaboration with other Federal agencies and departments. The CEJST was released in a beta version in order to seek 
+                  CEQ launched a beta—or draft—version of the CEJST in February 2022 with support from the U.S. Digital Service (USDS), and in collaboration with other Federal agencies and departments. The CEJST was released in a beta version in order to seek 
                   <a
                     class="usa-link usa-link--external"
                     data-cy=""
@@ -1133,7 +933,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                   <a
                     class="usa-link usa-link--external"
                     data-cy=""
-                    href="https://www.whitehouse.gov/ceq/news-updates/2022/04/21/ceq-extends-public-comment-period-on-beta-version-of-the-climate-and-economic-justice-screening-tool/"
+                    href="https://www.youtube.com/watch?v=QwHWcXbhw28"
                     rel="noreferrer"
                     target="_blank"
                   >
@@ -1141,28 +941,8 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                   </a>
                    sessions on the beta version of the CEJST. All of this feedback on the beta version of the CEJST helped to inform the release of version 1.0 of the CEJST.
                 </p>
-              </div>
-              <h2
-                class="usa-accordion__heading"
-              >
-                <button
-                  aria-controls="faq-id-16"
-                  aria-expanded="false"
-                  class="usa-accordion__button"
-                  data-testid="accordionButton_faq-id-16"
-                  type="button"
-                >
-                  Q: When did the official version of the tool come out?
-                </button>
-              </h2>
-              <div
-                class="usa-accordion__content usa-prose"
-                data-testid="accordionItem_faq-id-16"
-                hidden=""
-                id="faq-id-16"
-              >
                 <p>
-                  The tool was considered official when Federal agencies started using version 1.0 of the Climate and Economic Justice Screening Tool (CEJST) to help identify disadvantaged communities. The 1.0 version was released in 
+                  The 1.0 version was released in 
                   <a
                     class="usa-link usa-link--external"
                     data-cy=""
@@ -1174,28 +954,25 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                   </a>
                   . The current version, version 2.0, was released in December 2024.
                 </p>
-                <p>
-                  The tool will be improved over time. The Council on Environmental Quality (CEQ) will update the tool each year based on public feedback, research, and the availability of new data.
-                </p>
               </div>
               <h2
-                class="usa-accordion__heading"
+                class="usa-accordion__heading -faq"
               >
                 <button
-                  aria-controls="faq-id-17"
+                  aria-controls="faq-id-12"
                   aria-expanded="false"
                   class="usa-accordion__button"
-                  data-testid="accordionButton_faq-id-17"
+                  data-testid="accordionButton_faq-id-12"
                   type="button"
                 >
-                  Q. How does the Council on Environmental Quality (CEQ) keep people informed about the tool?
+                  How does the Council on Environmental Quality (CEQ) keep people informed about the tool?
                 </button>
               </h2>
               <div
-                class="usa-accordion__content usa-prose"
-                data-testid="accordionItem_faq-id-17"
+                class="usa-accordion__content usa-prose -faq"
+                data-testid="accordionItem_faq-id-12"
                 hidden=""
-                id="faq-id-17"
+                id="faq-id-12"
               >
                 <p>
                   <a
@@ -1205,29 +982,29 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                     rel="noreferrer"
                     target="_blank"
                   >
-                    Sign-up
+                    Sign up
                   </a>
                    to receive updates on the Climate and Economic Justice Screening Tool (CEJST) and other environmental justice news from CEQ.
                 </p>
               </div>
               <h2
-                class="usa-accordion__heading"
+                class="usa-accordion__heading -faq"
               >
                 <button
-                  aria-controls="faq-id-18"
+                  aria-controls="faq-id-13"
                   aria-expanded="false"
                   class="usa-accordion__button"
-                  data-testid="accordionButton_faq-id-18"
+                  data-testid="accordionButton_faq-id-13"
                   type="button"
                 >
-                  Q: What files and documentation are available from the tool?
+                  What files and documentation are available from the tool?
                 </button>
               </h2>
               <div
-                class="usa-accordion__content usa-prose"
-                data-testid="accordionItem_faq-id-18"
+                class="usa-accordion__content usa-prose -faq"
+                data-testid="accordionItem_faq-id-13"
                 hidden=""
-                id="faq-id-18"
+                id="faq-id-13"
               >
                 <p>
                   The Climate and Economic Justice Screening Tool (CEJST) has 
@@ -1237,27 +1014,34 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                   >
                     downloads
                   </a>
-                   available. Spreadsheets (.xlxs) and (.csv) contain the tool’s definitions and data. This data can be used for analysis. Shapefiles and geojson files can be uploaded into other mapping programs such as Esri. The downloads include information on how to use the files.
+                   for the current version available. Spreadsheets (.xlxs) and (.csv) contain the tool’s definitions and data. These data can be used for analysis. Shapefiles and GeoJSON files can be uploaded into other mapping programs such as Esri. The downloads include information on how to use the files. Information from previous versions of the tool is available on the 
+                  <a
+                    class="usa-link"
+                    href="/en/previous-versions"
+                  >
+                    previous versions
+                  </a>
+                   page.
                 </p>
               </div>
               <h2
-                class="usa-accordion__heading"
+                class="usa-accordion__heading -faq"
               >
                 <button
-                  aria-controls="faq-id-19"
+                  aria-controls="faq-id-14"
                   aria-expanded="false"
                   class="usa-accordion__button"
-                  data-testid="accordionButton_faq-id-19"
+                  data-testid="accordionButton_faq-id-14"
                   type="button"
                 >
-                  Q: How does the tool’s shapefile work?
+                  How do the tool’s shapefiles work?
                 </button>
               </h2>
               <div
-                class="usa-accordion__content usa-prose"
-                data-testid="accordionItem_faq-id-19"
+                class="usa-accordion__content usa-prose -faq"
+                data-testid="accordionItem_faq-id-14"
                 hidden=""
-                id="faq-id-19"
+                id="faq-id-14"
               >
                 <p>
                   The tool’s shapefile can be uploaded into other mapping programs such as Esri.
@@ -1284,6 +1068,62 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                     a geospatial vector data format
                   </a>
                    for geographic information system (GIS) software. It can be loaded into any software that works with Esri, ArcGIS or any other compatible GIS software. You may choose to download the data in this format so that you can load the data from the Climate and Economic Justice Screening Tool (CEJST) into other tools and use those tools to combine the CEJST data with other datasets and sources.
+                </p>
+              </div>
+              <h2
+                class="usa-accordion__heading -faq"
+              >
+                <button
+                  aria-controls="faq-id-15"
+                  aria-expanded="false"
+                  class="usa-accordion__button"
+                  data-testid="accordionButton_faq-id-15"
+                  type="button"
+                >
+                  Why are some tracts disadvantaged because they were disadvantaged in version 1.0 of the tool?
+                </button>
+              </h2>
+              <div
+                class="usa-accordion__content usa-prose -faq"
+                data-testid="accordionItem_faq-id-15"
+                hidden=""
+                id="faq-id-15"
+              >
+                <p>
+                  These tracts that have been "grandfathered" for at least two years. This helps to reduce disruption and to support a smooth transition for agencies, applicants, and the public as new versions of the tool are released. The tool’s 
+                  <a
+                    class="usa-link usa-link--external"
+                    data-cy=""
+                    href="undefined/data-versions/2.0/data/score/downloadable/CEQ-CEJST-Instructions.pdf"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    instructions
+                  </a>
+                   have more information about time-limited grandfathering.
+                </p>
+              </div>
+              <h2
+                class="usa-accordion__heading -faq"
+              >
+                <button
+                  aria-controls="faq-id-16"
+                  aria-expanded="false"
+                  class="usa-accordion__button"
+                  data-testid="accordionButton_faq-id-16"
+                  type="button"
+                >
+                  Why are some tracts disadvantaged in certain U.S. Territories because they only meet the low income threshold?
+                </button>
+              </h2>
+              <div
+                class="usa-accordion__content usa-prose -faq"
+                data-testid="accordionItem_faq-id-16"
+                hidden=""
+                id="faq-id-16"
+              >
+                <p>
+                  Because some nationally-consistent datasets on indicators of environmental burden used in the tool do not currently include data from certain U.S. Territories, tracts in these Territories are considered disadvantaged if they meet the low income threshold.
                 </p>
               </div>
             </div>
