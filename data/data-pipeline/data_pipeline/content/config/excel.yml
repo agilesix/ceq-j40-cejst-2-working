@@ -75,6 +75,12 @@ sheets:
       - score_name: Definition N (communities) (average of neighbors)
         label: Share of neighbors that are identified as disadvantaged
         format: percentage
+      - score_name: Definition N community, including adjacency index tracts v1.0
+        label: Identified as disadvantaged in v1.0
+        format: bool
+      - score_name: Grandfathered Definition N (communities) from v1.0
+        label: Identified as disadvantaged solely due to status in v1.0 (grandfathered)
+        format: bool
       - score_name: Total population
         label: Total population
         format: float
@@ -385,19 +391,19 @@ sheets:
         label: Percent of residents who are not currently enrolled in higher ed
         format: percentage
       - score_name: Unemployment (percent) in 2009 (island areas) and 2010 (states and PR)
-        label: Unemployment (percent) in 2009 (island areas) and 2010 (states and PR)
+        label: Unemployment (percent) in 2019 (island areas) and 2010 (states and PR)
         format: percentage
       - score_name: Percentage households below 100% of federal poverty line in 2009 (island areas) and 2010 (states and PR)
-        label: Percentage households below 100% of federal poverty line in 2009 (island areas) and 2010 (states and PR)
+        label: Percentage households below 100% of federal poverty line in 2019 (island areas) and 2010 (states and PR)
         format: percentage
       - score_name: Greater than or equal to the 90th percentile for unemployment and has low HS education in 2009 (island areas)?
-        label: Greater than or equal to the 90th percentile for unemployment and has low HS education in 2009 (island areas)?
+        label: Greater than or equal to the 90th percentile for unemployment and has low HS education in 2019 (island areas)?
         format: bool
       - score_name: Greater than or equal to the 90th percentile for households at or below 100% federal poverty level and has low HS education in 2009 (island areas)?
-        label: Greater than or equal to the 90th percentile for households at or below 100% federal poverty level and has low HS education in 2009 (island areas)?
+        label: Greater than or equal to the 90th percentile for households at or below 100% federal poverty level and has low HS education in 2019 (island areas)?
         format: bool
       - score_name: Greater than or equal to the 90th percentile for low median household income as a percent of area median income and has low HS education in 2009 (island areas)?
-        label: Greater than or equal to the 90th percentile for low median household income as a percent of area median income and has low HS education in 2009 (island areas)?
+        label: Greater than or equal to the 90th percentile for low median household income as a percent of area median income and has low HS education in 2019 (island areas)?
         format: bool
       - score_name: Number of Tribal areas within Census tract for Alaska
         label: Number of Tribal areas within Census tract for Alaska
