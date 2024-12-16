@@ -1,10 +1,10 @@
-import React from 'react';
 import {
   Address,
   Logo,
+  NavList,
 } from '@trussworks/react-uswds';
-import {NavList} from '@trussworks/react-uswds';
 import {useIntl} from 'gatsby-plugin-intl';
+import React from 'react';
 
 import {hyphenizeString} from '../../../cypress/integration/common/helpers';
 import J40MainGridContainer from '../J40MainGridContainer';
@@ -12,9 +12,9 @@ import LinkTypeWrapper from '../LinkTypeWrapper';
 import SurveyButton from '../SurveyButton';
 
 // @ts-ignore
-import whitehouseIcon from '../../images/eop-seal.svg';
-import * as COMMON_COPY from '../../data/copy/common';
 import {GITHUB_LINK, GITHUB_LINK_ES} from '../../constants';
+import * as COMMON_COPY from '../../data/copy/common';
+import whitehouseIcon from '../../images/eop-seal.svg';
 
 const J40Footer = () => {
   const intl = useIntl();
@@ -46,14 +46,6 @@ const J40Footer = () => {
       intl.formatMessage(COMMON_COPY.FOOTER.MORE_INFO),
       <LinkTypeWrapper
         className={'footer-link-first-child'}
-        linkText={intl.formatMessage(COMMON_COPY.FOOTER.WHITEHOUSE)}
-        internal={false}
-        url={intl.formatMessage(COMMON_COPY.FOOTER.WHITEHOUSE_LINK)}
-        openUrlNewTab={true}
-        key={'whitehouselink2'}
-        dataCy={hyphenizeString(COMMON_COPY.FOOTER.WHITEHOUSE.defaultMessage)}
-      />,
-      <LinkTypeWrapper
         linkText={intl.formatMessage(COMMON_COPY.FOOTER.FOIA)}
         internal={false}
         url={'https://www.whitehouse.gov/ceq/foia'}
