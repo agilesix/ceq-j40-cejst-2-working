@@ -91,6 +91,7 @@ const J40Map = ({location}: IJ40Interface) => {
   const [transitionInProgress, setTransitionInProgress] = useState<boolean>(false);
   const [geolocationInProgress, setGeolocationInProgress] = useState<boolean>(false);
   const [isMobileMapState, setIsMobileMapState] = useState<boolean>(false);
+  const [selectTractId, setSelectTractId] = useState<string | undefined>(undefined);
   const {width: windowWidth} = useWindowSize();
 
   /**
@@ -123,11 +124,7 @@ const J40Map = ({location}: IJ40Interface) => {
       const [minLng, minLat, maxLng, maxLat] = bbox(feature);
 
       // Set the selectedFeature ID
-      if (feature.id !== selectedFeatureId) {
-        setSelectedFeature(feature);
-      } else {
-        setSelectedFeature(undefined);
-      }
+      setSelectedFeature(feature);
 
       // Go to the newly selected feature (as long as it's not an Alaska Point)
       goToPlace([
@@ -250,7 +247,7 @@ const J40Map = ({location}: IJ40Interface) => {
    * @param {LngLatBoundsLike} bounds
    * @param {boolean} isTerritory
    */
-  const goToPlace = (bounds: LngLatBoundsLike, isTerritory = false) => {
+  const goToPlace = (bounds: LngLatBoundsLike, isTerritory = false, selectTractId: string | undefined = undefined) => {
     const newViewPort = new WebMercatorViewport({height: viewport.height!, width: viewport.width!});
     const {longitude, latitude, zoom} = newViewPort.fitBounds(
       bounds as [[number, number], [number, number]], {
@@ -281,6 +278,9 @@ const J40Map = ({location}: IJ40Interface) => {
       transitionInterpolator: new FlyToInterpolator(),
       transitionEasing: d3.easeCubic,
     });
+
+    // Set the tract ID to be selected if any.
+    setSelectTractId(selectTractId);
   };
 
   const onTransitionStart = () => {
@@ -289,6 +289,25 @@ const J40Map = ({location}: IJ40Interface) => {
 
   const onTransitionEnd = () => {
     setTransitionInProgress(false);
+
+    /*
+    If there is a tract ID to be selected then do so once the map has finished moving.
+    Note that setting the viewpoint to move the map as done in this component does not
+    trigger a moveend or idle event like when using flyTo or easeTo.
+    */
+    if (selectTractId) {
+      // Search for features in the map that have the tract ID.
+      const geoidSearchResults = mapRef.current?.getMap()
+          .querySourceFeatures(constants.HIGH_ZOOM_SOURCE_NAME, {
+            sourceLayer: constants.SCORE_SOURCE_LAYER,
+            validate: true,
+            filter: ['==', constants.GEOID_PROPERTY, selectTractId],
+          });
+      if (geoidSearchResults && geoidSearchResults.length > 0) {
+        selectFeatureOnMap(geoidSearchResults[0]);
+      }
+      setSelectTractId(undefined);
+    }
   };
 
   const onGeolocate = () => {
@@ -393,8 +412,7 @@ const J40Map = ({location}: IJ40Interface) => {
 
           {/* This is the first overlayed row on the map: Search and Geolocation */}
           <div className={styles.mapHeaderRow}>
-            <MapSearch goToPlace={goToPlace} mapRef={mapRef} selectFeatureOnMap={selectFeatureOnMap}
-              selectedFeatureId={selectedFeatureId}/>
+            <MapSearch goToPlace={goToPlace}/>
 
             {/* Geolocate Icon */}
             <div className={styles.geolocateBox}>

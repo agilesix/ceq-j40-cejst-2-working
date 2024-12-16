@@ -4,8 +4,6 @@ import {LngLatBoundsLike} from 'maplibre-gl';
 import {useIntl} from 'gatsby-plugin-intl';
 import {Search} from '@trussworks/react-uswds';
 import {useWindowSize} from 'react-use';
-import {RefObject} from 'react';
-import {MapRef} from 'react-map-gl';
 import * as JsSearch from 'js-search';
 import * as constants from '../../data/constants';
 
@@ -15,10 +13,7 @@ import * as styles from './MapSearch.module.scss';
 import * as EXPLORE_COPY from '../../data/copy/explore';
 
 interface IMapSearch {
-  goToPlace(bounds: LngLatBoundsLike):void;
-  mapRef:RefObject<MapRef>;
-  selectFeatureOnMap: (feature: any) => void;
-  selectedFeatureId: string;
+  goToPlace(bounds: LngLatBoundsLike, isTerritory: boolean, selectTractId: string | undefined):void;
 }
 
 interface ISearchTractRecord {
@@ -27,7 +22,7 @@ interface ISearchTractRecord {
   INTPTLON10: string;
 }
 
-const MapSearch = ({goToPlace, mapRef, selectFeatureOnMap, selectedFeatureId}:IMapSearch) => {
+const MapSearch = ({goToPlace}:IMapSearch) => {
   // State to hold if the search results are empty or not:
   const [isSearchResultsNull, setIsSearchResultsNull] = useState(false);
   const intl = useIntl();
@@ -85,33 +80,15 @@ const MapSearch = ({goToPlace, mapRef, selectFeatureOnMap, selectedFeatureId}:IM
   const searchForTract = async (tract: string) => {
     // We create a bounding box just to get the tract in the view box.
     // The size is not important.
-    const BOUNDING_BOX_SIZE_DD = 0.1;
-
-    /**
-     * Wait for the map to be done loading and moving.
-     * @param {function()} callback the callback to run after the map is ready
-     */
-    const waitforMap = (callback: () => void): void => {
-      const isMapReady = !!mapRef.current &&
-        mapRef.current.getMap().isStyleLoaded() &&
-        mapRef.current.getMap().isSourceLoaded(constants.HIGH_ZOOM_SOURCE_NAME);
-      if (isMapReady) {
-        callback();
-      } else {
-        setTimeout(() => waitforMap(callback), 200);
-      }
-    };
+    const BOUNDING_BOX_SIZE_DD = 0.2;
 
     // Convert 10 digit tracts to 11.
-    const searchTerm = tract.length == 10 ? '0' + tract : tract;
-
-    // If the search is for the same tract then do nothing.
-    if (selectedFeatureId == searchTerm) return;
+    const normalizedTractId = tract.length == 10 ? '0' + tract : tract;
 
     setIsSearchResultsNull(true);
 
     if (tractSearch) {
-      const result = tractSearch.search(searchTerm);
+      const result = tractSearch.search(normalizedTractId);
       if (result.length > 0) {
         const searchTractRecord = result[0] as ISearchTractRecord;
         const lat = Number(searchTractRecord.INTPTLAT10);
@@ -126,21 +103,7 @@ const MapSearch = ({goToPlace, mapRef, selectFeatureOnMap, selectedFeatureId}:IM
         setIsSearchResultsNull(false);
 
         // Now move the map and select the tract.
-        goToPlace([[Number(longMin), Number(latMin)], [Number(longMax), Number(latMax)]]);
-        waitforMap(() => {
-          // Set up a one-shot event handler to fire when the flyTo arrives at its destination.  Once the
-          // tract is in view of the map.  mpRef.current will always be valid here...
-          mapRef.current?.getMap().once('idle', () => {
-            const geoidSearchResults = mapRef.current?.getMap().querySourceFeatures(constants.HIGH_ZOOM_SOURCE_NAME, {
-              sourceLayer: constants.SCORE_SOURCE_LAYER,
-              validate: true,
-              filter: ['==', constants.GEOID_PROPERTY, searchTerm],
-            });
-            if (geoidSearchResults && geoidSearchResults.length > 0) {
-              selectFeatureOnMap(geoidSearchResults[0]);
-            }
-          });
-        });
+        goToPlace([[Number(longMin), Number(latMin)], [Number(longMax), Number(latMax)]], false, normalizedTractId);
       }
     }
   };
@@ -173,7 +136,7 @@ const MapSearch = ({goToPlace, mapRef, selectFeatureOnMap, selectedFeatureId}:IM
     if (searchResults && searchResults.length > 0) {
       setIsSearchResultsNull(false);
       const [latMin, latMax, longMin, longMax] = searchResults[0].boundingbox;
-      goToPlace([[Number(longMin), Number(latMin)], [Number(longMax), Number(latMax)]]);
+      goToPlace([[Number(longMin), Number(latMin)], [Number(longMax), Number(latMax)]], false, undefined);
     } else {
       setIsSearchResultsNull(true);
     }
