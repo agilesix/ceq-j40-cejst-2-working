@@ -1983,7 +1983,7 @@
     "description": "Navigate to the Methodology page. This is the description text for low income"
   },
   "methodology.page.category.census.tract.note.text": {
-    "defaultMessage": "<boldtag>Note: </boldtag>The demographics are included as information only and are not considered as a part of the tool's methodology.",
+    "defaultMessage": "<boldtag>Note: </boldtag>The demographics are included as information only and are not considered as a part of the tool’s methodology.",
     "description": "Navigate to the Methodology page. This is the note text for low life expectancy"
   },
   "methodology.page.category.diabetes.description.text": {
@@ -2059,7 +2059,7 @@
     "description": "Navigate to the Methodology page. This is the note text for linguistic.iso"
   },
   "methodology.page.category.low.hist.underinvestectancy.description.text": {
-    "defaultMessage": "Census tracts that experienced historic underinvestment based on redlining maps created by the federal government’s Home Owners’ Loan Corporation (HOLC) between 1935 and 1940. The tool uses the National Community Reinvestment Coalition’s <link1>methodology</link1> for converting boundaries in the HOLC maps to census tracts. Census tracts meet the threshold when they have a score of 3.25 or more out of 4.",
+    "defaultMessage": "Census tracts that experienced historic underinvestment based on redlining maps created by the Federal government’s Home Owners’ Loan Corporation (HOLC) between 1935 and 1940. The tool uses the National Community Reinvestment Coalition’s <link1>methodology</link1> for converting boundaries in the HOLC maps to census tracts. Census tracts meet the threshold when they have a score of 3.25 or more out of 4.",
     "description": "Navigate to the Methodology page. This is the description text for Historic Underinvestment"
   },
   "methodology.page.category.low.hist.underinvestectancy.note.text": {
@@ -2067,7 +2067,7 @@
     "description": "Navigate to the Methodology page. This is the note text for Historic Underinvestment"
   },
   "methodology.page.category.low.income.description.text": {
-    "defaultMessage": "Percent of a census tract's population in households where household income is at or below 200% of the Federal poverty level, not including students enrolled in higher education.",
+    "defaultMessage": "Percent of a census tract’s population in households where household income is at or below 200% of the Federal poverty level, not including students enrolled in higher education.",
     "description": "Navigate to the Methodology page. This is the description text for low income"
   },
   "methodology.page.category.low.life.expectancy.description.text": {
@@ -2130,12 +2130,16 @@
     "defaultMessage": "<link1>American Community Survey</link1> from {date15_19}",
     "description": "Navigate to the Methodology page. This is the source link for Census ACS"
   },
+  "methodology.page.category.source.census.link.20": {
+    "defaultMessage": "<link1>Decennial Census</link1> from {date20}",
+    "description": "Navigate to the Methodology page. This is the source link for Decennial Census"
+  },
   "methodology.page.category.source.doe.lead.link": {
     "defaultMessage": "<link1>LEAD Tool</link1> from {date18}",
     "description": "Navigate to the Methodology page. This is the source link for DOE FEMA"
   },
   "methodology.page.category.source.dot.epa.link": {
-    "defaultMessage": "<link1>Traffic data</link1> from {date17} as compiled by EPA's EJScreen",
+    "defaultMessage": "<link1>Traffic data</link1> from {date17} as compiled by EPA’s EJScreen",
     "description": "Navigate to the Methodology page. This is the source link for DOT EPA"
   },
   "methodology.page.category.source.epa.cerclis.link": {
@@ -2143,7 +2147,7 @@
     "description": "Navigate to the Methodology page. This is the source link for EPA CERCLIS"
   },
   "methodology.page.category.source.epa.nata.link": {
-    "defaultMessage": "<link1>National Air Toxics Assessment (NATA)</link1> from {date14} as compiled by EPA's EJScreen",
+    "defaultMessage": "<link1>National Air Toxics Assessment (NATA)</link1> from {date14} as compiled by EPA’s EJScreen",
     "description": "Navigate to the Methodology page. This is the source link for EPA NATA"
   },
   "methodology.page.category.source.epa.oar.link": {
@@ -2159,7 +2163,7 @@
     "description": "Navigate to the Methodology page. This is the source link for EPA RSEI"
   },
   "methodology.page.category.source.epa.tsdf.link": {
-    "defaultMessage": "<link1>Treatment, Storage, and Disposal Facilities (TSDF) data</link1> from {date20} calculated from EPA's RCRA database as compiled by EPA's EJScreen",
+    "defaultMessage": "<link1>Treatment, Storage, and Disposal Facilities (TSDF) data</link1> from {date20} calculated from EPA’s RCRA database as compiled by EPA’s EJScreen",
     "description": "Navigate to the Methodology page. This is the source link for EPA TSDF"
   },
   "methodology.page.category.source.fema.link": {
@@ -2175,7 +2179,7 @@
     "description": "Navigate to the Methodology page. This is the source link for CDC Sleep"
   },
   "methodology.page.category.source.holc.link": {
-    "defaultMessage": "<link1>Dataset of formerly redlined areas</link1> using digitized maps from the Home Owners Loan Corporation (HOLC), using {date10} census boundaries",
+    "defaultMessage": "<link1>Dataset of formerly redlined areas</link1> using digitized maps from the Home Owners’ Loan Corporation (HOLC), using {date10} census boundaries",
     "description": "Navigate to the Methodology page. This is the source link for CDC Sleep"
   },
   "methodology.page.category.source.hud.link": {
@@ -2191,7 +2195,7 @@
     "description": "Navigate to the Methodology page. This is the source link for Transportation burdens"
   },
   "methodology.page.category.source.ust.find.link": {
-    "defaultMessage": "Calculated from EPA’s <link1>UST Finder</link1> from {date21} as compiled by EPA's EJScreen",
+    "defaultMessage": "Calculated from EPA’s <link1>UST Finder</link1> from {date21} as compiled by EPA’s EJScreen",
     "description": "Navigate to the Methodology page. This is the source link for UST Find"
   },
   "methodology.page.category.traffic.vol.description.text": {
@@ -2227,7 +2231,7 @@
     "description": "Navigate to the Methodology page. This is the description text for exp bld loss rate"
   },
   "methodology.page.category.workforce.dev.description.text": {
-    "defaultMessage": "Low median income calculated as a share of the area’s median income.",
+    "defaultMessage": "Low median income is calculated as the median income of the tract divided by the income in the Metropolitan Statistical Area, unless the tract is a rural tract. For rural tracts, it is calculated as a percent of the state’s median income.",
     "description": "Navigate to the Methodology page. This is the description text for workforce dev"
   },
   "methodology.page.dataset.card.availableFor.ALL_ISLDS": {
@@ -2447,7 +2451,7 @@
     "description": "Navigate to the Methodology page. This is the section heading of which datasets are used in cumulative score"
   },
   "methodology.page.datasetContainer.info": {
-    "defaultMessage": "The tool's datasets are public and consistent nationwide. They come from different sources and are high quality. The Council on Environmental Quality (CEQ) chose them based on relevance, availability, and quality. They identify climate, environmental, and other burdens on communities.",
+    "defaultMessage": "The tool’s datasets are public and consistent nationwide. They come from different sources and are high quality. The Council on Environmental Quality (CEQ) chose them based on relevance, availability, and quality. They identify climate, environmental, and other burdens on communities.",
     "description": "Navigate to the Methodology page. This is the description of the dataset section"
   },
   "methodology.page.datasets.all.except.workforce.used.in.text": {
@@ -2555,8 +2559,24 @@
     "description": "Navigate to the methodology page. This is the methodology paragraph 1, bullet 1"
   },
   "methodology.page.paragraph.1.bullet.2": {
-    "defaultMessage": "If they are on land within the boundaries of Federally Recognized Tribes",
+    "defaultMessage": "If they are on land within the boundaries of Federally Recognized Tribes.",
     "description": "Navigate to the methodology page. This is the methodology paragraph 1, bullet 2"
+  },
+  "methodology.page.paragraph.1.bullet.3": {
+    "defaultMessage": "If the census tract ID was identified as disadvantaged in version 1.0, then the census tract is considered disadvantaged in version 2.0.",
+    "description": "Navigate to the methodology page. This is the methodology paragraph 1, bullet 3"
+  },
+  "methodology.page.paragraph.1.bullet.4": {
+    "defaultMessage": "If the tract is a new tract in 2020, then the percentage of land that it shared, if any, with a previously disadvantaged tract will be considered disadvantaged.",
+    "description": "Navigate to the methodology page. This is the methodology paragraph 1, bullet 4"
+  },
+  "methodology.page.paragraph.1.bullet.5": {
+    "defaultMessage": "Additionally, census tracts in certain U.S. Territories are considered disadvantaged if they meet the low income threshold only. This is because these Territories are not included in each of the nationally-consistent datasets on environmental and climate burdens currently used in the tool.",
+    "description": "Navigate to the methodology page. This is the methodology paragraph 1, bullet 5"
+  },
+  "methodology.page.paragraph.2": {
+    "defaultMessage": "The tool uses datasets as indicators of burdens. The burdens are organized into categories. A community is highlighted as disadvantaged on the CEJST map if it is in a census tract that is (1) at or above the threshold for one or more environmental, climate, or other burdens, and (2) at or above the threshold for an associated socioeconomic burden.",
+    "description": "Navigate to the methodology page. This is the methodology paragraph 2"
   },
   "methodology.page.paragraph.3": {
     "defaultMessage": "The tool uses datasets as indicators of burdens. The burdens are organized into categories. A community is highlighted as disadvantaged on the CEJST map if it is in a census tract that is (1) at or above the threshold for one or more environmental, climate, or other burdens, and (2) at or above the threshold for an associated socioeconomic burden.",

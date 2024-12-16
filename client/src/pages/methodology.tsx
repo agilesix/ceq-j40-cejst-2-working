@@ -1,18 +1,17 @@
-import * as React from 'react';
 import {Grid} from '@trussworks/react-uswds';
 import {useIntl} from 'gatsby-plugin-intl';
+import * as React from 'react';
 import {useWindowSize} from 'react-use';
 
 import Categories from '../components/Categories';
 import DatasetContainer from '../components/DatasetContainer';
+import DatasetsButton from '../components/DatasetsButton';
 import J40MainGridContainer from '../components/J40MainGridContainer';
 import Layout from '../components/layout';
 import SubPageNav from '../components/SubPageNav';
-import DatasetsButton from '../components/DatasetsButton';
 
-import {USWDS_BREAKPOINTS, DATA_SURVEY_LINKS} from '../data/constants';
+import {DATA_SURVEY_LINKS, PAGES_ENDPOINTS, USWDS_BREAKPOINTS} from '../data/constants';
 import * as METHODOLOGY_COPY from '../data/copy/methodology';
-import {PAGES_ENDPOINTS} from '../data/constants';
 
 interface MethodPageProps {
   location: Location;
@@ -22,8 +21,9 @@ const IndexPage = ({location}: MethodPageProps) => {
   const intl = useIntl();
   const {width} = useWindowSize();
 
+
   return (
-    <Layout location={location} title={intl.formatMessage(METHODOLOGY_COPY.PAGE.TILE)}>
+    <Layout location={location} title={intl.formatMessage(METHODOLOGY_COPY.PAGE.TITLE)}>
 
       <J40MainGridContainer>
 
@@ -43,12 +43,11 @@ const IndexPage = ({location}: MethodPageProps) => {
 
               <div>
                 <ul>
-                  <li>
-                    {intl.formatMessage(METHODOLOGY_COPY.PAGE.PARA1_BULLET1)}
-                  </li>
-                  <li className={'j40-mt3'}>
-                    {intl.formatMessage(METHODOLOGY_COPY.PAGE.PARA1_BULLET2)}
-                  </li>
+                  <li><p>{intl.formatMessage(METHODOLOGY_COPY.PAGE.PARA1_BULLET1)}</p></li>
+                  <li><p>{intl.formatMessage(METHODOLOGY_COPY.PAGE.PARA1_BULLET2)}</p></li>
+                  <li><p>{intl.formatMessage(METHODOLOGY_COPY.PAGE.PARA1_BULLET3)}</p></li>
+                  <li><p>{intl.formatMessage(METHODOLOGY_COPY.PAGE.PARA1_BULLET4)}</p></li>
+                  <li><p>{intl.formatMessage(METHODOLOGY_COPY.PAGE.PARA1_BULLET5)}</p></li>
                 </ul>
               </div>
             </section>

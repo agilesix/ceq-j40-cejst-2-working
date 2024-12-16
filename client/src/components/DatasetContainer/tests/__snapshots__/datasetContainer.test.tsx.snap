@@ -33,7 +33,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
         >
           <p>
             
-      The tool's datasets are public and consistent nationwide. They come from different sources and are high quality. The Council on Environmental Quality (CEQ) chose them based on relevance,  availability, and quality. They identify climate, environmental, and other burdens on communities.
+      The tool’s datasets are public and consistent nationwide. They come from different sources and are high quality. The Council on Environmental Quality (CEQ) chose them based on relevance,  availability, and quality. They identify climate, environmental, and other burdens on communities.
     
           </p>
           <p>
@@ -81,15 +81,9 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
             <div
               id="census-tract-info"
             >
-              <div>
-                <div>
-                  <span
-                    class="usa-tag"
-                    data-testid="tag"
-                  >
-                    NEW
-                  </span>
-                </div>
+              <div
+                class=""
+              >
                 <h3>
                   Census tract information and demographics
                 </h3>
@@ -106,7 +100,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                   <strong>
                     Note: 
                   </strong>
-                  The demographics are included as information only and are not considered as a part of the tool's methodology.
+                  The demographics are included as information only and are not considered as a part of the tool’s methodology.
     
                 </p>
               </div>
@@ -158,7 +152,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
               </div>
               <div>
                 
-        Percent of a census tract's population in households where household income is at or below
+        Percent of a census tract’s population in households where household income is at or below
         200% of the Federal poverty level, not including students enrolled in higher education.
       
               </div>
@@ -210,7 +204,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
               </div>
               <div>
                 
-        Expected agricultural value at risk from losses due to fourteen types of natural hazards. These hazards have some link to climate change. They are: avalanche, coastal flooding, cold wave, drought, hail, heat wave, hurricane, ice storm, landslide, riverine flooding, strong wind, tornado, wildfire, and winter weather. The rate is calculated by dividing the agricultural value at risk by the total agricultural value. 
+        Expected agricultural value at risk from losses due to fourteen types of natural hazards. These hazards have some link to climate change. They are: avalanche, coastal flooding, cold wave, drought, hail, heat wave, hurricane, ice storm, landslide, riverine flooding, strong wind, tornado, wildfire, and winter weather. The rate is calculated by dividing the agricultural value at risk by the total agricultural value.
       
               </div>
               <ul>
@@ -366,15 +360,9 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
             <div
               id="flood-risk"
             >
-              <div>
-                <div>
-                  <span
-                    class="usa-tag"
-                    data-testid="tag"
-                  >
-                    NEW
-                  </span>
-                </div>
+              <div
+                class=""
+              >
                 <h3>
                   Projected flood risk
                 </h3>
@@ -423,15 +411,9 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
             <div
               id="wildfire-risk"
             >
-              <div>
-                <div>
-                  <span
-                    class="usa-tag"
-                    data-testid="tag"
-                  >
-                    NEW
-                  </span>
-                </div>
+              <div
+                class=""
+              >
                 <h3>
                   Projected wildfire risk
                 </h3>
@@ -798,22 +780,16 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
             <div
               id="hist-underinv"
             >
-              <div>
-                <div>
-                  <span
-                    class="usa-tag"
-                    data-testid="tag"
-                  >
-                    NEW
-                  </span>
-                </div>
+              <div
+                class=""
+              >
                 <h3>
                   Historic underinvestment
                 </h3>
               </div>
               <div>
                 
-        Census tracts that experienced historic underinvestment based on redlining maps created by the federal government’s Home Owners’ Loan Corporation (HOLC) between 1935 and 1940. The tool uses the National Community Reinvestment Coalition’s 
+        Census tracts that experienced historic underinvestment based on redlining maps created by the Federal government’s Home Owners’ Loan Corporation (HOLC) between 1935 and 1940. The tool uses the National Community Reinvestment Coalition’s 
                 <a
                   class="usa-link usa-link--external"
                   data-cy=""
@@ -867,7 +843,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                   >
                     Dataset of formerly redlined areas
                   </a>
-                   using digitized maps from the Home Owners Loan Corporation (HOLC), using 2010 census boundaries
+                   using digitized maps from the Home Owners’ Loan Corporation (HOLC), using 2010 census boundaries
                 </li>
                 <li>
                   <span>
@@ -931,15 +907,9 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
             <div
               id="green-space"
             >
-              <div>
-                <div>
-                  <span
-                    class="usa-tag"
-                    data-testid="tag"
-                  >
-                    NEW
-                  </span>
-                </div>
+              <div
+                class=""
+              >
                 <h3>
                   Lack of green space
                 </h3>
@@ -1021,15 +991,9 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
             <div
               id="indoor-plumb"
             >
-              <div>
-                <div>
-                  <span
-                    class="usa-tag"
-                    data-testid="tag"
-                  >
-                    NEW
-                  </span>
-                </div>
+              <div
+                class=""
+              >
                 <h3>
                   Lack of indoor plumbing
                 </h3>
@@ -1129,15 +1093,9 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
             <div
               id="mine-land"
             >
-              <div>
-                <div>
-                  <span
-                    class="usa-tag"
-                    data-testid="tag"
-                  >
-                    NEW
-                  </span>
-                </div>
+              <div
+                class=""
+              >
                 <h3>
                   Abandoned mine land
                 </h3>
@@ -1186,15 +1144,9 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
             <div
               id="fuds"
             >
-              <div>
-                <div>
-                  <span
-                    class="usa-tag"
-                    data-testid="tag"
-                  >
-                    NEW
-                  </span>
-                </div>
+              <div
+                class=""
+              >
                 <h3>
                   Formerly Used Defense Sites
                 </h3>
@@ -1283,8 +1235,8 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                   >
                     Treatment, Storage, and Disposal Facilities (TSDF) data
                   </a>
-                   from 2020 calculated from EPA's RCRA database as compiled 
-      by EPA's EJScreen
+                   from 2020 calculated from EPA’s RCRA database as compiled
+      by EPA’s EJScreen
     
                 </li>
                 <li>
@@ -1438,7 +1390,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                   >
                     National Air Toxics Assessment (NATA)
                   </a>
-                   from 2014 as compiled by EPA's EJScreen
+                   from 2014 as compiled by EPA’s EJScreen
                 </li>
                 <li>
                   <span>
@@ -1451,15 +1403,9 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
             <div
               id="trans-barrier"
             >
-              <div>
-                <div>
-                  <span
-                    class="usa-tag"
-                    data-testid="tag"
-                  >
-                    NEW
-                  </span>
-                </div>
+              <div
+                class=""
+              >
                 <h3>
                   Transportation barriers
                 </h3>
@@ -1557,7 +1503,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                   >
                     Traffic data
                   </a>
-                   from 2017 as compiled by EPA's EJScreen
+                   from 2017 as compiled by EPA’s EJScreen
                 </li>
                 <li>
                   <span>
@@ -1570,15 +1516,9 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
             <div
               id="leaky-uwt"
             >
-              <div>
-                <div>
-                  <span
-                    class="usa-tag"
-                    data-testid="tag"
-                  >
-                    NEW
-                  </span>
-                </div>
+              <div
+                class=""
+              >
                 <h3>
                   Underground storage tanks and releases
                 </h3>
@@ -1615,7 +1555,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                   >
                     UST Finder
                   </a>
-                   from 2021 as compiled by EPA's EJScreen
+                   from 2021 as compiled by EPA’s EJScreen
     
                 </li>
                 <li>
@@ -1752,7 +1692,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
               </div>
               <div>
                 
-        Low median income calculated as a share of the area’s median income.
+        Low median income is calculated as the median income of the tract divided by the income in the Metropolitan Statistical Area, unless the tract is a rural tract. For rural tracts, it is calculated as a percent of the state’s median income.
       
               </div>
               <div>
@@ -1807,13 +1747,19 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                   <a
                     class="usa-link usa-link--external"
                     data-cy=""
-                    href="https://www.census.gov/data/developers/data-sets/acs-5year/2010.html"
+                    href="https://www.census.gov/data/developers/data-sets/decennial-census.2020.html"
                     rel="noreferrer"
                     target="_blank"
                   >
-                    American Community Survey
+                    Decennial Census
                   </a>
-                   from 2010
+                   from 2020 
+                  <span
+                    class="usa-tag"
+                    data-testid="tag"
+                  >
+                    NEW
+                  </span>
                 </li>
                 <li>
                   <span>
@@ -1880,13 +1826,19 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                   <a
                     class="usa-link usa-link--external"
                     data-cy=""
-                    href="https://www.census.gov/data/developers/data-sets/acs-5year/2010.html"
+                    href="https://www.census.gov/data/developers/data-sets/decennial-census.2020.html"
                     rel="noreferrer"
                     target="_blank"
                   >
-                    American Community Survey
+                    Decennial Census
                   </a>
-                   from 2010
+                   from 2020 
+                  <span
+                    class="usa-tag"
+                    data-testid="tag"
+                  >
+                    NEW
+                  </span>
                 </li>
                 <li>
                   <span>
@@ -1953,13 +1905,19 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                   <a
                     class="usa-link usa-link--external"
                     data-cy=""
-                    href="https://www.census.gov/data/developers/data-sets/acs-5year/2010.html"
+                    href="https://www.census.gov/data/developers/data-sets/decennial-census.2020.html"
                     rel="noreferrer"
                     target="_blank"
                   >
-                    American Community Survey
+                    Decennial Census
                   </a>
-                   from 2010
+                   from 2020 
+                  <span
+                    class="usa-tag"
+                    data-testid="tag"
+                  >
+                    NEW
+                  </span>
                 </li>
                 <li>
                   <span>
@@ -2026,13 +1984,19 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                   <a
                     class="usa-link usa-link--external"
                     data-cy=""
-                    href="https://www.census.gov/data/developers/data-sets/acs-5year/2010.html"
+                    href="https://www.census.gov/data/developers/data-sets/decennial-census.2020.html"
                     rel="noreferrer"
                     target="_blank"
                   >
-                    American Community Survey
+                    Decennial Census
                   </a>
-                   from 2010
+                   from 2020 
+                  <span
+                    class="usa-tag"
+                    data-testid="tag"
+                  >
+                    NEW
+                  </span>
                 </li>
                 <li>
                   <span>
@@ -2046,15 +2010,9 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
             <div
               id="tribal-lands"
             >
-              <div>
-                <div>
-                  <span
-                    class="usa-tag"
-                    data-testid="tag"
-                  >
-                    NEW
-                  </span>
-                </div>
+              <div
+                class=""
+              >
                 <h3>
                   Tribes
                 </h3>

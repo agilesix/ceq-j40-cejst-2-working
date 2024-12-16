@@ -1,13 +1,13 @@
 /* eslint-disable max-len */
+import {FormattedMessage} from 'gatsby-plugin-intl';
 import React from 'react';
 import {defineMessages} from 'react-intl';
-import {FormattedMessage} from 'gatsby-plugin-intl';
 import {boldFn, linkFn, simpleLink} from './common';
 
 export const VERSION_NUMBER = (2.0).toFixed(1);
 
 export const PAGE = defineMessages({
-  TILE: {
+  TITLE: {
     id: 'methodology.page.title.text',
     defaultMessage: 'Methodology & data',
     description: 'Navigate to the methodology page. This is the methodology page title text',
@@ -34,9 +34,38 @@ export const PAGE = defineMessages({
   PARA1_BULLET2: {
     id: 'methodology.page.paragraph.1.bullet.2',
     defaultMessage: `
-      If they are on land within the boundaries of Federally Recognized Tribes
+      If they are on land within the boundaries of Federally Recognized Tribes.
     `,
     description: 'Navigate to the methodology page. This is the methodology paragraph 1, bullet 2',
+  },
+  PARA1_BULLET3: {
+    id: 'methodology.page.paragraph.1.bullet.3',
+    defaultMessage: `
+      If the census tract ID was identified as disadvantaged in version 1.0, then the census tract is considered disadvantaged in version 2.0.
+    `,
+    description: 'Navigate to the methodology page. This is the methodology paragraph 1, bullet 3',
+  },
+  PARA1_BULLET4: {
+    id: 'methodology.page.paragraph.1.bullet.4',
+    defaultMessage: `
+      If the tract is a new tract in 2020, then the percentage of land that it shared, if any, with a previously disadvantaged tract will be considered disadvantaged.
+    `,
+    description: 'Navigate to the methodology page. This is the methodology paragraph 1, bullet 4',
+  },
+  PARA1_BULLET5: {
+    id: 'methodology.page.paragraph.1.bullet.5',
+    defaultMessage: `
+      Additionally, census tracts in certain U.S. Territories are considered disadvantaged if they meet the low income threshold only. This is because these Territories are not included in each of the nationally-consistent datasets on environmental and climate burdens currently used in the tool.
+    `,
+    description: 'Navigate to the methodology page. This is the methodology paragraph 1, bullet 5',
+  },
+  PARA2: {
+    id: 'methodology.page.paragraph.2',
+    defaultMessage: `
+      The tool uses datasets as indicators of burdens. The burdens are organized into categories. A community is highlighted as disadvantaged on the CEJST map if it is in a census tract that is (1) at or above the threshold for one or more environmental, climate, or other burdens, and (2) at or
+      above the threshold for an associated socioeconomic burden.
+    `,
+    description: 'Navigate to the methodology page. This is the methodology paragraph 2',
   },
   SUB_HEADING_1: {
     id: 'methodology.page.sub.heading.1',
@@ -80,8 +109,8 @@ export const FORMULA = {
   INTRO: <FormattedMessage
     id={'methodology.page.formula.intro'}
     defaultMessage={`
-      Under the current formula, a census tract will be identified as disadvantaged in one or more 
-      categories of criteria: 
+      Under the current formula, a census tract will be identified as disadvantaged in one or more
+      categories of criteria:
     `}
     description={'Navigate to the methodology page. This is the methodology page introducing the formula'}
   />,
@@ -98,8 +127,8 @@ export const FORMULA = {
   PARA6: <FormattedMessage
     id={'methodology.page.paragraph.6'}
     defaultMessage={`
-      Census tracts are small units of geography. Census tract boundaries for <link1>statistical areas</link1> are determined by the U.S. Census Bureau once every ten years. The tool utilizes the census tract boundaries from 2010. This was chosen because many of the data sources in the tool currently use the 2010 
-      census boundaries.    
+      Census tracts are small units of geography. Census tract boundaries for <link1>statistical areas</link1> are determined by the U.S. Census Bureau once every ten years. The tool utilizes the census tract boundaries from 2010. This was chosen because many of the data sources in the tool currently use the 2010
+      census boundaries.
     `}
     description={'Navigate to the methodology page. This is the methodology paragraph 4'}
     values={{
@@ -399,7 +428,7 @@ export const DATASETS = defineMessages({
   INFO: {
     id: 'methodology.page.datasetContainer.info',
     defaultMessage: `
-      The tool's datasets are public and consistent nationwide. They come from different sources and are high quality. The Council on Environmental Quality (CEQ) chose them based on relevance,  availability, and quality. They identify climate, environmental, and other burdens on communities.
+      The tool’s datasets are public and consistent nationwide. They come from different sources and are high quality. The Council on Environmental Quality (CEQ) chose them based on relevance,  availability, and quality. They identify climate, environmental, and other burdens on communities.
     `,
     description: 'Navigate to the Methodology page. This is the description of the dataset section',
   },
@@ -587,6 +616,15 @@ export const SOURCE_LINKS = {
       date10: DATE_RANGE.TEN,
     }}
   />,
+  DECENNIAL_CENSUS_20: <FormattedMessage
+    id={'methodology.page.category.source.census.link.20'}
+    defaultMessage={'<link1>Decennial Census</link1> from {date20}'}
+    description={'Navigate to the Methodology page. This is the source link for Decennial Census'}
+    values={{
+      link1: linkFn('https://www.census.gov/data/developers/data-sets/decennial-census.2020.html', false, true),
+      date20: DATE_RANGE.TWENTY,
+    }}
+  />,
   FEMA_NRI: <FormattedMessage
     id={'methodology.page.category.source.fema.link'}
     defaultMessage={`<link1>National Risk Index</link1> from {date14_21}`}
@@ -617,7 +655,7 @@ export const SOURCE_LINKS = {
   />,
   EPA_NATA: <FormattedMessage
     id={'methodology.page.category.source.epa.nata.link'}
-    defaultMessage={`<link1>National Air Toxics Assessment (NATA)</link1> from {date14} as compiled by EPA's EJScreen`}
+    defaultMessage={`<link1>National Air Toxics Assessment (NATA)</link1> from {date14} as compiled by EPA’s EJScreen`}
     description={'Navigate to the Methodology page. This is the source link for EPA NATA'}
     values={{
       link1: linkFn('https://www.epa.gov/ejscreen/download-ejscreen-data', false, true),
@@ -626,7 +664,7 @@ export const SOURCE_LINKS = {
   />,
   DOT_EPA: <FormattedMessage
     id={'methodology.page.category.source.dot.epa.link'}
-    defaultMessage={`<link1>Traffic data</link1> from {date17} as compiled by EPA's EJScreen`}
+    defaultMessage={`<link1>Traffic data</link1> from {date17} as compiled by EPA’s EJScreen`}
     description={'Navigate to the Methodology page. This is the source link for DOT EPA'}
     values={{
       link1: linkFn('https://www.epa.gov/ejscreen/download-ejscreen-data', false, true),
@@ -645,8 +683,8 @@ export const SOURCE_LINKS = {
   EPA_TSDF: <FormattedMessage
     id={'methodology.page.category.source.epa.tsdf.link'}
     defaultMessage={`
-      <link1>Treatment, Storage, and Disposal Facilities (TSDF) data</link1> from {date20} calculated from EPA's RCRA database as compiled 
-      by EPA's EJScreen
+      <link1>Treatment, Storage, and Disposal Facilities (TSDF) data</link1> from {date20} calculated from EPA’s RCRA database as compiled
+      by EPA’s EJScreen
     `}
     description={'Navigate to the Methodology page. This is the source link for EPA TSDF'}
     values={{
@@ -710,7 +748,7 @@ export const SOURCE_LINKS = {
   />,
   HOLC: <FormattedMessage
     id={'methodology.page.category.source.holc.link'}
-    defaultMessage={`<link1>Dataset of formerly redlined areas</link1> using digitized maps from the Home Owners Loan Corporation (HOLC), using {date10} census boundaries`}
+    defaultMessage={`<link1>Dataset of formerly redlined areas</link1> using digitized maps from the Home Owners’ Loan Corporation (HOLC), using {date10} census boundaries`}
     description={'Navigate to the Methodology page. This is the source link for CDC Sleep'}
     values={{
       link1: linkFn('https://www.openicpsr.org/openicpsr/project/141121/version/V2/view', false, true),
@@ -755,7 +793,7 @@ export const SOURCE_LINKS = {
   />,
   UST_FIND: <FormattedMessage
     id={'methodology.page.category.source.ust.find.link'}
-    defaultMessage={`Calculated from EPA’s <link1>UST Finder</link1> from {date21} as compiled by EPA's EJScreen
+    defaultMessage={`Calculated from EPA’s <link1>UST Finder</link1> from {date21} as compiled by EPA’s EJScreen
     `}
     description={'Navigate to the Methodology page. This is the source link for UST Find'}
     values={{
@@ -828,6 +866,7 @@ export interface IIndicators {
   responsibleParty: JSX.Element,
   sources: {
     source: JSX.Element,
+    isNew?: boolean,
     availableFor: { // Todo remove this and replace with MessageDescriptor when ticket #2000 is fixed
       id: string,
       description: string,
@@ -836,7 +875,7 @@ export interface IIndicators {
   }[]
 };
 
-export const INDICATORS = [
+export const INDICATORS: IIndicators[] = [
   // All categories:
   {
     domID: 'census-tract-info',
@@ -845,7 +884,6 @@ export const INDICATORS = [
       defaultMessage={`Census tract information and demographics`}
       description={'Navigate to the Methodology page. This is the title text for the census tract dataset'}
     />,
-    isNew: true,
     description: <FormattedMessage
       id={'methodology.page.category.census.tract.description.text'}
       defaultMessage={`
@@ -856,7 +894,7 @@ export const INDICATORS = [
     note: <FormattedMessage
       id={'methodology.page.category.census.tract.note.text'}
       defaultMessage={`
-      <boldtag>Note: </boldtag>The demographics are included as information only and are not considered as a part of the tool's methodology.
+      <boldtag>Note: </boldtag>The demographics are included as information only and are not considered as a part of the tool’s methodology.
     `}
       description={'Navigate to the Methodology page. This is the note text for low life expectancy'}
       values={{
@@ -882,7 +920,7 @@ export const INDICATORS = [
     description: <FormattedMessage
       id={'methodology.page.category.low.income.description.text'}
       defaultMessage={`
-        Percent of a census tract's population in households where household income is at or below
+        Percent of a census tract’s population in households where household income is at or below
         200% of the Federal poverty level, not including students enrolled in higher education.
       `}
       description={'Navigate to the Methodology page. This is the description text for low income'}
@@ -908,7 +946,7 @@ export const INDICATORS = [
     description: <FormattedMessage
       id={'methodology.page.category.exp.agr.loss.rate.description.text'}
       defaultMessage={`
-        Expected agricultural value at risk from losses due to fourteen types of natural hazards. These hazards have some link to climate change. They are: avalanche, coastal flooding, cold wave, drought, hail, heat wave, hurricane, ice storm, landslide, riverine flooding, strong wind, tornado, wildfire, and winter weather. The rate is calculated by dividing the agricultural value at risk by the total agricultural value. 
+        Expected agricultural value at risk from losses due to fourteen types of natural hazards. These hazards have some link to climate change. They are: avalanche, coastal flooding, cold wave, drought, hail, heat wave, hurricane, ice storm, landslide, riverine flooding, strong wind, tornado, wildfire, and winter weather. The rate is calculated by dividing the agricultural value at risk by the total agricultural value.
       `}
       description={'Navigate to the Methodology page. This is the description text for exp agr loss rate'}
     />,
@@ -985,7 +1023,6 @@ export const INDICATORS = [
       defaultMessage={`Projected flood risk`}
       description={'Navigate to the Methodology page. This is the title text for the NEW Projected flood risk'}
     />,
-    isNew: true,
     description: <FormattedMessage
       id={'methodology.page.category.flood.risk.rate.description.text'}
       defaultMessage={`
@@ -1009,7 +1046,6 @@ export const INDICATORS = [
       defaultMessage={`Projected wildfire risk`}
       description={'Navigate to the Methodology page. This is the title text for the NEW Projected wildfire risk'}
     />,
-    isNew: true,
     description: <FormattedMessage
       id={'methodology.page.category.wildfire.risk.rate.description.text'}
       defaultMessage={`
@@ -1187,11 +1223,10 @@ export const INDICATORS = [
       defaultMessage={`Historic underinvestment`}
       description={'Navigate to the Methodology page. This is the title text for the Historic Underinvestment'}
     />,
-    isNew: true,
     description: <FormattedMessage
       id={'methodology.page.category.low.hist.underinvestectancy.description.text'}
       defaultMessage={`
-        Census tracts that experienced historic underinvestment based on redlining maps created by the federal government’s Home Owners’ Loan Corporation (HOLC) between 1935 and 1940. The tool uses the National Community Reinvestment Coalition’s <link1>methodology</link1> for converting boundaries in the HOLC maps to census tracts. Census tracts meet the threshold when they have a score of 3.25 or more out of 4.
+        Census tracts that experienced historic underinvestment based on redlining maps created by the Federal government’s Home Owners’ Loan Corporation (HOLC) between 1935 and 1940. The tool uses the National Community Reinvestment Coalition’s <link1>methodology</link1> for converting boundaries in the HOLC maps to census tracts. Census tracts meet the threshold when they have a score of 3.25 or more out of 4.
       `}
       description={'Navigate to the Methodology page. This is the description text for Historic Underinvestment'}
       values={{
@@ -1247,7 +1282,6 @@ export const INDICATORS = [
       defaultMessage={`Lack of green space`}
       description={'Navigate to the Methodology page. This is the title text for the house burden dataset'}
     />,
-    isNew: true,
     description: <FormattedMessage
       id={'methodology.page.category.green.space.description.text'}
       defaultMessage={`
@@ -1272,7 +1306,6 @@ export const INDICATORS = [
       defaultMessage={`Lack of indoor plumbing`}
       description={'Navigate to the Methodology page. This is the title text for the indoor plumbing'}
     />,
-    isNew: true,
     description: <FormattedMessage
       id={'methodology.page.category.indoor.plumb.description.text'}
       defaultMessage={`
@@ -1321,7 +1354,6 @@ export const INDICATORS = [
       defaultMessage={`Abandoned mine land`}
       description={'Navigate to the Methodology page. This is the title text for the Abandoned mine lands'}
     />,
-    isNew: true,
     description: <FormattedMessage
       id={'methodology.page.category.mine.land.description.text'}
       defaultMessage={`
@@ -1345,7 +1377,6 @@ export const INDICATORS = [
       defaultMessage={`Formerly Used Defense Sites`}
       description={'Navigate to the Methodology page. This is the title text for the Formerly Used Defense Sites'}
     />,
-    isNew: true,
     description: <FormattedMessage
       id={'methodology.page.category.fuds.description.text'}
       defaultMessage={`
@@ -1463,7 +1494,6 @@ export const INDICATORS = [
       defaultMessage={`Transportation barriers`}
       description={'Navigate to the Methodology page. This is the title text for the Transportation barriers'}
     />,
-    isNew: true,
     description: <FormattedMessage
       id={'methodology.page.category.trans.barrier.description.text'}
       defaultMessage={`
@@ -1522,7 +1552,6 @@ export const INDICATORS = [
       defaultMessage={`Underground storage tanks and releases`}
       description={'Navigate to the Methodology page. This is the title text for the Underground storage tanks and releases'}
     />,
-    isNew: true,
     description: <FormattedMessage
       id={'methodology.page.category.leaky.uwt.description.text'}
       defaultMessage={`
@@ -1608,7 +1637,7 @@ export const INDICATORS = [
     description: <FormattedMessage
       id={'methodology.page.category.workforce.dev.description.text'}
       defaultMessage={`
-        Low median income calculated as a share of the area’s median income.
+        Low median income is calculated as the median income of the tract divided by the income in the Metropolitan Statistical Area, unless the tract is a rural tract. For rural tracts, it is calculated as a percent of the state’s median income.
       `}
       description={'Navigate to the Methodology page. This is the description text for workforce dev'}
     />,
@@ -1630,7 +1659,8 @@ export const INDICATORS = [
         availableFor: AVAILABLE_FOR.ALL_US_DC_PR,
       },
       {
-        source: SOURCE_LINKS.CENSUS_ACS_10,
+        source: SOURCE_LINKS.DECENNIAL_CENSUS_20,
+        isNew: true,
         availableFor: AVAILABLE_FOR.ALL_ISLDS,
       },
     ],
@@ -1657,7 +1687,8 @@ export const INDICATORS = [
         availableFor: AVAILABLE_FOR.ALL_US_DC_PR,
       },
       {
-        source: SOURCE_LINKS.CENSUS_ACS_10,
+        source: SOURCE_LINKS.DECENNIAL_CENSUS_20,
+        isNew: true,
         availableFor: AVAILABLE_FOR.ALL_ISLDS,
       },
     ],
@@ -1684,7 +1715,8 @@ export const INDICATORS = [
         availableFor: AVAILABLE_FOR.ALL_US_DC_PR,
       },
       {
-        source: SOURCE_LINKS.CENSUS_ACS_10,
+        source: SOURCE_LINKS.DECENNIAL_CENSUS_20,
+        isNew: true,
         availableFor: AVAILABLE_FOR.ALL_ISLDS,
       },
     ],
@@ -1711,7 +1743,8 @@ export const INDICATORS = [
         availableFor: AVAILABLE_FOR.ALL_US_DC_PR,
       },
       {
-        source: SOURCE_LINKS.CENSUS_ACS_10,
+        source: SOURCE_LINKS.DECENNIAL_CENSUS_20,
+        isNew: true,
         availableFor: AVAILABLE_FOR.ALL_ISLDS,
       },
     ],
@@ -1726,7 +1759,6 @@ export const INDICATORS = [
       defaultMessage={`Tribes`}
       description={'Navigate to the Methodology page. This is the title text for the Tribal lands'}
     />,
-    isNew: true,
     description: <FormattedMessage
       id={'methodology.page.category.tribal.lands.description.text'}
       defaultMessage={`

@@ -1,10 +1,10 @@
 /* eslint-disable valid-jsdoc */
-import React from 'react';
 import {Tag} from '@trussworks/react-uswds';
 import {useIntl} from 'gatsby-plugin-intl';
+import React from 'react';
 
-import * as styles from './datasetCard.module.scss';
 import * as METHODOLOGY_COPY from '../../data/copy/methodology';
+import * as styles from './datasetCard.module.scss';
 
 interface IDatasetCardProps {
   datasetCardProps: METHODOLOGY_COPY.IIndicators
@@ -71,6 +71,10 @@ const DatasetCard = ({datasetCardProps}: IDatasetCardProps) => {
                 {intl.formatMessage(METHODOLOGY_COPY.DATASET_CARD_LABELS.SOURCE)}
               </span>
               {dataSource.source}
+              {dataSource.isNew && (<>
+                &ensp;
+                <Tag className={styles.newTag}>{intl.formatMessage(METHODOLOGY_COPY.DATASET_CARD_LABELS.NEW)}</Tag>
+              </>)}
             </li>
 
             {/* Dataset Available for */}
