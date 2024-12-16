@@ -33,7 +33,10 @@ export const PAGE_INTRO = defineMessages({
 export const PAGE_DESCRIPTION1 = <FormattedMessage
   id={'explore.map.page.description.1'}
   defaultMessage={`
-    Census tracts that are overburdened and underserved are highlighted as being disadvantaged on the map. Federally Recognized Tribes, including Alaska Native Villages, are also considered disadvantaged communities.
+    Census tracts that are marginalized by underinvestment and overburdened 
+    by pollution are highlighted as being disadvantaged on the map. Federally 
+    Recognized Tribes, including Alaska Native Villages, are considered 
+    disadvantaged communities, whether or not they have land.
   `}
   description={'On the explore the map page, the first description of the page'}
 />;

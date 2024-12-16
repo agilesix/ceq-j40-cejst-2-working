@@ -8,7 +8,7 @@
     "description": "Navigate to the About page. This is the paragraph 4"
   },
   "about.page.how.to.use.tool.para1": {
-    "defaultMessage": "The tool shows information about the burdens that communities experience. It uses datasets to identify indicators of burdens. The tool shows these burdens in census tracts. Census tracts are small units of geography. Census tract boundaries for <link1>statistical areas</link1> are determined by the U.S. Census Bureau once every ten years. The tool utilizes the census tract boundaries from 2010. This was chosen because many of the data sources in the tool currently use the 2010 census boundaries. The tool also shows land within the boundaries of Federally Recognized Tribes and point locations for Alaska Native Villages.",
+    "defaultMessage": "The tool shows information about the burdens that communities experience. It uses datasets to identify indicators of burdens. The tool shows these burdens in census tracts. Census tracts are small units of geography. Census tract boundaries for <link1>statistical areas</link1> are determined by the U.S. Census Bureau once every ten years. The tool utilizes the census tract boundaries from 2020. This was chosen because many of the data sources in the tool currently use the 2010 census boundaries. The tool also shows land within the boundaries of Federally Recognized Tribes and point locations for Alaska Native Villages and landless Tribes in the lower 48 states.",
     "description": "Navigate to the About page. This is the paragraph 4"
   },
   "about.page.how.to.use.tool.para2": {
@@ -64,7 +64,7 @@
     "description": "Navigate to the About page. This is the list item 2"
   },
   "about.page.paragraph.1": {
-    "defaultMessage": "In January of 2021, President Biden issued <link1>Executive Order 14008</link1>. The order directed the Council on Environmental Quality (CEQ) to develop a new tool. This tool is called the Climate and Economic Justice Screening Tool. The tool has an interactive map and uses datasets that are indicators of burdens in eight categories: climate change, energy, health, housing, legacy pollution, transportation, water and wastewater, and workforce development. The tool uses this information to identify communities that are experiencing these burdens. These are the communities that are disadvantaged because they are overburdened and underserved.",
+    "defaultMessage": "In January of 2021, President Biden issued <link1>Executive Order 14008</link1>. The order directed the Council on Environmental Quality (CEQ) to develop a new tool. This tool is called the Climate and Economic Justice Screening Tool. The tool has an interactive map and uses datasets that are indicators of burdens in eight categories: climate change, energy, health, housing, legacy pollution, transportation, water and wastewater, and workforce development. The tool uses this information to identify communities that are experiencing these burdens. These are the communities that are disadvantaged because they are marginalized by underinvestment and overburdened by pollution.",
     "description": "Navigate to the About page. This is the paragraph 1"
   },
   "about.page.paragraph.2": {
@@ -76,7 +76,7 @@
     "description": "Navigate to the About page. This is the paragraph 3"
   },
   "about.page.paragraph.4": {
-    "defaultMessage": "CEQ will update the tool each year based on public feedback, research, and the availability of new data. The current version of the tool is version {version}. <link1>Sign-up</link1> for updates from CEQ.",
+    "defaultMessage": "CEQ will continue to update the tool, after reviewing public feedback, research, and the availability of new data. The current version of the tool is version {version}.",
     "description": "Navigate to the About page. This is the paragraph 4"
   },
   "about.page.paragraph.5": {
@@ -639,7 +639,7 @@
     "description": "Navigate to the Downloads page, this will be the view of change log"
   },
   "explore.map.page.description.1": {
-    "defaultMessage": "Census tracts that are overburdened and underserved are highlighted as being disadvantaged on the map. Federally Recognized Tribes, including Alaska Native Villages, are also considered disadvantaged communities.",
+    "defaultMessage": "Census tracts that are marginalized by underinvestment and overburdened by pollution are highlighted as being disadvantaged on the map. Federally Recognized Tribes, including Alaska Native Villages, are considered disadvantaged communities, whether or not they have land.",
     "description": "On the explore the map page, the first description of the page"
   },
   "explore.map.page.description.2": {

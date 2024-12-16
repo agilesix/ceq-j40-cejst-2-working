@@ -427,8 +427,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
         >
           <section>
             <p>
-              
-      In January of 2021, President Biden issued 
+              In January of 2021, President Biden issued 
               <a
                 class="usa-link usa-link--external"
                 data-cy=""
@@ -438,13 +437,10 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
               >
                 Executive Order 14008
               </a>
-              . The order directed the Council on Environmental Quality (CEQ) to develop a new tool. This tool is called the Climate and Economic Justice Screening Tool. The tool has an interactive map and uses datasets that are indicators of burdens in eight categories: climate change, energy, health, housing, legacy pollution, transportation, water and wastewater, and workforce development. The tool uses this information to identify communities that are experiencing these burdens. These are the communities that are disadvantaged because they are overburdened and underserved.
-
-    
+              . The order directed the Council on Environmental Quality (CEQ) to develop a new tool. This tool is called the Climate and Economic Justice Screening Tool. The tool has an interactive map and uses datasets that are indicators of burdens in eight categories: climate change, energy, health, housing, legacy pollution, transportation, water and wastewater, and workforce development. The tool uses this information to identify communities that are experiencing these burdens. These are the communities that are disadvantaged because they are marginalized by underinvestment and overburdened by pollution.
             </p>
             <p>
-              
-      Federal agencies will use the tool to help identify disadvantaged communities that will benefit from programs included in the 
+              Federal agencies will use the tool to help identify disadvantaged communities that will benefit from programs included in the 
               <a
                 class="usa-link usa-link--external"
                 data-cy=""
@@ -455,7 +451,6 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                 Justice40 Initiative
               </a>
               . The Justice40 Initiative seeks to deliver 40% of the overall benefits of investments in climate, clean energy, and related areas to disadvantaged communities.
-    
             </p>
             <div
               class="j40-p-tag"
@@ -498,17 +493,9 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
             </div>
             <p>
               
-      CEQ will update the tool each year based on public feedback, research, and the availability of new data. The current version of the tool is version 2.0. 
-              <a
-                class="usa-link usa-link--external"
-                data-cy=""
-                href="https://lp.constantcontactpages.com/su/Vm8pCFj/spring"
-                rel="noreferrer"
-                target="_blank"
-              >
-                Sign-up
-              </a>
-               for updates from CEQ.
+      CEQ will continue to update the tool, after reviewing public feedback, 
+      research, and the availability of new data. The current version of the 
+      tool is version 2.0.
     
             </p>
           </section>
@@ -545,8 +532,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
             >
               statistical areas
             </a>
-             are determined by the U.S. Census Bureau once every ten years. The tool utilizes the census tract boundaries from 2010. This was chosen because many of the data sources in the tool currently use the 2010 census boundaries.  The tool also shows land within the boundaries of Federally Recognized Tribes and point locations for Alaska Native Villages.
-    
+             are determined by the U.S. Census Bureau once every ten years. The tool utilizes the census tract boundaries from 2020. This was chosen because many of the data sources in the tool currently use the 2010 census boundaries.  The tool also shows land within the boundaries of Federally Recognized Tribes and point locations for Alaska Native Villages and landless Tribes in the lower 48 states.
           </p>
           <p>
             The tool ranks most of the burdens using percentiles. Percentiles show how much burden each tract experiences compared to other tracts. Certain burdens use percentages or a simple yes/no.
