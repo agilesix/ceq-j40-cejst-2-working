@@ -51,7 +51,6 @@ jobs:
           DATA_SOURCE: cdn
           # TODO: Update main URL when either is back up
           SITE_URL: "${{ secrets.SITE_URL }}"
-          MAPBOX_STYLES_READ_TOKEN: "${{ secrets.MAPBOX_STYLES_READ_TOKEN }}"
       - name: Get directory contents
         run: ls -la public
       - name: Lint
