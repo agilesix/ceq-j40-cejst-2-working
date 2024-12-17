@@ -25,7 +25,7 @@ interface IJ40AccordionItem {
  * @param {IJ40AccordionItem} props
  * @return {JSX.Element}
  */
-const J40AccordionItem = ({id, children}:IJ40AccordionItem) => {
+const J40AccordionItem = ({id, children}: IJ40AccordionItem) => {
   const intl = useIntl();
   const [isExpanded, setIsExpanded] = useState(false);
   return (
@@ -43,7 +43,7 @@ const J40AccordionItem = ({id, children}:IJ40AccordionItem) => {
         >
           {intl.formatMessage(DOWNLOAD_COPY.PAGE_INTRO.CHANGE_LOG)}
         </a>
-        { isExpanded ?
+        {isExpanded ?
           <img
             className={styles.showHideIcon}
             src={collapseIcon}
@@ -70,204 +70,41 @@ const J40AccordionItem = ({id, children}:IJ40AccordionItem) => {
   );
 };
 
-const ReleaseUpdate = ({}: IReleaseUpdateProps) => {
+const ReleaseUpdate = ({ }: IReleaseUpdateProps) => {
+  const release20Notes = (
+    <div>
+      <div className={styles.releaseHeader}>
+        {DOWNLOAD_COPY.RELEASE_2_0.HEADER}
+      </div>
+      <div className={styles.releaseSectionTitle}>
+        {DOWNLOAD_COPY.RELEASE_2_0.NEW_IMPROVED_SECTION}
+      </div>
+      <div>
+        <ul>
+          <li>{DOWNLOAD_COPY.RELEASE_2_0.SCORING_SUBSECTION}</li>
+          <ul>
+            <li>{DOWNLOAD_COPY.RELEASE_2_0.SCORING_CONTENT_1}</li>
+            <li>{DOWNLOAD_COPY.RELEASE_2_0.SCORING_CONTENT_2}</li>
+            <li>{DOWNLOAD_COPY.RELEASE_2_0.SCORING_CONTENT_3}</li>
+            <li>{DOWNLOAD_COPY.RELEASE_2_0.SCORING_CONTENT_4}</li>
+            <li>{DOWNLOAD_COPY.RELEASE_2_0.SCORING_CONTENT_5}</li>
+            <li>{DOWNLOAD_COPY.RELEASE_2_0.SCORING_CONTENT_6}</li>
+          </ul>
+          <li>{DOWNLOAD_COPY.RELEASE_2_0.UI_SUBSECTION}</li>
+          <ul>
+            <li>{DOWNLOAD_COPY.RELEASE_2_0.UI_CONTENT_1}</li>
+            <li>{DOWNLOAD_COPY.RELEASE_2_0.UI_CONTENT_2}</li>
+          </ul>
+        </ul>
+      </div>
+    </div>
+  );
+
   return (
     <div className={styles.releaseUpdateComponent}>
       <J40AccordionItem id={'releaseUpdate'}>
         <div>
-
-          <div className={styles.releaseHeader}>
-            {DOWNLOAD_COPY.RELEASE_2_0.UPDATE_1}
-          </div>
-
-          <div className={styles.releaseSectionTitle}>
-            {DOWNLOAD_COPY.RELEASE_2_0.SECTION1}
-          </div>
-
-          <div>
-            <ul>
-              <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B1}</li>
-              <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B2}</li>
-
-              <ul>
-                <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B2_1}</li>
-                <ul>
-                  <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B2_1_1}</li>
-                  <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B2_1_2}</li>
-                </ul>
-                <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B2_2}</li>
-                <ul>
-                  <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B2_1_3}</li>
-                  <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B2_2_2}</li>
-                  <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B2_2_1}</li>
-                </ul>
-                <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B2_3}</li>
-                <ul>
-                  <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B2_3_1}</li>
-                  <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B2_3_2}</li>
-                </ul>
-                <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B2_4}</li>
-                <ul>
-                  <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B2_4_1}</li>
-                </ul>
-                <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B2_5}</li>
-                <ul>
-                  <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B2_5_1}</li>
-                </ul>
-              </ul>
-              <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B3}</li>
-              <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B4}</li>
-              <ul>
-                <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B4_1}</li>
-                <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B4_2}</li>
-                <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B4_3}</li>
-              </ul>
-              <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B5}</li>
-              <ul>
-                <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B5_1}</li>
-                <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B5_2}</li>
-                <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B5_3}</li>
-              </ul>
-
-              <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6}</li>
-              <ul>
-                <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_1}</li>
-                <ul>
-                  <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_1_1}</li>
-                  {/* <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_1_2}</li>
-                  <ul>
-                    <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_1_2_1}</li>
-                    <ul>
-                      <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_1_2_1_1}</li>
-                    </ul>
-                    <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_1_2_2}</li>
-                    <ul>
-                      <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_1_2_2_1}</li>
-                      <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_1_2_2_2}</li>
-                      <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_1_2_2_3}</li>
-                      <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_1_2_2_4}</li>
-                    </ul>
-                  </ul> */}
-                </ul>
-
-                <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_2}</li>
-                <ul>
-                  <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_2_1}</li>
-                  {/* <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_1_2}</li>
-                  <ul>
-                    <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_1_2_1}</li>
-                    <ul>
-                      <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_1_2_1_1}</li>
-                    </ul>
-                    <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_1_2_2}</li>
-                    <ul>
-                      <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_1_2_2_1}</li>
-                      <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_1_2_2_2}</li>
-                      <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_1_2_2_3}</li>
-                      <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_1_2_2_4}</li>
-                    </ul>
-                  </ul> */}
-                </ul>
-
-                {/* <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_3}</li>
-                <ul>
-                  <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_1_2}</li>
-                  <ul>
-                    <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_1_2_1}</li>
-                    <ul>
-                      <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_1_2_1_1}</li>
-                    </ul>
-                    <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_1_2_2}</li>
-                    <ul>
-                      <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_1_2_2_2}</li>
-                      <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_1_2_2_4}</li>
-                    </ul>
-                  </ul>
-                </ul>
-
-                <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_4}</li>
-                <ul>
-                  <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_1_2}</li>
-                  <ul>
-                    <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_1_2_1}</li>
-                    <ul>
-                      <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_1_2_1_1}</li>
-                    </ul>
-                    <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_1_2_2}</li>
-                    <ul>
-                      <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_1_2_2_4}</li>
-                    </ul>
-                  </ul>
-                </ul> */}
-
-                <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_5}</li>
-                <ul>
-                  <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_5_1}</li>
-                  <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_5_2}</li>
-                  <ul>
-                    <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_5_2_1}</li>
-                    <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_5_2_2}</li>
-                    <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_5_2_3}</li>
-                    <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_5_2_4}</li>
-                    <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_1_2_2_1}</li>
-                    <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_1_2_2_2}</li>
-                  </ul>
-                </ul>
-              </ul>
-
-              {/* <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B7}</li>
-              <ul>
-                <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_1_2_1}</li>
-                <ul>
-                  <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B7_1_1}</li>
-                </ul>
-                <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B6_1_2_2}</li>
-                <ul>
-                  <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B7_2_1}</li>
-                  <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B7_2_2}</li>
-                  <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B7_2_3}</li>
-                </ul>
-                <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B7_3}</li>
-                <ul>
-                  <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B7_3_1}</li>
-                </ul>
-              </ul> */}
-
-              <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B8}</li>
-              <ul>
-                <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B8_1}</li>
-                <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B8_2}</li>
-                <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B8_3}</li>
-                <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B8_4}</li>
-              </ul>
-
-              <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B9}</li>
-              <ul>
-                <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B9_1}</li>
-                <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B9_2}</li>
-                <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B9_3}</li>
-                <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B9_4}</li>
-              </ul>
-
-              <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION1_B10}</li>
-            </ul>
-          </div>
-
-          <div className={styles.releaseSectionTitle}>
-            {DOWNLOAD_COPY.RELEASE_2_0.SECTION2}
-          </div>
-
-          <div>
-            <ul>
-              <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION2_P1}</li>
-              <li>{DOWNLOAD_COPY.RELEASE_2_0.SECTION2_P2}</li>
-            </ul>
-          </div>
-
-          <div>
-            {DOWNLOAD_COPY.RELEASE_2_0.FOOTER}
-          </div>
-
+          {release20Notes}
         </div>
       </J40AccordionItem>
     </div>
