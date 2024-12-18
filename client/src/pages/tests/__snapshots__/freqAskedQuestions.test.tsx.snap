@@ -480,7 +480,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                   </li>
                 </ul>
                 <p>
-                  Not all disadvantaged communities can be shown on the map. The map shows point locations for Alaska Native Villages and landless Federally Recognized Tribes in the lower 48 states. Some communities do not live in just one place. This tool focuses on identifying communities that can be geographically defined.
+                  Not all disadvantaged communities can be shown on the map. The map shows point locations for Alaska Native Villages. Some communities do not live in just one place. This tool focuses on identifying communities that can be geographically defined.
                 </p>
                 <p>
                   The tool uses census tracts. Census tracts are small units of geography. Census tract boundaries for 
@@ -560,7 +560,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                   <strong>
                     American Samoa, Guam, the Northern Mariana Islands, and the U.S. Virgin Islands:
                   </strong>
-                   For these U.S. Territories, the tool uses the following data: unemployment, poverty, low median income, and high school education. These burdens are in the workforce development category. Due to limited data availability, tracts in these U.S. Territories are considered disadvantaged if they meet the low income only.
+                   For these U.S. Territories, the tool uses the following data: unemployment, poverty, low median income, and high school education. These burdens are in the workforce development category. Due to limited data availability, tracts in these U.S. Territories are considered disadvantaged if they meet the low income threshold only.
                 </p>
               </div>
               <h2
@@ -774,7 +774,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                 id="faq-id-8"
               >
                 <p>
-                  Several states that have environmental justice screening tools. CalEnviroScreen is an environmental justice screening tool for California. Other states, like New York and Michigan have screening tools as well. The Climate and Economic Justice Screening Tool (CEJST) incorporates lessons learned from these efforts.
+                  Several states have environmental justice screening tools. CalEnviroScreen is an environmental justice screening tool for California. Other states, like New York and Michigan have screening tools as well. The Climate and Economic Justice Screening Tool (CEJST) incorporates lessons learned from these efforts.
                 </p>
                 <p>
                   There is an important difference between state-based tools and the CEJST. State tools use data that may not be available for other states. The CEJST only uses data that are nationally-consistent and publicly-available.
@@ -1057,7 +1057,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                   >
                     a geospatial vector data format
                   </a>
-                   for geographic information system (GIS) software. It can be loaded into any software that works with Esri, ArcGIS or any other compatible GIS software. You may choose to download the data in this format so that you can load the data from the Climate and Economic Justice Screening Tool (CEJST) into other tools and use those tools to combine the CEJST data with other datasets and sources.
+                   for geographic information system (GIS) software. It can be loaded into any software that works with Esri, ArcGIS or any other compatible GIS software. You may choose to download the data in this format so that you can load the data from the Climate and Economic Justice Screening Tool (CEJST) into other tools and use those tools to combine the CEJST data with other datasets and alternative data sources.
                 </p>
               </div>
               <h2
@@ -1113,7 +1113,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                 id="faq-id-16"
               >
                 <p>
-                  Because some nationally-consistent datasets on indicators of environmental burden used in the tool do not currently include data from certain U.S. Territories, tracts in these Territories are considered disadvantaged if they meet the low income threshold.
+                  Because some nationally-consistent datasets on indicators of environmental or climate burden used in the tool do not currently include data from certain U.S. Territories, tracts in these Territories are considered disadvantaged if they meet the low income threshold only.
                 </p>
               </div>
             </div>
@@ -1183,19 +1183,6 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                       </div>
                     </div>
                   </address>
-                </li>
-                <li
-                  class="usa-footer__secondary-link"
-                >
-                  <a
-                    class="usa-link usa-link--external"
-                    data-cy="sign-up-for-updates"
-                    href="https://lp.constantcontactpages.com/su/Vm8pCFj/spring"
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    Sign up for updates
-                  </a>
                 </li>
               </ul>
             </section>

@@ -190,16 +190,6 @@ export const FOOTER = defineMessages({
     defaultMessage: 'Council on Environmental Quality',
     description: 'Navigate to the about page. This is Footer under logo',
   },
-  SIGN_UP: {
-    id: 'common.pages.footer.sign.up',
-    defaultMessage: 'Sign up for updates',
-    description: 'Navigate to the about page. This is Footer under Sign-up for updates',
-  },
-  SIGN_UP_LINK: {
-    id: 'common.pages.footer.sign.up.link',
-    defaultMessage: 'https://lp.constantcontactpages.com/su/Vm8pCFj/spring',
-    description: 'Navigate to the about page. This is Footer link under Sign-up for updates',
-  },
   MORE_INFO: {
     id: 'common.pages.footer.moreinfoheader',
     defaultMessage: 'More information',

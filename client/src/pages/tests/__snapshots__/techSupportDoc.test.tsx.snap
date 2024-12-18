@@ -450,19 +450,6 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                     </div>
                   </address>
                 </li>
-                <li
-                  class="usa-footer__secondary-link"
-                >
-                  <a
-                    class="usa-link usa-link--external"
-                    data-cy="sign-up-for-updates"
-                    href="https://lp.constantcontactpages.com/su/Vm8pCFj/spring"
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    Sign up for updates
-                  </a>
-                </li>
               </ul>
             </section>
           </div>

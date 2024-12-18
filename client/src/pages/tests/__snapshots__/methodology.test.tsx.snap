@@ -1346,7 +1346,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                     <strong>
                       Note: 
                     </strong>
-                    this burden only applies for census tracts with populations greater than 20 people.
+                     This burden only applies for census tracts with populations greater than 20 people.
       
                   </p>
                 </div>
@@ -2451,7 +2451,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                     <strong>
                       Note: 
                     </strong>
-                     this burden only applies for census tracts with populations greater than 20 people.
+                     This burden only applies for census tracts with populations greater than 20 people.
     
                   </p>
                 </div>
@@ -3171,19 +3171,6 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                       </div>
                     </div>
                   </address>
-                </li>
-                <li
-                  class="usa-footer__secondary-link"
-                >
-                  <a
-                    class="usa-link usa-link--external"
-                    data-cy="sign-up-for-updates"
-                    href="https://lp.constantcontactpages.com/su/Vm8pCFj/spring"
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    Sign up for updates
-                  </a>
                 </li>
               </ul>
             </section>

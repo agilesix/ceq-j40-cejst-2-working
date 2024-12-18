@@ -165,7 +165,7 @@ export const FAQ_ANSWERS = {
   />,
   Q2_P3: <FormattedMessage
     id={ 'faqs.page.answers.Q2_P3'}
-    defaultMessage={ 'Not all disadvantaged communities can be shown on the map. The map shows point locations for Alaska Native Villages and landless Federally Recognized Tribes in the lower 48 states. Some communities do not live in just one place. This tool focuses on identifying communities that can be geographically defined.'}
+    defaultMessage={ 'Not all disadvantaged communities can be shown on the map. The map shows point locations for Alaska Native Villages. Some communities do not live in just one place. This tool focuses on identifying communities that can be geographically defined.'}
     description={ 'Navigate to the FAQs page, this will be an answer, Q2_P3'}
   />,
   Q2_P4: <FormattedMessage
@@ -214,10 +214,10 @@ export const FAQ_ANSWERS = {
   />,
   Q4_P3: <FormattedMessage
     id={ 'faqs.page.answers.Q4_P3'}
-    defaultMessage={ '<boldtag>American Samoa, Guam, the Northern Mariana Islands, and the U.S. Virgin Islands:</boldtag> For these U.S. Territories, the tool uses the following data: unemployment, poverty, low median income, and high school education. These burdens are in the workforce development category. Due to limited data availability, tracts in these U.S. Territories are considered disadvantaged if they meet the low income only.'}
+    defaultMessage={ '<bold>American Samoa, Guam, the Northern Mariana Islands, and the U.S. Virgin Islands:</bold> For these U.S. Territories, the tool uses the following data: unemployment, poverty, low median income, and high school education. These burdens are in the workforce development category. Due to limited data availability, tracts in these U.S. Territories are considered disadvantaged if they meet the low income threshold only.'}
     description={ 'Navigate to the FAQs page, this will be an answer, Q4_P3'}
     values={{
-      boldtag: boldFn,
+      bold: boldFn,
     }}
   />,
   Q5_P1: <FormattedMessage
@@ -291,7 +291,7 @@ export const FAQ_ANSWERS = {
   />,
   Q13_P1: <FormattedMessage
     id={ 'faqs.page.answers.Q13_P1'}
-    defaultMessage={ `Several states that have environmental justice screening tools. CalEnviroScreen is an environmental justice screening tool for California. Other states, like New York and Michigan have screening tools as well. The Climate and Economic Justice Screening Tool (CEJST) incorporates lessons learned from these efforts.`}
+    defaultMessage={ `Several states have environmental justice screening tools. CalEnviroScreen is an environmental justice screening tool for California. Other states, like New York and Michigan have screening tools as well. The Climate and Economic Justice Screening Tool (CEJST) incorporates lessons learned from these efforts.`}
     description={ 'Navigate to the FAQs page, this will be an answer, Q13_P1'}
   />,
   Q13_P2: <FormattedMessage
@@ -398,7 +398,7 @@ export const FAQ_ANSWERS = {
   />,
   Q20_P2: <FormattedMessage
     id={ 'faqs.page.answers.Q20_P2'}
-    defaultMessage={ `The <link1>shapefile</link1> format is <link2>a geospatial vector data format</link2> for geographic information system (GIS) software. It can be loaded into any software that works with Esri, ArcGIS or any other compatible GIS software. You may choose to download the data in this format so that you can load the data from the Climate and Economic Justice Screening Tool (CEJST) into other tools and use those tools to combine the CEJST data with other datasets and sources.`}
+    defaultMessage={ `The <link1>shapefile</link1> format is <link2>a geospatial vector data format</link2> for geographic information system (GIS) software. It can be loaded into any software that works with Esri, ArcGIS or any other compatible GIS software. You may choose to download the data in this format so that you can load the data from the Climate and Economic Justice Screening Tool (CEJST) into other tools and use those tools to combine the CEJST data with other datasets and alternative data sources.`}
     description={ 'Navigate to the FAQs page, this will be an answer, Q20_P2'}
     values= {{
       link1: linkFn('https://en.wikipedia.org/wiki/Shapefile', false, true),
@@ -415,7 +415,7 @@ export const FAQ_ANSWERS = {
   />,
   Q22: <FormattedMessage
     id={ 'faqs.page.answers.Q22'}
-    defaultMessage={ 'Because some nationally-consistent datasets on indicators of environmental burden used in the tool do not currently include data from certain U.S. Territories, tracts in these Territories are considered disadvantaged if they meet the low income threshold.'}
+    defaultMessage={ 'Because some nationally-consistent datasets on indicators of environmental or climate burden used in the tool do not currently include data from certain U.S. Territories, tracts in these Territories are considered disadvantaged if they meet the low income threshold only.'}
     description={ 'Navigate to the FAQs page, this will be an answer, Q22'}
   />,
 };
