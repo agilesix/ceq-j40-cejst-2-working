@@ -322,16 +322,6 @@ exports[`rendering of the J40Header checks if component renders 1`] = `
                     class="usa-nav__submenu-item"
                   >
                     <a
-                      data-cy="nav-link-public-engagement"
-                      href="/en/public-engagement"
-                    >
-                      Engagement calendar
-                    </a>
-                  </li>
-                  <li
-                    class="usa-nav__submenu-item"
-                  >
-                    <a
                       data-cy="nav-link-faqs"
                       href="/en/frequently-asked-questions"
                     >

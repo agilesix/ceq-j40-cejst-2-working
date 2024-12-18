@@ -90,7 +90,6 @@ module.exports = {
           '/contact',
           '/methodology',
           '/404',
-          '/public-engagement',
           '/downloads',
         ],
       },
