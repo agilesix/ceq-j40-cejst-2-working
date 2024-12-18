@@ -452,6 +452,7 @@ class ScoreETL(ExtractTransformLoad):
             field_names.HOUSING_BURDEN_FIELD,
             field_names.NO_KITCHEN_OR_INDOOR_PLUMBING_FIELD,
             field_names.TOTAL_POP_FIELD,
+            field_names.OFFCAMPUS_UNIVERSITY_POPULATION_COUNT_UNDER_200PCT_FPL,
             field_names.MEDIAN_INCOME_AS_PERCENT_OF_STATE_FIELD,
             field_names.ASTHMA_FIELD,
             field_names.HEART_DISEASE_FIELD,

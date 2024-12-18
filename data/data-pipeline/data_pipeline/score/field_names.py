@@ -52,6 +52,11 @@ WORKFORCE_SOCIO_INDICATORS_EXCEEDED = (
 # Poverty / Income
 POVERTY_FIELD = "Poverty (Less than 200% of federal poverty line)"
 
+# Interpolated number of off campus-students in poverty
+OFFCAMPUS_UNIVERSITY_POPULATION_COUNT_UNDER_200PCT_FPL = (
+    "Estimated population count of off-campus university students <200% FPL"
+)
+
 # this is the raw, unadjusted variable
 POVERTY_LESS_THAN_200_FPL_FIELD = (
     "Percent of individuals below 200% Federal Poverty Line"
