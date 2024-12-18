@@ -195,7 +195,6 @@
     "description": "Navigate to the about page. This is Footer column header"
   },
   "common.pages.footer.privacy.link": {
-    "defaultMessage": "https://www.whitehouse.gov/privacy/",
     "description": "Navigate to the about page. This is Footer privacy policy link text"
   },
   "common.pages.footer.privacy.text": {
@@ -2301,6 +2300,118 @@
   "previous.versions.page.title.text": {
     "defaultMessage": "Previous versions",
     "description": "Navigate to the previous version page. This is the page title text"
+  },
+  "privacy.children.body": {
+    "defaultMessage": "We believe in the importance of protecting the privacy of children online. The <coppa>Children’s Online Privacy Protection Act (COPPA)</coppa> governs information gathered online from or about children under the age of 13. A website must obtain verifiable consent from a child’s parent or guardian before collecting, using, or disclosing personal information from a child under age 13. Our site is not intended to solicit information of any kind from children under age 13. If you believe that we have received information from or about children under age 13, please <contact>contact us</contact>.",
+    "description": "Privacy policy children's privacy text"
+  },
+  "privacy.children.heading": {
+    "defaultMessage": "Children’s Online Privacy",
+    "description": "Privacy policy children's privacy heading"
+  },
+  "privacy.contact.body": {
+    "defaultMessage": "If you have any questions or concerns about our privacy practices, please contact us at {privacy_email}",
+    "description": "Privacy policy contact information"
+  },
+  "privacy.contact.heading": {
+    "defaultMessage": "Contact Us",
+    "description": "Privacy policy contact heading"
+  },
+  "privacy.cookies.body1": {
+    "defaultMessage": "A cookie is a small file that a website you visit transfers to your computer to allow it to remember specific information about your visit.",
+    "description": "Privacy policy cookie definition"
+  },
+  "privacy.cookies.body2": {
+    "defaultMessage": "The CEJST uses cookies for technical purposes, such as to enable better navigation through the site or to allow you to customize your preferences for interacting with the website, and to monitor and analyze traffic to the website.",
+    "description": "Privacy policy CEJST cookie usage"
+  },
+  "privacy.cookies.body3": {
+    "defaultMessage": "<link1>USA.gov</link1> provides instructions for \"opting out\" from cookies if you do not want to receive them.",
+    "description": "Privacy policy cookie opt-out info"
+  },
+  "privacy.cookies.heading": {
+    "defaultMessage": "Information Collected for Website Measurement and Customization Technologies (Cookies)",
+    "description": "Privacy policy cookies heading"
+  },
+  "privacy.effective.date": {
+    "defaultMessage": "Effective Date: {last_updated}",
+    "description": "Privacy policy effective date display"
+  },
+  "privacy.external.links.body": {
+    "defaultMessage": "The CEJST includes links to other federal agencies’ and non-federal organizations’ websites. If you access another website through a link that we provide, that website’s privacy policy applies to your interaction with that website, instead of this privacy policy.",
+    "description": "Privacy policy external links text"
+  },
+  "privacy.external.links.heading": {
+    "defaultMessage": "Links to External Sites",
+    "description": "Privacy policy external links heading"
+  },
+  "privacy.info.collect.body": {
+    "defaultMessage": "When you visit the CEJST, we automatically collect certain information about your device, including information about your web browser, IP address, time zone, and some of the cookies that are installed on your device. (See below for more details about cookies.) Additionally, we may collect information about how you use the CEJST tool, including the census tracts you search for and view.",
+    "description": "Privacy policy automatic data collection text"
+  },
+  "privacy.info.collect.heading": {
+    "defaultMessage": "Information We Collect",
+    "description": "Privacy policy information collection heading"
+  },
+  "privacy.intro": {
+    "defaultMessage": "The Council on Environmental Quality (CEQ, we, or us) is committed to protecting the privacy and security of the information we collect from users (you) of the Climate and Economic Justice Screening Tool (CEJST), including the interactive map and the other features of the CEJST website. This Privacy Policy explains our practices for collecting, using, and disclosing information that we obtain from your use of the CEJST.",
+    "description": "Privacy policy overall intro"
+  },
+  "privacy.personal.info.body1": {
+    "defaultMessage": "You can voluntarily provide us certain information, such as your email address, if you choose give us feedback about the CEJST. You do not have to provide personal information to visit the CEJST. If you choose to provide personal information by sending a message to an email address on this website, submitting a form through this website, or filling out a questionnaire, we will use the information you provide to respond to you or provide the service you requested.",
+    "description": "Privacy policy voluntary information text"
+  },
+  "privacy.personal.info.body2": {
+    "defaultMessage": "Please do not send us sensitive information, such as social security numbers or financial information, through this website or by email.",
+    "description": "Privacy policy sensitive information warning"
+  },
+  "privacy.personal.info.heading": {
+    "defaultMessage": "Personal Information You Voluntarily Provide",
+    "description": "Privacy policy voluntary information heading"
+  },
+  "privacy.security.body": {
+    "defaultMessage": "We implement reasonable security measures to help protect the security of your information. However, no system can be completely secure, so we cannot guarantee the absolute security of information you provide or of information you access from the CEJST.",
+    "description": "Privacy policy security measures text"
+  },
+  "privacy.security.heading": {
+    "defaultMessage": "Data Security",
+    "description": "Privacy policy security heading"
+  },
+  "privacy.sharing.info.body1": {
+    "defaultMessage": "We do not sell or rent your personal information to third parties for their own marketing purposes.",
+    "description": "Privacy policy data brokering text"
+  },
+  "privacy.sharing.info.body2": {
+    "defaultMessage": "In some cases, we may share information you have provided or automatically generated information with other government agencies in response to a lawful request from law enforcement, to protect the website from security threats, or as otherwise required by law.",
+    "description": "Privacy policy government sharing text"
+  },
+  "privacy.sharing.info.body3": {
+    "defaultMessage": "We may share your information with third-party service providers who assist us in operating the CEJST tool. These providers are contractually obligated to protect the privacy and security of the data.",
+    "description": "Privacy policy third-party sharing text"
+  },
+  "privacy.use.info.body1": {
+    "defaultMessage": "We use the information we collect to:",
+    "description": "Privacy policy usage list intro"
+  },
+  "privacy.use.info.heading": {
+    "defaultMessage": "How We Use Your Information",
+    "description": "Privacy policy information usage heading"
+  },
+  "privacy.use.info.list.item1": {
+    "defaultMessage": "Operate, maintain, and improve the CEJST tool;",
+    "description": "Privacy policy usage list item 1"
+  },
+  "privacy.use.info.list.item2": {
+    "defaultMessage": "Analyze how the tool is being used to inform future improvements;",
+    "description": "Privacy policy usage list item 2"
+  },
+  "privacy.use.info.list.item3": {
+    "defaultMessage": "Communicate with you about the tool, if you send us feedback by filling out a form or questionnaire; and",
+    "description": "Privacy policy usage list item 3"
+  },
+  "privacy.use.info.list.item4": {
+    "defaultMessage": "Comply with legal obligations and enforce our policies.",
+    "description": "Privacy policy usage list item 4"
   },
   "public.eng.page.redirect.text": {
     "defaultMessage": "The public engagement content has moved to the <link1>Previous Version</link1> page. <link1>Click here</link1> if you are not redirected after 5 seconds.",

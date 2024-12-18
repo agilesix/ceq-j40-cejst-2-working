@@ -555,11 +555,8 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                   class="usa-footer__secondary-link"
                 >
                   <a
-                    class="usa-link usa-link--external"
-                    data-cy="privacy-policy"
-                    href="https://www.whitehouse.gov/privacy/"
-                    rel="noreferrer"
-                    target="_blank"
+                    class="usa-link"
+                    href="/en/privacy"
                   >
                     Privacy Policy
                   </a>

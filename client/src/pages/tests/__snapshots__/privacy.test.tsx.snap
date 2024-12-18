@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`rendering of the DatasetContainer checks if various text fields are visible 1`] = `
+exports[`rendering of the Privacy Policy page matches Privacy Policy page snapshot 1`] = `
 <DocumentFragment>
   <header
     class="usa-header usa-header--basic"
@@ -385,212 +385,194 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
         class="page-heading"
       >
         <h1>
-          Downloads
+          CEJST Privacy Policy
         </h1>
-        <a
-          href="https://eop.gov1.qualtrics.com/jfe/form/SV_51EPev2O6jHiaJ8"
-          rel="noreferrer"
-          target="_blank"
-        >
-          <button
-            class="usa-button"
-            data-testid="button"
-            type="button"
-          >
-            Share data sources with CEQ
-            <img
-              alt="launch icon"
-              src="test-file-stub"
-            />
-          </button>
-        </a>
       </section>
       <div
         class="grid-row grid-gap j40-mb5-mt3"
         data-testid="grid"
       >
         <div
-          class="grid-col-12 tablet:grid-col-8"
+          class="desktop:grid-col-8"
           data-testid="grid"
         >
+          <p>
+            Effective Date: December 19, 2024
+          </p>
+          <p>
+            The Council on Environmental Quality (CEQ, we, or us) is committed to protecting the privacy and
+      security of the information we collect from users (you) of the Climate and Economic Justice Screening Tool
+      (CEJST), including the interactive map and the other features of the CEJST website. This Privacy Policy
+      explains our practices for collecting, using, and disclosing information that we obtain from your use of the
+      CEJST.
+          </p>
           <h2
-            class="j40-mt-0 j40-mb-3"
+            id="info-collect"
           >
-            Version 2.0 file formats
+            Information We Collect
           </h2>
-          <section>
-            <div>
-              <span>
-                View 
-                <a
-                  aria-controls="releaseUpdate-panel"
-                  class="usa-link"
-                  href="javascript:void(0)"
-                  id="releaseUpdate-header"
-                  tabindex="0"
-                >
-                  release notes
-                </a>
-                <img
-                  alt="expand icon"
-                  src="test-file-stub"
-                />
-              </span>
-              <section
-                aria-labelledby="releaseUpdate-header"
-                hidden=""
-                id="releaseUpdate-panel"
-              >
-                <div>
-                  <div>
-                    <div>
-                      Version 2.0 Release update - Dec 19, 2024
-                    </div>
-                    <div>
-                      New & improved
-                    </div>
-                    <div>
-                      <ul>
-                        <li>
-                          Scoring improvements
-                        </li>
-                        <ul>
-                          <li>
-                            Updated to use Census Decennial 2020 data for the U.S. territories 
-      of Guam, Virgin Islands, Northern Mariana Islands, and American Samoa
-                          </li>
-                          <li>
-                            U.S. territories of Guam, Virgin Islands, Northern Mariana Islands, 
-      and American Samoa qualify as disadvantaged communities based on a low-income 
-      threshold at or above the 65th percentile, in addition to any existing qualification 
-      pathways
-                          </li>
-                          <li>
-                            Apply a donut hole disadvantaged community qualification to U.S. 
-      territories of Guam, Virgin Islands, Northern Mariana Islands, American Samoa, 
-      and Puerto Rico based on adjacency to already qualifying disadvantaged community 
-      tracts and meeting a 50th percentile low-income threshold
-                          </li>
-                          <li>
-                            Improved donut hole disadvantaged community qualification by 
-      adding tracts that are fully surrounded and have water boundaries
-                          </li>
-                          <li>
-                            The poverty percentage calculation excludes college students, 
-      ensuring it reflects the economic conditions of the non-college population
-                          </li>
-                          <li>
-                            Grandfathering of Census tracts that were designated as 
-      disadvantaged communities in version 1.0 of this tool
-                          </li>
-                        </ul>
-                        <li>
-                          User interface improvements
-                        </li>
-                        <ul>
-                          <li>
-                            Users can now search on the map by Census tract ID
-                          </li>
-                          <li>
-                            Show island and territory low-income percentiles in the sidebar
-                          </li>
-                        </ul>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </section>
-            </div>
-          </section>
           <p>
-            The dataset used in the 2.0 version of the tool, along with a codebook, and information about how to use the list of communities (.pdf) are available for download:
+            When you visit the CEJST, we automatically collect certain information about your device, including
+      information about your web browser, IP address, time zone, and some of the cookies that are installed on your
+      device. (See below for more details about cookies.) Additionally, we may collect information about how you use
+      the CEJST tool, including the census tracts you search for and view.
+          </p>
+          <h2
+            id="personal-info"
+          >
+            Personal Information You Voluntarily Provide
+          </h2>
+          <p>
+            You can voluntarily provide us certain information, such as your email address, if you choose give
+      us feedback about the CEJST. You do not have to provide personal information to visit the CEJST. If you choose
+      to provide personal information by sending a message to an email address on this website, submitting a form
+      through this website, or filling out a questionnaire, we will use the information you provide to respond to you
+      or provide the service you requested.
           </p>
           <p>
-            
+            Please do not send us sensitive information, such as social security numbers or financial
+      information, through this website or by email.
+          </p>
+          <h2
+            id="use-info"
+          >
+            How We Use Your Information
+          </h2>
+          <p>
+            We use the information we collect to:
+          </p>
+          <ul>
+            <li>
+              <p>
+                Operate, maintain, and improve the CEJST tool;
+              </p>
+            </li>
+            <li>
+              <p>
+                Analyze how the tool is being used to inform future improvements;
+              </p>
+            </li>
+            <li>
+              <p>
+                Communicate with you about the tool, if you send us feedback by filling out a form or
+        questionnaire; and
+              </p>
+            </li>
+            <li>
+              <p>
+                Comply with legal obligations and enforce our policies.
+              </p>
+            </li>
+          </ul>
+          <p>
+            We do not sell or rent your personal information to third parties for their own marketing
+      purposes.
+          </p>
+          <p>
+            In some cases, we may share information you have provided or automatically generated information
+      with other government agencies in response to a lawful request from law enforcement, to protect the website
+      from security threats, or as otherwise required by law.
+          </p>
+          <p>
+            We may share your information with third-party service providers who assist us in operating the
+      CEJST tool. These providers are contractually obligated to protect the privacy and security of the data.
+          </p>
+          <h2
+            id="cookies"
+          >
+            Information Collected for Website Measurement and Customization Technologies (Cookies)
+          </h2>
+          <p>
+            A cookie is a small file that a website you visit transfers to your computer to allow it to
+      remember specific information about your visit.
+          </p>
+          <p>
+            The CEJST uses cookies for technical purposes, such as to enable better navigation through the
+      site or to allow you to customize your preferences for interacting with the website, and to monitor and
+      analyze traffic to the website.
+          </p>
+          <p>
+            <a
+              class="usa-link usa-link--external"
+              data-cy=""
+              href="https://www.usa.gov/optout-instructions"
+              rel="noreferrer"
+              target="_blank"
+            >
+              USA.gov
+            </a>
+             provides instructions for "opting out" from cookies if you do not want
+      to receive them.
+          </p>
+          <h2
+            id="external-links"
+          >
+            Links to External Sites
+          </h2>
+          <p>
+            The CEJST includes links to other federal agencies’ and non-federal organizations’
+      websites. If you access another website through a link that we provide, that website’s privacy policy
+      applies to your interaction with that website, instead of this privacy policy.
+          </p>
+          <h2
+            id="children"
+          >
+            Children’s Online Privacy
+          </h2>
+          <p>
+            We believe in the importance of protecting the privacy of children online. The
       
             <a
-              class="usa-link"
-              download=""
-              href="//"
+              class="usa-link usa-link--external"
+              data-cy=""
+              href="https://www.ftc.gov/legal-library/browse/rules/childrens-online-privacy-protection-rule-coppa"
+              rel="noreferrer"
+              target="_blank"
             >
-              Communities list data
+              Children’s Online Privacy Protection Act (COPPA)
             </a>
-            <img
-              alt="The icon used to indicate that the file is downloadable"
-              src="test-file-stub"
-            />
-             (.xlsx 35.6MB)
+             governs information gathered online from or
+      about children under the age of 13. A website must obtain verifiable consent from a child’s parent or
+      guardian before collecting, using, or disclosing personal information from a child under age 13. Our site is not
+      intended to solicit information of any kind from children under age 13. If you believe that we have received
+      information from or about children under age 13, please 
+            <a
+              class="usa-link"
+              href="/en/contact"
+            >
+              contact us
+            </a>
+            .
+          </p>
+          <h2
+            id="security"
+          >
+            Data Security
+          </h2>
+          <p>
+            We implement reasonable security measures to help protect the security of your information.
+      However, no system can be completely secure, so we cannot guarantee the absolute security of information you
+      provide or of information you access from the CEJST.
+          </p>
+          <h2
+            id="contact"
+          >
+            Contact Us
+          </h2>
+          <p>
+            If you have any questions or concerns about our privacy practices, please contact us at
       
-          </p>
-          <p>
-            <a
-              class="usa-link"
-              download=""
-              href="//"
-            >
-              Communities list data
-            </a>
-            <img
-              alt="The icon used to indicate that the file is downloadable"
-              src="test-file-stub"
-            />
-             (.csv 42MB)
-          </p>
-          <p>
-            <a
-              class="usa-link"
-              download=""
-              href="//"
-            >
-              Shapefile
-            </a>
-            <img
-              alt="The icon used to indicate that the file is downloadable"
-              src="test-file-stub"
-            />
-             (Codebook included with shapefile 356.8MB unzipped)
-          </p>
-          <p>
             <a
               class="usa-link usa-link--external"
               data-cy=""
-              href="//"
+              href="mailto:CEJST@ceq.eop.gov"
               rel="noreferrer"
               target="_blank"
             >
-              Technical support document
+              CEJST@ceq.eop.gov
             </a>
-             (.pdf 4.4MB)
-          </p>
-          <p>
-            <a
-              class="usa-link usa-link--external"
-              data-cy=""
-              href="//"
-              rel="noreferrer"
-              target="_blank"
-            >
-              Instructions to Federal agencies on using the CEJST
-            </a>
-             (.pdf 228.4kB)
-          </p>
-          <p>
-            <a
-              class="usa-link usa-link--external"
-              data-cy=""
-              href="//"
-              rel="noreferrer"
-              target="_blank"
-            >
-              How to use the list of communities
-            </a>
-             (.pdf 687.9kB)
           </p>
         </div>
-        <div
-          class="grid-col-12 tablet:grid-col-1"
-          data-testid="grid"
-        />
       </div>
     </div>
   </main>

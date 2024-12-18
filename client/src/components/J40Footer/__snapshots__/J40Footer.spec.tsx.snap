@@ -105,11 +105,8 @@ exports[`J40Footer renders correctly 1`] = `
                   class="usa-footer__secondary-link"
                 >
                   <a
-                    class="usa-link usa-link--external"
-                    data-cy="privacy-policy"
-                    href="https://www.whitehouse.gov/privacy/"
-                    rel="noreferrer"
-                    target="_blank"
+                    class="usa-link"
+                    href="/en/privacy"
                   >
                     Privacy Policy
                   </a>

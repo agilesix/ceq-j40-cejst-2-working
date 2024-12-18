@@ -6,6 +6,7 @@ import {defineMessages} from 'react-intl';
 import DownloadLink from '../../components/DownloadLink';
 import LinkTypeWrapper from '../../components/LinkTypeWrapper';
 import {GITHUB_LINK} from '../../constants';
+import {PAGES_ENDPOINTS} from '../constants';
 
 export interface IDefineMessage {
   id: string,
@@ -226,7 +227,7 @@ export const FOOTER = defineMessages({
   },
   PRIVACY_LINK: {
     id: 'common.pages.footer.privacy.link',
-    defaultMessage: 'https://www.whitehouse.gov/privacy/',
+    defaultMessage: PAGES_ENDPOINTS.PRIVACY,
     description: 'Navigate to the about page. This is Footer privacy policy link text',
   },
   LOGO_ALT: {
