@@ -51,7 +51,7 @@ website from {startDate} \u2013 {endDate}.`}
     description={'Navigate to the previous version page. This is the Version 1.0 Card body text'}
     values={{
       startDate: <FormattedDate
-        value={METH_2_0_RELEASE_DATE}
+        value={METH_1_0_RELEASE_DATE}
         year="numeric"
         month="short"
         day="numeric"
