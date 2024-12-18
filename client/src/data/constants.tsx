@@ -368,23 +368,23 @@ export const USWDS_BREAKPOINTS = {
 // ********** SURVEY LINKS ***************
 
 export const DATA_SURVEY_LINKS = {
-  EN: "https://eop.gov1.qualtrics.com/jfe/form/SV_51EPev2O6jHiaJ8",
-  ES: "https://eop.gov1.qualtrics.com/jfe/form/SV_0GTIoUJZu7ywY8S",
+  EN: "https://eop.gov1.qualtrics.com/jfe/form/SV_3WC1hmbqoS4Ak2G",
+  ES: "https://eop.gov1.qualtrics.com/jfe/form/SV_bNsBlreFIhs9uFU",
 };
 
 export const SITE_SATISFACTION_SURVEY_LINKS = {
-  EN: "https://eop.gov1.qualtrics.com/jfe/form/SV_eA0ZLaxP8gxLfoO",
-  ES: "https://eop.gov1.qualtrics.com/jfe/form/SV_bpI7Dn1SBXGOSTY",
+  EN: "https://eop.gov1.qualtrics.com/jfe/form/SV_2mF9GXOhDKKjxcy",
+  ES: "https://eop.gov1.qualtrics.com/jfe/form/SV_bgfSa2U8NGuyr9c",
 };
 
 export const CONTACT_SURVEY_LINKS = {
-  EN: "https://eop.gov1.qualtrics.com/jfe/form/SV_cCNgWW4OsfaBlTo",
-  ES: "https://eop.gov1.qualtrics.com/jfe/form/SV_2n0EWXynD1AZyT4",
+  EN: "https://eop.gov1.qualtrics.com/jfe/form/SV_4Znk7uRks9ZmfFI",
+  ES: "https://eop.gov1.qualtrics.com/jfe/form/SV_9Ww5utf8pqBwdRs",
 };
 
 export const CENSUS_TRACT_SURVEY_LINKS = {
-  EN: "https://eop.gov1.qualtrics.com/jfe/form/SV_8J5wGa8Ya4dMP9c",
-  ES: "https://eop.gov1.qualtrics.com/jfe/form/SV_eJXos5X4yekq6cC",
+  EN: "https://eop.gov1.qualtrics.com/jfe/form/SV_73d0HfsVzCz6F0O",
+  ES: "https://eop.gov1.qualtrics.com/jfe/form/SV_3LbCTDxjTqZdyPI",
 };
 
 export const TILE_BASE_URL = process.env.DATA_SOURCE === "local" ?

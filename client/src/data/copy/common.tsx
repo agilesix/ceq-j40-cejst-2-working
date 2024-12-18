@@ -205,16 +205,6 @@ export const FOOTER = defineMessages({
     defaultMessage: 'More information',
     description: 'Navigate to the about page. This is Footer column header',
   },
-  WHITEHOUSE: {
-    id: 'common.pages.footer.whitehouse.text',
-    defaultMessage: 'Whitehouse.gov',
-    description: 'Navigate to the about page. This is Footer Whitehouse.gov link text',
-  },
-  WHITEHOUSE_LINK: {
-    id: 'common.pages.footer.whitehouse.link',
-    defaultMessage: 'https://www.whitehouse.gov/',
-    description: 'Navigate to the about page. This is Footer Whitehouse.gov link text',
-  },
   FOIA: {
     id: 'common.pages.footer.foia.text',
     defaultMessage: 'Freedom of Information Act (FOIA)',

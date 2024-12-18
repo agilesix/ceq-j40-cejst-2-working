@@ -209,14 +209,6 @@
     "defaultMessage": "https://lp.constantcontactpages.com/su/Vm8pCFj/spring",
     "description": "Navigate to the about page. This is Footer link under Sign-up for updates"
   },
-  "common.pages.footer.whitehouse.link": {
-    "defaultMessage": "https://www.whitehouse.gov/",
-    "description": "Navigate to the about page. This is Footer Whitehouse.gov link text"
-  },
-  "common.pages.footer.whitehouse.text": {
-    "defaultMessage": "Whitehouse.gov",
-    "description": "Navigate to the about page. This is Footer Whitehouse.gov link text"
-  },
   "common.pages.footer.whitehouselogoalt": {
     "defaultMessage": "Whitehouse logo",
     "description": "Navigate to the about page. This is Footer Whitehouse logo alt text"
