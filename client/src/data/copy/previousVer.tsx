@@ -1,5 +1,5 @@
-import React from 'react';
 import {FormattedDate, FormattedMessage, defineMessages} from 'gatsby-plugin-intl';
+import React from 'react';
 import {METH_1_0_RELEASE_DATE, METH_2_0_RELEASE_DATE, METH_BETA_RELEASE_DATE} from './common';
 
 export const PAGE = defineMessages({
@@ -12,12 +12,12 @@ export const PAGE = defineMessages({
 
 export const CARD = {
   TITLE: <FormattedMessage
-    id={'previous.versions.page.card.text'}
+    id={'previous.versions.page.beta.card.text'}
     defaultMessage={'Beta version'}
     description={'Navigate to the previous version page. This is the Cards title text'}
   />,
   BODY: <FormattedMessage
-    id={'previous.versions.page.body.text'}
+    id={'previous.versions.page.beta.body.text'}
     defaultMessage={`The beta version of the methodology and data was used during the public
       beta period to get feedback on the tool from {startDate} \u2013 {endDate}.`}
     description={'Navigate to the previous version page. This is the Cards body text'}
@@ -40,13 +40,13 @@ export const CARD = {
 
 export const CARD_1_0 = {
   TITLE: <FormattedMessage
-    id={'previous.versions.page.card.text'}
+    id={'previous.versions.page.1_0.card.text'}
     defaultMessage={'Version 1.0'}
     description={'Navigate to the previous version page. This is the Version 1.0 Card title text'}
   />,
   BODY: <FormattedMessage
-    id={'previous.versions.page.body.text'}
-    defaultMessage={`The 1.0 versions of the methodology and data were available on the tool\u2019s
+    id={'previous.versions.page.1_0.body.text'}
+    defaultMessage={`The 1.0 version of the methodology and data were available on the tool\u2019s
 website from {startDate} \u2013 {endDate}.`}
     description={'Navigate to the previous version page. This is the Version 1.0 Card body text'}
     values={{

@@ -44,19 +44,12 @@ export const PAGE = defineMessages({
   PARA1_BULLET3: {
     id: 'methodology.page.paragraph.1.bullet.3',
     defaultMessage: `
-      If the census tract ID was identified as disadvantaged in version 1.0, then the census tract is considered disadvantaged in version 2.0.
+      For census tracts that were identified as disadvantaged in version 1.0 of the tool, but do not meet the methodology for the 2.0 version: If the census tract ID was identified as disadvantaged in version 1.0, then the census tract is considered disadvantaged.
     `,
     description: 'Navigate to the methodology page. This is the methodology paragraph 1, bullet 3',
   },
   PARA1_BULLET4: {
     id: 'methodology.page.paragraph.1.bullet.4',
-    defaultMessage: `
-      If the tract is a new tract in 2020, then the percentage of land that it shared, if any, with a previously disadvantaged tract will be considered disadvantaged.
-    `,
-    description: 'Navigate to the methodology page. This is the methodology paragraph 1, bullet 4',
-  },
-  PARA1_BULLET5: {
-    id: 'methodology.page.paragraph.1.bullet.5',
     defaultMessage: `
       Additionally, census tracts in certain U.S. Territories are considered disadvantaged if they meet the low income threshold only. This is because these Territories are not included in each of the nationally-consistent datasets on environmental and climate burdens currently used in the tool.
     `,
@@ -496,6 +489,11 @@ export const DATASET_CARD_LABELS = defineMessages({
     defaultMessage: 'NEW',
     description: 'Navigate to the Methodology page. This is the label associated with a NEW card',
   },
+  UPDATED: {
+    id: 'methodology.page.datasetCard.updated',
+    defaultMessage: 'UPDATED',
+    description: 'Navigate to the Methodology page. This is the label associated with an UPDATED card',
+  },
 });
 
 export const DATE_RANGE = {
@@ -870,6 +868,7 @@ export interface IIndicators {
   sources: {
     source: JSX.Element,
     isNew?: boolean,
+    isUpdated?: boolean,
     availableFor: { // Todo remove this and replace with MessageDescriptor when ticket #2000 is fixed
       id: string,
       description: string,
@@ -934,6 +933,11 @@ export const INDICATORS: IIndicators[] = [
       {
         source: SOURCE_LINKS.CENSUS_ACS_15_19,
         availableFor: AVAILABLE_FOR.ALL_US_DC_PR,
+      },
+      {
+        source: SOURCE_LINKS.DECENNIAL_CENSUS_20,
+        isNew: true,
+        availableFor: AVAILABLE_FOR.ALL_ISLDS,
       },
     ],
   },
@@ -1663,7 +1667,7 @@ export const INDICATORS: IIndicators[] = [
       },
       {
         source: SOURCE_LINKS.DECENNIAL_CENSUS_20,
-        isNew: true,
+        isUpdated: true,
         availableFor: AVAILABLE_FOR.ALL_ISLDS,
       },
     ],
@@ -1691,7 +1695,7 @@ export const INDICATORS: IIndicators[] = [
       },
       {
         source: SOURCE_LINKS.DECENNIAL_CENSUS_20,
-        isNew: true,
+        isUpdated: true,
         availableFor: AVAILABLE_FOR.ALL_ISLDS,
       },
     ],
@@ -1719,7 +1723,7 @@ export const INDICATORS: IIndicators[] = [
       },
       {
         source: SOURCE_LINKS.DECENNIAL_CENSUS_20,
-        isNew: true,
+        isUpdated: true,
         availableFor: AVAILABLE_FOR.ALL_ISLDS,
       },
     ],
@@ -1747,7 +1751,7 @@ export const INDICATORS: IIndicators[] = [
       },
       {
         source: SOURCE_LINKS.DECENNIAL_CENSUS_20,
-        isNew: true,
+        isUpdated: true,
         availableFor: AVAILABLE_FOR.ALL_ISLDS,
       },
     ],

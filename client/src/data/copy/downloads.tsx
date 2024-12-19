@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
+import {FormattedMessage, FormattedNumber} from 'gatsby-plugin-intl';
 import React from 'react';
 import {defineMessages} from 'react-intl';
-import {FormattedDate, FormattedMessage, FormattedNumber} from 'gatsby-plugin-intl';
 import * as COMMON_COPY from './common';
 import {VERSION_NUMBER, VERSIONS} from './methodology';
 
@@ -143,87 +143,7 @@ export const getDownloadIconAltTag = () => defineMessages({
   },
 });
 
-export const RELEASE_2_0 = {
-  HEADER: <FormattedMessage
-    id={'download.page.release.2_0.update.HEADER'}
-    defaultMessage={`Version {release} Release update - {date}`}
-    description={'Navigate to the download page. This is first download file link'}
-    values={{
-      release: VERSION_NUMBER,
-      date: <FormattedDate
-        value={COMMON_COPY.METH_2_0_RELEASE_DATE}
-        year="numeric"
-        month="short"
-        day="numeric"
-      />,
-    }}
-  />,
-  NEW_IMPROVED_SECTION: <FormattedMessage
-    id={'download.page.release.2_0.update.NEW_IMPROVED_SECTION'}
-    defaultMessage={`New & improved`}
-    description={'Navigate to the download page. This is new and improved section'}
-  />,
-  SCORING_SUBSECTION: <FormattedMessage
-    id={'download.page.release.2_0.update.SCORING_SUBSECTION'}
-    defaultMessage={`Scoring improvements`}
-    description={'Navigate to the download page. This is scorig improvement section'}
-  />,
-  SCORING_CONTENT_1: <FormattedMessage
-    id={'download.page.release.2_0.update.SCORING_CONTENT_1'}
-    defaultMessage={`Updated to use Census Decennial 2020 data for the U.S. territories 
-      of Guam, Virgin Islands, Northern Mariana Islands, and American Samoa`}
-    description={'Navigate to the download page. This is release content'}
-  />,
-  SCORING_CONTENT_2: <FormattedMessage
-    id={'download.page.release.2_0.update.SCORING_CONTENT_2'}
-    defaultMessage={`U.S. territories of Guam, Virgin Islands, Northern Mariana Islands, 
-      and American Samoa qualify as disadvantaged communities based on a low-income 
-      threshold at or above the 65th percentile, in addition to any existing qualification 
-      pathways`}
-    description={'Navigate to the download page. This is release content'}
-  />,
-  SCORING_CONTENT_3: <FormattedMessage
-    id={'download.page.release.2_0.update.SCORING_CONTENT_3'}
-    defaultMessage={`Apply a donut hole disadvantaged community qualification to U.S. 
-      territories of Guam, Virgin Islands, Northern Mariana Islands, American Samoa, 
-      and Puerto Rico based on adjacency to already qualifying disadvantaged community 
-      tracts and meeting a 50th percentile low-income threshold`}
-    description={'Navigate to the download page. This is release content'}
-  />,
-  SCORING_CONTENT_4: <FormattedMessage
-    id={'download.page.release.2_0.update.SCORING_CONTENT_4'}
-    defaultMessage={`Improved donut hole disadvantaged community qualification by 
-      adding tracts that are fully surrounded and have water boundaries`}
-    description={'Navigate to the download page. This is release content'}
-  />,
-  SCORING_CONTENT_5: <FormattedMessage
-    id={'download.page.release.2_0.update.SCORING_CONTENT_5'}
-    defaultMessage={`The poverty percentage calculation excludes college students, 
-      ensuring it reflects the economic conditions of the non-college population`}
-    description={'Navigate to the download page. This is release content'}
-  />,
-  SCORING_CONTENT_6: <FormattedMessage
-    id={'download.page.release.2_0.update.SCORING_CONTENT_6'}
-    defaultMessage={`Grandfathering of Census tracts that were designated as 
-      disadvantaged communities in version 1.0 of this tool`}
-    description={'Navigate to the download page. This is release content'}
-  />,
-  UI_SUBSECTION: <FormattedMessage
-    id={'download.page.release.2_0.update.UI_SUBSECTION'}
-    defaultMessage={`User interface improvements`}
-    description={'Navigate to the download page. This is the UI improvements section'}
-  />,
-  UI_CONTENT_1: <FormattedMessage
-    id={'download.page.release.2_0.update.UI_CONTENT_1'}
-    defaultMessage={`Users can now search on the map by Census tract ID`}
-    description={'Navigate to the download page. This is release content'}
-  />,
-  UI_CONTENT_2: <FormattedMessage
-    id={'download.page.release.2_0.update.UI_CONTENT_2'}
-    defaultMessage={`Show island and territory low-income percentiles in the sidebar`}
-    description={'Navigate to the download page. This is release content'}
-  />,
-};
+export {RELEASE_2_0} from './releaseNotes';
 
 export const DOWNLOAD_LINKS = {
   TITLE: <FormattedMessage
@@ -242,106 +162,91 @@ export const DOWNLOAD_LINKS = {
       version: VERSION_NUMBER,
     }}
   />,
-  LINK1: <FormattedMessage
-    id={'download.page.download.file.1'}
-    defaultMessage={`
-      <link1>Communities list data</link1> (.xlsx {cldXlsFileSize})
-      `}
-    description={'Navigate to the download page. This is first download file link'}
-    values={{
-      link1: COMMON_COPY.downloadLink(DOWNLOAD_FILES.NARWAL.COMMUNITIES_LIST_XLS.URL),
-      cldXlsFileSize: <FormattedNumber
-        value={DOWNLOAD_FILES.NARWAL.COMMUNITIES_LIST_XLS.SIZE}
-        style="unit"
-        unit="megabyte"
-        unitDisplay="narrow"
-      />,
-    }}
-  />,
-  LINK2: <FormattedMessage
-    id={'download.page.download.file.2'}
-    defaultMessage={`<link2>Communities list data</link2> (.csv {cldCsvFileSize})`}
-    description={'Navigate to the download page. This is second download file link'}
-    values={{
-      link2: COMMON_COPY.downloadLink(DOWNLOAD_FILES.NARWAL.COMMUNITIES_LIST_CSV.URL),
-      cldCsvFileSize: <FormattedNumber
-        value={DOWNLOAD_FILES.NARWAL.COMMUNITIES_LIST_CSV.SIZE}
-        style="unit"
-        unit="megabyte"
-        unitDisplay="narrow"
-      />,
-    }}
-  />,
-  LINK3: <FormattedMessage
-    id={'download.page.download.file.3'}
-    defaultMessage={`<link3>Shapefile</link3> (Codebook included with shapefile {shapeFileSize} unzipped)`}
-    description={'Navigate to the download page. This is third download file link'}
-    values={{
-      link3: COMMON_COPY.downloadLink(DOWNLOAD_FILES.NARWAL.SHAPE_FILE.URL),
-      shapeFileSize: <FormattedNumber
-        value={DOWNLOAD_FILES.NARWAL.SHAPE_FILE.SIZE}
-        style="unit"
-        unit="megabyte"
-        unitDisplay="narrow"
-      />,
-    }}
-  />,
-  LINK4: <FormattedMessage
-    id={'download.page.download.file.4'}
-    defaultMessage={`<link4>Technical support document</link4> (.pdf {tsdFileSize})`}
-    description={'Navigate to the download page. This is fourth download file link'}
-    values={{
-      link4: COMMON_COPY.linkFn(DOWNLOAD_FILES.NARWAL.TSD.URL, false, true),
-      link4es: COMMON_COPY.linkFn(DOWNLOAD_FILES.NARWAL.TSD_ES.URL, false, true),
-      tsdFileSize: <FormattedNumber
-        value={DOWNLOAD_FILES.NARWAL.TSD.SIZE}
-        style="unit"
-        unit="megabyte"
-        unitDisplay="narrow"
-      />,
-    }}
-  />,
-  LINK5: <FormattedMessage
-    id={'download.page.download.file.5'}
-    defaultMessage={`<link5>How to use the list of communities</link5> (.pdf {howToCommFileSize})`}
-    description={'Navigate to the download page. This is fifth download file link'}
-    values={{
-      link5: COMMON_COPY.linkFn(DOWNLOAD_FILES.NARWAL.HOW_TO_COMMUNITIES.URL, false, true),
-      link5es: COMMON_COPY.linkFn(DOWNLOAD_FILES.NARWAL.HOW_TO_COMMUNITIES_ES.URL, false, true),
-      howToCommFileSize: <FormattedNumber
-        value={DOWNLOAD_FILES.NARWAL.HOW_TO_COMMUNITIES.SIZE}
-        style="unit"
-        unit="kilobyte"
-        unitDisplay="narrow"
-      />,
-      howToCommFileSizeEs: <FormattedNumber
-        value={DOWNLOAD_FILES.NARWAL.HOW_TO_COMMUNITIES_ES.SIZE}
-        style="unit"
-        unit="kilobyte"
-        unitDisplay="narrow"
-      />,
-    }}
-  />,
-  LINK6: <FormattedMessage
-    id={'download.page.download.file.6'}
-    defaultMessage={`<link6>Instructions to Federal agencies on using the CEJST</link6> (.pdf {instructions})`}
-    description={'Navigate to the download page. This is sixth download file link'}
-    values={{
-      link6: COMMON_COPY.linkFn(DOWNLOAD_FILES.NARWAL.INSTRUCTIONS.URL, false, true),
-      link6es: COMMON_COPY.linkFn(DOWNLOAD_FILES.NARWAL.INSTRUCTIONS_ES.URL, false, true),
-      instructions: <FormattedNumber
-        value={DOWNLOAD_FILES.NARWAL.INSTRUCTIONS.SIZE}
-        style="unit"
-        unit="kilobyte"
-        unitDisplay="narrow"
-      />,
-      instructionsEs: <FormattedNumber
-        value={DOWNLOAD_FILES.NARWAL.INSTRUCTIONS_ES.SIZE}
-        style="unit"
-        unit="kilobyte"
-        unitDisplay="narrow"
-      />,
-    }}
-  />,
-  // };
+  LINKS: [
+    <FormattedMessage
+      id={'download.page.download.file.1'}
+      key={'download.page.download.file.1'}
+      defaultMessage={`
+        <link1>Communities list data</link1> (.xlsx {cldXlsFileSize})
+        `}
+      description={'Navigate to the download page. This is first download file link'}
+      values={{
+        link1: COMMON_COPY.downloadLink(DOWNLOAD_FILES.NARWAL.COMMUNITIES_LIST_XLS.URL),
+        cldXlsFileSize: <FormattedNumber
+          value={DOWNLOAD_FILES.NARWAL.COMMUNITIES_LIST_XLS.SIZE}
+          style="unit"
+          unit="megabyte"
+          unitDisplay="narrow"
+        />,
+      }}
+    />,
+    <FormattedMessage
+      id={'download.page.download.file.2'}
+      key={'download.page.download.file.2'}
+      defaultMessage={`<link2>Communities list data</link2> (.csv {cldCsvFileSize})`}
+      description={'Navigate to the download page. This is second download file link'}
+      values={{
+        link2: COMMON_COPY.downloadLink(DOWNLOAD_FILES.NARWAL.COMMUNITIES_LIST_CSV.URL),
+        cldCsvFileSize: <FormattedNumber
+          value={DOWNLOAD_FILES.NARWAL.COMMUNITIES_LIST_CSV.SIZE}
+          style="unit"
+          unit="megabyte"
+          unitDisplay="narrow"
+        />,
+      }}
+    />,
+    <FormattedMessage
+      id={'download.page.download.file.3'}
+      key={'download.page.download.file.3'}
+      defaultMessage={`<link3>Shapefile</link3> (Codebook included with shapefile {shapeFileSize} unzipped)`}
+      description={'Navigate to the download page. This is third download file link'}
+      values={{
+        link3: COMMON_COPY.downloadLink(DOWNLOAD_FILES.NARWAL.SHAPE_FILE.URL),
+        shapeFileSize: <FormattedNumber
+          value={DOWNLOAD_FILES.NARWAL.SHAPE_FILE.SIZE}
+          style="unit"
+          unit="megabyte"
+          unitDisplay="narrow"
+        />,
+      }}
+    />,
+    // <FormattedMessage
+    //   id={'download.page.download.file.4'}
+    //   key={'download.page.download.file.4'}
+    //   defaultMessage={`<link4>Technical support document</link4> (.pdf {tsdFileSize})`}
+    //   description={'Navigate to the download page. This is fourth download file link'}
+    //   values={{
+    //     link4: COMMON_COPY.linkFn(DOWNLOAD_FILES.NARWAL.TSD.URL, false, true),
+    //     link4es: COMMON_COPY.linkFn(DOWNLOAD_FILES.NARWAL.TSD_ES.URL, false, true),
+    //     tsdFileSize: <FormattedNumber
+    //       value={DOWNLOAD_FILES.NARWAL.TSD.SIZE}
+    //       style="unit"
+    //       unit="megabyte"
+    //       unitDisplay="narrow"
+    //     />,
+    //   }}
+    // />,
+    <FormattedMessage
+      id={'download.page.download.file.5'}
+      key={'download.page.download.file.5'}
+      defaultMessage={`<link5>Instructions to Federal agencies on using the CEJST</link5> (.pdf {instructions})`}
+      description={'Navigate to the download page. This is sixth download file link'}
+      values={{
+        link5: COMMON_COPY.linkFn(DOWNLOAD_FILES.NARWAL.INSTRUCTIONS.URL, false, true),
+        link5es: COMMON_COPY.linkFn(DOWNLOAD_FILES.NARWAL.INSTRUCTIONS_ES.URL, false, true),
+        instructions: <FormattedNumber
+          value={DOWNLOAD_FILES.NARWAL.INSTRUCTIONS.SIZE}
+          style="unit"
+          unit="kilobyte"
+          unitDisplay="narrow"
+        />,
+        instructionsEs: <FormattedNumber
+          value={DOWNLOAD_FILES.NARWAL.INSTRUCTIONS_ES.SIZE}
+          style="unit"
+          unit="kilobyte"
+          unitDisplay="narrow"
+        />,
+      }}
+    />,
+  ],
 };

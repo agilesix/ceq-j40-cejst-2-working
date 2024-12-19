@@ -98,12 +98,6 @@ export const QUESTIONS = [
     description={ 'Navigate to the FAQs page, this will be Q16'}
   />,
   <FormattedMessage
-    id={ 'faqs.page.Q18'}
-    key={ 'faqs.page.Q18'}
-    defaultMessage={ 'How does the Council on Environmental Quality (CEQ) keep people informed about the tool?'}
-    description={ 'Navigate to the FAQs page, this will be Q18'}
-  />,
-  <FormattedMessage
     id={ 'faqs.page.Q19'}
     key={ 'faqs.page.Q19'}
     defaultMessage={ 'What files and documentation are available from the tool?'}
@@ -372,14 +366,6 @@ export const FAQ_ANSWERS = {
         year="numeric"
         month="long"
       />),
-    }}
-  />,
-  Q18: <FormattedMessage
-    id={ 'faqs.page.answers.Q18'}
-    defaultMessage={ `<link1>Sign up</link1> to receive updates on the Climate and Economic Justice Screening Tool (CEJST) and other environmental justice news from CEQ.`}
-    description={ 'Navigate to the FAQs page, this will be an answer, Q18'}
-    values={{
-      link1: linkFn(`https://lp.constantcontactpages.com/su/Vm8pCFj/spring`, false, true),
     }}
   />,
   Q19: <FormattedMessage

@@ -75,6 +75,10 @@ const DatasetCard = ({datasetCardProps}: IDatasetCardProps) => {
                 &ensp;
                 <Tag className={styles.newTag}>{intl.formatMessage(METHODOLOGY_COPY.DATASET_CARD_LABELS.NEW)}</Tag>
               </>)}
+              {dataSource.isUpdated && (<>
+                &ensp;
+                <Tag className={styles.newTag}>{intl.formatMessage(METHODOLOGY_COPY.DATASET_CARD_LABELS.UPDATED)}</Tag>
+              </>)}
             </li>
 
             {/* Dataset Available for */}

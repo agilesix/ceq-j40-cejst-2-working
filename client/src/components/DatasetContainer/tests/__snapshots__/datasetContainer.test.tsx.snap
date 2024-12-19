@@ -190,6 +190,34 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                   </span>
                   All U.S. states, the District of Columbia, and Puerto Rico
                 </li>
+                <li>
+                  <span>
+                    Source: 
+                  </span>
+                  <a
+                    class="usa-link usa-link--external"
+                    data-cy=""
+                    href="https://www.census.gov/data/developers/data-sets/decennial-census.2020.html"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    Decennial Census
+                  </a>
+                   from 2020 
+                  <span
+                    class="usa-tag"
+                    data-testid="tag"
+                  >
+                    NEW
+                  </span>
+                </li>
+                <li>
+                  <span>
+                    Available for: 
+                  </span>
+                  American Samoa, Guam, the Northern Mariana Islands, and the U.S. Virgin Islands
+    
+                </li>
               </ul>
             </div>
             <div
@@ -1758,7 +1786,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                     class="usa-tag"
                     data-testid="tag"
                   >
-                    NEW
+                    UPDATED
                   </span>
                 </li>
                 <li>
@@ -1837,7 +1865,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                     class="usa-tag"
                     data-testid="tag"
                   >
-                    NEW
+                    UPDATED
                   </span>
                 </li>
                 <li>
@@ -1916,7 +1944,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                     class="usa-tag"
                     data-testid="tag"
                   >
-                    NEW
+                    UPDATED
                   </span>
                 </li>
                 <li>
@@ -1995,7 +2023,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                     class="usa-tag"
                     data-testid="tag"
                   >
-                    NEW
+                    UPDATED
                   </span>
                 </li>
                 <li>

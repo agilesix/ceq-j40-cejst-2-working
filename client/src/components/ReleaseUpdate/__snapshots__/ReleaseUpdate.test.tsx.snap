@@ -30,54 +30,59 @@ exports[`rendering of ReleaseUpdate Component checks if component renders 1`] = 
             Version 2.0 Release update - Dec 19, 2024
           </div>
           <div>
-            New & improved
+            New & Improved
           </div>
           <div>
             <ul>
               <li>
-                Scoring improvements
+                Added the low income burden to American Samoa, Guam, the Mariana Islands, and the U.S. Virgin
+        Islands
               </li>
-              <ul>
-                <li>
-                  Updated to use Census Decennial 2020 data for the U.S. territories 
-      of Guam, Virgin Islands, Northern Mariana Islands, and American Samoa
-                </li>
-                <li>
-                  U.S. territories of Guam, Virgin Islands, Northern Mariana Islands, 
-      and American Samoa qualify as disadvantaged communities based on a low-income 
-      threshold at or above the 65th percentile, in addition to any existing qualification 
-      pathways
-                </li>
-                <li>
-                  Apply a donut hole disadvantaged community qualification to U.S. 
-      territories of Guam, Virgin Islands, Northern Mariana Islands, American Samoa, 
-      and Puerto Rico based on adjacency to already qualifying disadvantaged community 
-      tracts and meeting a 50th percentile low-income threshold
-                </li>
-                <li>
-                  Improved donut hole disadvantaged community qualification by 
-      adding tracts that are fully surrounded and have water boundaries
-                </li>
-                <li>
-                  The poverty percentage calculation excludes college students, 
-      ensuring it reflects the economic conditions of the non-college population
-                </li>
-                <li>
-                  Grandfathering of Census tracts that were designated as 
-      disadvantaged communities in version 1.0 of this tool
-                </li>
-              </ul>
               <li>
-                User interface improvements
+                Tracts in these territories that are completely surrounded by disadvantaged tracts and exceed
+        an adjusted low income threshold are now considered disadvantaged
               </li>
-              <ul>
-                <li>
-                  Users can now search on the map by Census tract ID
-                </li>
-                <li>
-                  Show island and territory low-income percentiles in the sidebar
-                </li>
-              </ul>
+              <li>
+                Additionally, census tracts in these four Territories are now considered disadvantaged if they
+        meet the low income threshold only, because these Territories are not included in the nationally-consistent
+        datasets on environmental and climate burdens used in the tool
+              </li>
+              <li>
+                Updated the data in the workforce development category to the Census Decennial 2020 data for
+        the U.S. territories of Guam, Virgin Islands, Northern Mariana Islands, and American Samoa
+              </li>
+              <li>
+                Made improvements to the low income burden to better identify college students before they are
+        excluded from that burden’s percentile
+              </li>
+              <li>
+                Census tracts that were disadvantaged under version 1.0 continue to be considered as
+        disadvantaged in version 2.0
+              </li>
+            </ul>
+          </div>
+          <div>
+            Technical Fixes
+          </div>
+          <div>
+            <ul>
+              <li>
+                For tracts that have water boundaries, e.g. coastal or island tracts, the water boundaries are
+        now excluded from the calculation to determine if a tract is 100% surrounded by disadvantaged census tracts
+              </li>
+            </ul>
+          </div>
+          <div>
+            User Interface Improvements
+          </div>
+          <div>
+            <ul>
+              <li>
+                Added the ability to search by census tract ID
+              </li>
+              <li>
+                The basemap has been updated to use a free, open source map
+              </li>
             </ul>
           </div>
         </div>

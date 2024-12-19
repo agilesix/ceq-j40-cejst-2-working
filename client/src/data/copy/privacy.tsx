@@ -1,4 +1,4 @@
-import {FormattedDate, FormattedMessage} from 'gatsby-plugin-intl';
+import {defineMessages, FormattedDate, FormattedMessage} from 'gatsby-plugin-intl';
 import React from 'react';
 import LinkTypeWrapper from '../../components/LinkTypeWrapper';
 import {PAGES_ENDPOINTS} from '../constants';
@@ -9,7 +9,7 @@ export const PRIVACY_EMAIL = 'CEJST@ceq.eop.gov';
 export const USA_GOV_COOKIES_URL = 'https://www.usa.gov/optout-instructions';
 export const COPPA_URL = 'https://www.ftc.gov/legal-library/browse/rules/childrens-online-privacy-protection-rule-coppa';
 
-export const PAGE_INTRO = {
+export const PAGE_INTRO = defineMessages({
   PAGE_TITLE: {
     id: 'privacy.page.title',
     defaultMessage: 'Privacy Policy',
@@ -20,7 +20,7 @@ export const PAGE_INTRO = {
     defaultMessage: 'CEJST Privacy Policy',
     description: 'Main heading for privacy page',
   },
-};
+});
 
 export const PRIVACY_CONTENT = {
   EFFECTIVE_DATE: <FormattedMessage

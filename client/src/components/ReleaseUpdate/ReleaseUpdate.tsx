@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
 import {useIntl} from 'gatsby-plugin-intl';
+import React, {useState} from 'react';
 
-import * as styles from './ReleaseUpdate.module.scss';
 import * as DOWNLOAD_COPY from '../../data/copy/downloads';
+import * as styles from './ReleaseUpdate.module.scss';
 
 // @ts-ignore
 import expandIcon from '/node_modules/uswds/dist/img/usa-icons/expand_more.svg';
@@ -16,7 +16,6 @@ interface IJ40AccordionItem {
   id: string,
   children: React.ReactElement
 }
-
 
 /**
  * This function will create the custom Accordion item. This will be used
@@ -81,20 +80,29 @@ const ReleaseUpdate = ({ }: IReleaseUpdateProps) => {
       </div>
       <div>
         <ul>
-          <li>{DOWNLOAD_COPY.RELEASE_2_0.SCORING_SUBSECTION}</li>
-          <ul>
-            <li>{DOWNLOAD_COPY.RELEASE_2_0.SCORING_CONTENT_1}</li>
-            <li>{DOWNLOAD_COPY.RELEASE_2_0.SCORING_CONTENT_2}</li>
-            <li>{DOWNLOAD_COPY.RELEASE_2_0.SCORING_CONTENT_3}</li>
-            <li>{DOWNLOAD_COPY.RELEASE_2_0.SCORING_CONTENT_4}</li>
-            <li>{DOWNLOAD_COPY.RELEASE_2_0.SCORING_CONTENT_5}</li>
-            <li>{DOWNLOAD_COPY.RELEASE_2_0.SCORING_CONTENT_6}</li>
-          </ul>
-          <li>{DOWNLOAD_COPY.RELEASE_2_0.UI_SUBSECTION}</li>
-          <ul>
-            <li>{DOWNLOAD_COPY.RELEASE_2_0.UI_CONTENT_1}</li>
-            <li>{DOWNLOAD_COPY.RELEASE_2_0.UI_CONTENT_2}</li>
-          </ul>
+          {DOWNLOAD_COPY.RELEASE_2_0.NEW_IMPROVED_CONTENT.map((item, i) => (
+            <li key={i}>{item}</li>
+          ))}
+        </ul>
+      </div>
+      <div className={styles.releaseSectionTitle}>
+        {DOWNLOAD_COPY.RELEASE_2_0.TECHNICAL_FIXES_SECTION}
+      </div>
+      <div>
+        <ul>
+          {DOWNLOAD_COPY.RELEASE_2_0.TECHNICAL_FIXES_CONTENT.map((item, i) => (
+            <li key={i}>{item}</li>
+          ))}
+        </ul>
+      </div>
+      <div className={styles.releaseSectionTitle}>
+        {DOWNLOAD_COPY.RELEASE_2_0.UI_SECTION}
+      </div>
+      <div>
+        <ul>
+          {DOWNLOAD_COPY.RELEASE_2_0.UI_CONTENT.map((item, i) => (
+            <li key={i}>{item}</li>
+          ))}
         </ul>
       </div>
     </div>

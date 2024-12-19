@@ -417,75 +417,18 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
         >
           <section>
             <p>
-              In January of 2021, President Biden issued 
-              <a
-                class="usa-link usa-link--external"
-                data-cy=""
-                href="https://www.federalregister.gov/documents/2021/02/01/2021-02177/tackling-the-climate-crisis-at-home-and-abroad#:~:text=Sec.%20223.%20Justice40,40-percent%20goal."
-                rel="noreferrer"
-                target="_blank"
-              >
-                Executive Order 14008
-              </a>
-              . The order directed the Council on Environmental Quality (CEQ) to develop a new tool. This tool is called the Climate and Economic Justice Screening Tool. The tool has an interactive map and uses datasets that are indicators of burdens in eight categories: climate change, energy, health, housing, legacy pollution, transportation, water and wastewater, and workforce development. The tool uses this information to identify communities that are experiencing these burdens. These are the communities that are disadvantaged because they are marginalized by underinvestment and overburdened by pollution.
+              This tool is called the Climate and Economic Justice Screening Tool. The tool has an interactive map and uses datasets that are indicators of burdens in eight categories: climate change, energy, health, housing, legacy pollution, transportation, water and wastewater, and workforce development. The tool uses this information to identify communities that are experiencing these burdens. These are the communities that are disadvantaged because they are marginalized by underinvestment and overburdened by pollution.
             </p>
             <p>
-              Federal agencies will use the tool to help identify disadvantaged communities that will benefit from programs included in the 
-              <a
-                class="usa-link usa-link--external"
-                data-cy=""
-                href="https://www.federalregister.gov/documents/2021/02/01/2021-02177/tackling-the-climate-crisis-at-home-and-abroad#:~:text=Sec.%20223.%20Justice40,40-percent%20goal."
-                rel="noreferrer"
-                target="_blank"
-              >
-                Justice40 Initiative
-              </a>
-              . The Justice40 Initiative seeks to deliver 40% of the overall benefits of investments in climate, clean energy, and related areas to disadvantaged communities.
-            </p>
-            <div
-              class="j40-p-tag"
-            >
               
-      Federal agencies should also use the following:
-    
-              <ul>
-                <li>
-                   
-      
-                  <a
-                    class="usa-link usa-link--external"
-                    data-cy=""
-                    href="https://www.whitehouse.gov/wp-content/uploads/2023/01/M-23-09_Signed_CEQ_CPO.pdf"
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    Memorandum
-                  </a>
-                   on Using the CEJST for the Justice40 Initiative
-    
-                </li>
-                <li>
-                   
-     
-                  <a
-                    class="usa-link usa-link--external"
-                    data-cy=""
-                    href="undefined/data-versions/2.0/data/score/downloadable/CEQ-CEJST-Instructions.pdf"
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    Instructions
-                  </a>
-                   to Federal agencies on using the CEJST
-    
-                </li>
-              </ul>
-            </div>
-            <p>
-              
-      CEQ will continue to update the tool, after reviewing public feedback, 
-      research, and the availability of new data. The current version of the 
+      CEQ will update the tool, after reviewing public feedback,
+      research, and the availability of new data. The current version of the
       tool is version 2.0.
+    
+            </p>
+            <p>
+              
+      A Spanish version of the site will be available in the near future.
     
             </p>
           </section>
@@ -504,7 +447,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
         data-testid="gridContainer"
       >
         <div
-          class="grid-col-12 tablet:grid-col-8"
+          class="grid-col-12 tablet:grid-col-8 j40-mb5-mt3"
           data-testid="grid"
         >
           <h2>
@@ -522,7 +465,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
             >
               statistical areas
             </a>
-             are determined by the U.S. Census Bureau once every ten years. The tool utilizes the census tract boundaries from 2020. This was chosen because many of the data sources in the tool currently use the 2010 census boundaries.  The tool also shows land within the boundaries of Federally Recognized Tribes and point locations for Alaska Native Villages and landless Tribes in the lower 48 states.
+             are determined by the U.S. Census Bureau once every ten years. The tool utilizes the census tract boundaries from 2010. The tool also shows land within the boundaries of Federally Recognized Tribes and point locations for Alaska Native Villages and landless Tribes in the lower 48 states.
           </p>
           <p>
             The tool ranks most of the burdens using percentiles. Percentiles show how much burden each tract experiences compared to other tracts. Certain burdens use percentages or a simple yes/no.
@@ -539,138 +482,6 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
              or are on land within the boundaries of Federally Recognized Tribes.
     
           </p>
-        </div>
-        <div
-          class="grid-row grid-gap-lg j40-aboutcard-container "
-          data-testid="grid"
-        >
-          <div
-            class="grid-gap-lg tablet:grid-col"
-            data-testid="grid"
-          >
-            <div
-              class="grid-row j40-aboutcard-sm-card"
-              data-testid="grid"
-            >
-              <div
-                class="tablet:grid-col-2 j40-aboutpage-image-container"
-                data-testid="grid"
-              >
-                <img
-                  alt="Using the map"
-                  class="j40-aboutcard-image"
-                  src="test-file-stub"
-                />
-              </div>
-              <div
-                class="tablet:grid-col-9"
-                data-cy="using-the-map-block"
-                data-testid="grid"
-              >
-                <div
-                  class="grid-row"
-                  data-testid="grid"
-                >
-                  <h3>
-                    Using the map
-                  </h3>
-                  <p>
-                    
-      Zoom in and select any census tract to see if it is considered disadvantaged.
-    
-                  </p>
-                  <div
-                    class="j40-aboutcard-sm-link"
-                  >
-                    <a
-                      class="usa-link usa-link--external"
-                      data-cy=""
-                      href="undefined/data-versions/2.0/data/score/downloadable/Using-the-CEJST-Tutorial.pdf"
-                      rel="noreferrer"
-                      target="_blank"
-                    >
-                      
-      Download the CEJST tutorial (.pdf 9.6 MB)
-    
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="grid-col-1"
-                data-testid="grid"
-              >
-                 
-              </div>
-            </div>
-          </div>
-          <div
-            class="grid-gap-lg tablet:grid-col"
-            data-testid="grid"
-          >
-            <div
-              class="grid-row j40-aboutcard-sm-card"
-              data-testid="grid"
-            >
-              <div
-                class="tablet:grid-col-2 j40-aboutpage-image-container"
-                data-testid="grid"
-              >
-                <img
-                  alt="Using the data"
-                  class="j40-aboutcard-image"
-                  src="test-file-stub"
-                />
-              </div>
-              <div
-                class="tablet:grid-col-9"
-                data-cy="using-the-data-block"
-                data-testid="grid"
-              >
-                <div
-                  class="grid-row"
-                  data-testid="grid"
-                >
-                  <h3>
-                    Using the data
-                  </h3>
-                  <p>
-                    
-      The tool’s data is available for 
-                    <a
-                      class="usa-link"
-                      href="/en/downloads"
-                    >
-                      download
-                    </a>
-                    . This data can be used to filter by state or county.
-    
-                  </p>
-                  <div
-                    class="j40-aboutcard-sm-link"
-                  >
-                    <a
-                      class="usa-link usa-link--external"
-                      data-cy=""
-                      href="undefined/data-versions/2.0/data/score/downloadable/Using-the-CEJST-Spreadsheet-Tutorial.pdf"
-                      rel="noreferrer"
-                      target="_blank"
-                    >
-                      
-    Download the spreadsheet tutorial (.pdf 5.4 MB)
-    
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="grid-col-1"
-                data-testid="grid"
-              >
-                 
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -850,11 +661,6 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
               .
             </li>
           </ul>
-          <p>
-            
-      The Council on Environmental Quality plans to issue a Request for Information in 2023. This will give the public time to use the tool before providing comments.
-    
-          </p>
         </div>
       </div>
     </div>

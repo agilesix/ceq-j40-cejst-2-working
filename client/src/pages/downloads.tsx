@@ -1,16 +1,16 @@
-import * as React from 'react';
-import {useIntl} from 'gatsby-plugin-intl';
 import {Grid} from '@trussworks/react-uswds';
+import {useIntl} from 'gatsby-plugin-intl';
+import * as React from 'react';
 import {useWindowSize} from 'react-use';
 
+import DatasetsButton from '../components/DatasetsButton';
 import J40MainGridContainer from '../components/J40MainGridContainer';
 import Layout from '../components/layout';
-import DatasetsButton from '../components/DatasetsButton';
 import ReleaseUpdate from '../components/ReleaseUpdate';
 import SubPageNav from '../components/SubPageNav';
 
+import {DATA_SURVEY_LINKS, PAGES_ENDPOINTS, USWDS_BREAKPOINTS} from '../data/constants';
 import * as DOWNLOADS_COPY from '../data/copy/downloads';
-import {PAGES_ENDPOINTS, USWDS_BREAKPOINTS, DATA_SURVEY_LINKS} from '../data/constants';
 interface IDownloadsPageProps {
   location: Location;
 }
@@ -39,27 +39,11 @@ const DownloadsPage = ({location}: IDownloadsPageProps) => {
               <ReleaseUpdate />
             </section>
 
-            <p>
-              {DOWNLOADS_COPY.DOWNLOAD_LINKS.TEXT}
-            </p>
-            <p>
-              {DOWNLOADS_COPY.DOWNLOAD_LINKS.LINK1}
-            </p>
-            <p>
-              {DOWNLOADS_COPY.DOWNLOAD_LINKS.LINK2}
-            </p>
-            <p>
-              {DOWNLOADS_COPY.DOWNLOAD_LINKS.LINK3}
-            </p>
-            <p>
-              {DOWNLOADS_COPY.DOWNLOAD_LINKS.LINK4}
-            </p>
-            <p>
-              {DOWNLOADS_COPY.DOWNLOAD_LINKS.LINK6}
-            </p>
-            <p>
-              {DOWNLOADS_COPY.DOWNLOAD_LINKS.LINK5}
-            </p>
+            {DOWNLOADS_COPY.DOWNLOAD_LINKS.LINKS.map((link, i) => (
+              <p key={i}>
+                {link}
+              </p>
+            ))}
           </Grid>
 
           {/* Second column */}

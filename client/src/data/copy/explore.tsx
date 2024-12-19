@@ -1,13 +1,13 @@
 /* eslint-disable max-len */
 
+import {FormattedDate, FormattedMessage, FormattedNumber} from 'gatsby-plugin-intl';
 import React from 'react';
 import {defineMessages} from 'react-intl';
-import {FormattedDate, FormattedMessage, FormattedNumber} from 'gatsby-plugin-intl';
 
-import {linkFn, boldFn, downloadLink} from './common';
+import {PAGES_ENDPOINTS} from '../constants';
+import {boldFn, downloadLink, linkFn} from './common';
 import {DOWNLOAD_FILES} from './downloads';
 import {VERSION_NUMBER} from './methodology';
-import {PAGES_ENDPOINTS} from '../constants';
 
 export const EXPLORE_PAGE_LINKS = {
   WH_GOV_TRIBAL_ACTION_PLAN_4_26_21: `https://www.whitehouse.gov/wp-content/uploads/2022/01/CEQ-Tribal-Consultation-Plan-04.26.2021.pdf`,
@@ -33,9 +33,9 @@ export const PAGE_INTRO = defineMessages({
 export const PAGE_DESCRIPTION1 = <FormattedMessage
   id={'explore.map.page.description.1'}
   defaultMessage={`
-    Census tracts that are marginalized by underinvestment and overburdened 
-    by pollution are highlighted as being disadvantaged on the map. Federally 
-    Recognized Tribes, including Alaska Native Villages, are considered 
+    Census tracts that are marginalized by underinvestment and overburdened
+    by pollution are highlighted as being disadvantaged on the map. Federally
+    Recognized Tribes, including Alaska Native Villages, are considered
     disadvantaged communities, whether or not they have land.
   `}
   description={'On the explore the map page, the first description of the page'}
@@ -582,8 +582,8 @@ export const SIDE_PANEL_DEMOGRAPHICS = {
   />,
   DEMO_AGE_OVER_65: <FormattedMessage
     id={'explore.map.page.side.panel.demo.age.over.65'}
-    defaultMessage={'Elderly over 65'}
-    description={`Navigate to the explore the map page. When the map is in view, click on the map. The side panel will show the demographics: Elderly over 65`}
+    defaultMessage={'Adults over 65'}
+    description={`Navigate to the explore the map page. When the map is in view, click on the map. The side panel will show the demographics: Adults over 65`}
   />,
   SHOW_DEMOGRAPHICS: <FormattedMessage
     id={'explore.map.page.side.panel.demo.show'}
@@ -1454,7 +1454,7 @@ export const NOTE_ON_TERRITORIES = {
   PARA_0: <FormattedMessage
     id={'explore.map.page.under.map.note.on.territories.para.0'}
     defaultMessage={`
-      Not all the data used in the tool are available or used for all U.S. territories.
+      Not all the data used in the tool are available or used for all U.S. Territories.
     `}
     description={`Navigate to the explore the map page. Under the map, you will see territories paragraph 0`}
   />,
@@ -1472,7 +1472,7 @@ export const NOTE_ON_TERRITORIES = {
   PARA_2: <FormattedMessage
     id={'explore.map.page.under.map.note.on.territories.para.2'}
     defaultMessage={`
-    <bold>American Samoa, Guam, the Northern Mariana Islands, and the U.S. Virgin Islands:</bold> For these U.S. territories, the tool uses the following data: unemployment, poverty, low median income, and high school education. These burdens are in the workforce development category.
+    <bold>American Samoa, Guam, the Northern Mariana Islands, and the U.S. Virgin Islands:</bold> For these U.S. Territories, the tool uses the following data: expected agriculture loss rate, expected building loss rate, expected population loss rate, abandoned mine lands, low income, unemployment, poverty, low median income, and high school education. These burdens are in the climate change, legacy pollution, and workforce development categories.
   `}
     description={`Navigate to the explore the map page. Under the map, you will see territories paragraph 2`}
     values={{

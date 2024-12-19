@@ -47,7 +47,6 @@ const IndexPage = ({location}: MethodPageProps) => {
                   <li><p>{intl.formatMessage(METHODOLOGY_COPY.PAGE.PARA1_BULLET2)}</p></li>
                   <li><p>{intl.formatMessage(METHODOLOGY_COPY.PAGE.PARA1_BULLET3)}</p></li>
                   <li><p>{intl.formatMessage(METHODOLOGY_COPY.PAGE.PARA1_BULLET4)}</p></li>
-                  <li><p>{intl.formatMessage(METHODOLOGY_COPY.PAGE.PARA1_BULLET5)}</p></li>
                 </ul>
               </div>
             </section>

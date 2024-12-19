@@ -955,7 +955,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                   data-testid="accordionButton_faq-id-12"
                   type="button"
                 >
-                  How does the Council on Environmental Quality (CEQ) keep people informed about the tool?
+                  What files and documentation are available from the tool?
                 </button>
               </h2>
               <div
@@ -963,38 +963,6 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                 data-testid="accordionItem_faq-id-12"
                 hidden=""
                 id="faq-id-12"
-              >
-                <p>
-                  <a
-                    class="usa-link usa-link--external"
-                    data-cy=""
-                    href="https://lp.constantcontactpages.com/su/Vm8pCFj/spring"
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    Sign up
-                  </a>
-                   to receive updates on the Climate and Economic Justice Screening Tool (CEJST) and other environmental justice news from CEQ.
-                </p>
-              </div>
-              <h2
-                class="usa-accordion__heading -faq"
-              >
-                <button
-                  aria-controls="faq-id-13"
-                  aria-expanded="false"
-                  class="usa-accordion__button"
-                  data-testid="accordionButton_faq-id-13"
-                  type="button"
-                >
-                  What files and documentation are available from the tool?
-                </button>
-              </h2>
-              <div
-                class="usa-accordion__content usa-prose -faq"
-                data-testid="accordionItem_faq-id-13"
-                hidden=""
-                id="faq-id-13"
               >
                 <p>
                   The Climate and Economic Justice Screening Tool (CEJST) has 
@@ -1018,10 +986,10 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                 class="usa-accordion__heading -faq"
               >
                 <button
-                  aria-controls="faq-id-14"
+                  aria-controls="faq-id-13"
                   aria-expanded="false"
                   class="usa-accordion__button"
-                  data-testid="accordionButton_faq-id-14"
+                  data-testid="accordionButton_faq-id-13"
                   type="button"
                 >
                   How do the tool’s shapefiles work?
@@ -1029,9 +997,9 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
               </h2>
               <div
                 class="usa-accordion__content usa-prose -faq"
-                data-testid="accordionItem_faq-id-14"
+                data-testid="accordionItem_faq-id-13"
                 hidden=""
-                id="faq-id-14"
+                id="faq-id-13"
               >
                 <p>
                   The tool’s shapefile can be uploaded into other mapping programs such as Esri.
@@ -1064,10 +1032,10 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                 class="usa-accordion__heading -faq"
               >
                 <button
-                  aria-controls="faq-id-15"
+                  aria-controls="faq-id-14"
                   aria-expanded="false"
                   class="usa-accordion__button"
-                  data-testid="accordionButton_faq-id-15"
+                  data-testid="accordionButton_faq-id-14"
                   type="button"
                 >
                   Why are some tracts disadvantaged because they were disadvantaged in version 1.0 of the tool?
@@ -1075,9 +1043,9 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
               </h2>
               <div
                 class="usa-accordion__content usa-prose -faq"
-                data-testid="accordionItem_faq-id-15"
+                data-testid="accordionItem_faq-id-14"
                 hidden=""
-                id="faq-id-15"
+                id="faq-id-14"
               >
                 <p>
                   These tracts that have been "grandfathered" for at least two years. This helps to reduce disruption and to support a smooth transition for agencies, applicants, and the public as new versions of the tool are released. The tool’s 
@@ -1097,10 +1065,10 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                 class="usa-accordion__heading -faq"
               >
                 <button
-                  aria-controls="faq-id-16"
+                  aria-controls="faq-id-15"
                   aria-expanded="false"
                   class="usa-accordion__button"
-                  data-testid="accordionButton_faq-id-16"
+                  data-testid="accordionButton_faq-id-15"
                   type="button"
                 >
                   Why are some tracts disadvantaged in certain U.S. Territories because they only meet the low income threshold?
@@ -1108,9 +1076,9 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
               </h2>
               <div
                 class="usa-accordion__content usa-prose -faq"
-                data-testid="accordionItem_faq-id-16"
+                data-testid="accordionItem_faq-id-15"
                 hidden=""
-                id="faq-id-16"
+                id="faq-id-15"
               >
                 <p>
                   Because some nationally-consistent datasets on indicators of environmental or climate burden used in the tool do not currently include data from certain U.S. Territories, tracts in these Territories are considered disadvantaged if they meet the low income threshold only.

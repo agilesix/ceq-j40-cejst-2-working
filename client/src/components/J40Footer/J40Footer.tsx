@@ -13,6 +13,7 @@ import SurveyButton from '../SurveyButton';
 
 // @ts-ignore
 import {GITHUB_LINK, GITHUB_LINK_ES} from '../../constants';
+import {PAGES_ENDPOINTS} from '../../data/constants';
 import * as COMMON_COPY from '../../data/copy/common';
 import whitehouseIcon from '../../images/eop-seal.svg';
 
@@ -48,7 +49,7 @@ const J40Footer = () => {
       <LinkTypeWrapper
         linkText={intl.formatMessage(COMMON_COPY.FOOTER.PRIVACY)}
         internal={true}
-        url={intl.formatMessage(COMMON_COPY.FOOTER.PRIVACY_LINK)}
+        url={PAGES_ENDPOINTS.PRIVACY}
         openUrlNewTab={false}
         key={'privacylink'}
         dataCy={hyphenizeString(COMMON_COPY.FOOTER.PRIVACY.defaultMessage)}

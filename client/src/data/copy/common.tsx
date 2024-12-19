@@ -5,8 +5,6 @@ import React from 'react';
 import {defineMessages} from 'react-intl';
 import DownloadLink from '../../components/DownloadLink';
 import LinkTypeWrapper from '../../components/LinkTypeWrapper';
-import {GITHUB_LINK} from '../../constants';
-import {PAGES_ENDPOINTS} from '../constants';
 
 export interface IDefineMessage {
   id: string,
@@ -205,11 +203,6 @@ export const FOOTER = defineMessages({
     defaultMessage: 'Privacy Policy',
     description: 'Navigate to the about page. This is Footer privacy policy link text',
   },
-  PRIVACY_LINK: {
-    id: 'common.pages.footer.privacy.link',
-    defaultMessage: PAGES_ENDPOINTS.PRIVACY,
-    description: 'Navigate to the about page. This is Footer privacy policy link text',
-  },
   LOGO_ALT: {
     id: 'common.pages.footer.whitehouselogoalt',
     defaultMessage: 'Whitehouse logo',
@@ -231,14 +224,9 @@ export const FOOTER = defineMessages({
     description: 'Navigate to the about page. This is third Footer column header',
   },
   GITHUB_LINK_TEXT: {
-    id: 'common.pages.footer.github.link.text',
+    id: 'common.pages.footer.github.text',
     defaultMessage: 'Check out the code on GitHub',
     description: 'Navigate to the about page. This is Footer github link text',
-  },
-  GITHUB_LINK: {
-    id: 'common.pages.footer.gatsby.link',
-    defaultMessage: GITHUB_LINK,
-    description: 'Navigate to the about page. This is Footer find contact link text',
   },
   CONTACT: {
     id: 'common.pages.footer.contactheader',
@@ -252,14 +240,6 @@ export const FOOTER_CEQ_ADDRESS = {
   STREET: '730 Jackson Pl NW',
   CITY_STATE: 'Washington, D.C. 20506',
   PHONE: '(202) 395-5750',
-  // SIGN_UP: <FormattedMessage
-  //   id={'common.pages.footer.sign.up.updates'}
-  //   defaultMessage={`<link1>Sign-up</link1> for updates`}
-  //   description={`Alert title that appears at the top of pages.`}
-  //   values={{
-  //     link1: linkFn('https://lp.constantcontactpages.com/su/Vm8pCFj/spring', false, true),
-  //   }}
-  // />,
 }
 ;
 
@@ -271,5 +251,3 @@ export const CONSOLE_ERROR = defineMessages({
     description: 'Navigate to the about page. This is console error staging URL',
   },
 });
-
-

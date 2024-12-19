@@ -438,14 +438,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                 <li>
                   <p>
                     
-      If the census tract ID was identified as disadvantaged in version 1.0, then the census tract is considered disadvantaged in version 2.0.
-    
-                  </p>
-                </li>
-                <li>
-                  <p>
-                    
-      If the tract is a new tract in 2020, then the percentage of land that it shared, if any, with a previously disadvantaged tract will be considered disadvantaged.
+      For census tracts that were identified as disadvantaged in version 1.0 of the tool, but do not meet the methodology for the 2.0 version: If the census tract ID was identified as disadvantaged in version 1.0, then the census tract is considered disadvantaged.
     
                   </p>
                 </li>
@@ -1218,6 +1211,34 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                       Available for: 
                     </span>
                     All U.S. states, the District of Columbia, and Puerto Rico
+                  </li>
+                  <li>
+                    <span>
+                      Source: 
+                    </span>
+                    <a
+                      class="usa-link usa-link--external"
+                      data-cy=""
+                      href="https://www.census.gov/data/developers/data-sets/decennial-census.2020.html"
+                      rel="noreferrer"
+                      target="_blank"
+                    >
+                      Decennial Census
+                    </a>
+                     from 2020 
+                    <span
+                      class="usa-tag"
+                      data-testid="tag"
+                    >
+                      NEW
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      Available for: 
+                    </span>
+                    American Samoa, Guam, the Northern Mariana Islands, and the U.S. Virgin Islands
+    
                   </li>
                 </ul>
               </div>
@@ -2787,7 +2808,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                       class="usa-tag"
                       data-testid="tag"
                     >
-                      NEW
+                      UPDATED
                     </span>
                   </li>
                   <li>
@@ -2866,7 +2887,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                       class="usa-tag"
                       data-testid="tag"
                     >
-                      NEW
+                      UPDATED
                     </span>
                   </li>
                   <li>
@@ -2945,7 +2966,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                       class="usa-tag"
                       data-testid="tag"
                     >
-                      NEW
+                      UPDATED
                     </span>
                   </li>
                   <li>
@@ -3024,7 +3045,7 @@ exports[`rendering of the DatasetContainer checks if various text fields are vis
                       class="usa-tag"
                       data-testid="tag"
                     >
-                      NEW
+                      UPDATED
                     </span>
                   </li>
                   <li>

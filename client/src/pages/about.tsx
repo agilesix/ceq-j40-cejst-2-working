@@ -1,34 +1,27 @@
-import * as React from 'react';
 import {useIntl} from 'gatsby-plugin-intl';
+import * as React from 'react';
 import {useWindowSize} from 'react-use';
 
+import {Grid} from '@trussworks/react-uswds';
 import AboutCard from '../components/AboutCard/AboutCard';
 import AboutCardsContainer from '../components/AboutCard/AboutCardsContainer';
-import {Grid} from '@trussworks/react-uswds';
+import DatasetsButton from '../components/DatasetsButton';
 import HowYouCanHelp from '../components/HowYouCanHelp';
 import J40MainGridContainer from '../components/J40MainGridContainer';
 import Layout from '../components/layout';
-import DatasetsButton from '../components/DatasetsButton';
 import SubPageNav from '../components/SubPageNav';
 
-import * as ABOUT_COPY from '../data/copy/about';
 import {GITHUB_LINK, GITHUB_LINK_ES} from '../constants';
+import {DATA_SURVEY_LINKS, PAGES_ENDPOINTS, USWDS_BREAKPOINTS} from '../data/constants';
+import * as ABOUT_COPY from '../data/copy/about';
 import {FEEDBACK_EMAIL} from '../data/copy/common';
-import {PAGES_ENDPOINTS, USWDS_BREAKPOINTS, DATA_SURVEY_LINKS} from '../data/constants';
 
-import accountBalanceIcon // @ts-ignore
-  from '/node_modules/uswds/dist/img/usa-icons/account_balance.svg';
-
-import fileDownloadIcon from // @ts-ignore
-  '/node_modules/uswds/dist/img/usa-icons/file_download.svg';
 
 import commentIcon from // @ts-ignore
   '/node_modules/uswds/dist/img/usa-icons/comment.svg';
 
 import githubIcon from // @ts-ignore
   '/node_modules/uswds/dist/img/usa-icons/github.svg';
-import {USE_DATA_TUTORIAL_LINK, USE_MAP_TUTORIAL_LINK,
-  USE_DATA_TUTORIAL_LINK_ES, USE_MAP_TUTORIAL_LINK_ES} from '../data/copy/about';
 
 interface IAboutPageProps {
   location: Location;
@@ -61,15 +54,8 @@ const AboutPage = ({location}: IAboutPageProps) => {
               <p>
                 {ABOUT_COPY.CONTENT.PARA2}
               </p>
-              <div className={'j40-p-tag'}>
-                {ABOUT_COPY.CONTENT.PARA3}
-                <ul>
-                  <li> {ABOUT_COPY.CONTENT.LI1}</li>
-                  <li> {ABOUT_COPY.CONTENT.LI2}</li>
-                </ul>
-              </div>
               <p>
-                {ABOUT_COPY.CONTENT.PARA4}
+                {ABOUT_COPY.CONTENT.PARA3}
               </p>
             </section>
           </Grid>
@@ -97,8 +83,7 @@ const AboutPage = ({location}: IAboutPageProps) => {
         fullWidth={true}
         blueBackground={true}>
         <J40MainGridContainer>
-
-          <Grid col={12} tablet={{col: 8}}>
+          <Grid col={12} tablet={{col: 8}} className='j40-mb5-mt3'>
             <h2>
               {intl.formatMessage(ABOUT_COPY.HOW_TO_USE_TOOL.TITLE)}
             </h2>
@@ -112,34 +97,6 @@ const AboutPage = ({location}: IAboutPageProps) => {
               {ABOUT_COPY.CONTENT.HOW_TO_USE_PARA3}
             </p>
           </Grid>
-
-          <AboutCardsContainer>
-            <AboutCard
-              size={'small'}
-              imgSrc={accountBalanceIcon}
-              header={intl.formatMessage(ABOUT_COPY.HOW_TO_USE_TOOL.USE_MAP_HEADING)}
-              linkText={ABOUT_COPY.CONTENT.USE_MAP_TUTORIAL}
-              url={intl.locale === `es` ? USE_MAP_TUTORIAL_LINK_ES : USE_MAP_TUTORIAL_LINK}
-              openUrlNewTab={true}
-              internal={false}>
-              <p>
-                {intl.formatMessage(ABOUT_COPY.HOW_TO_USE_TOOL.USE_MAP_PARA)}
-              </p>
-            </AboutCard>
-
-            <AboutCard
-              size={'small'}
-              imgSrc={fileDownloadIcon}
-              header={intl.formatMessage(ABOUT_COPY.HOW_TO_USE_TOOL.USE_DATA_HEADING)}
-              linkText={ABOUT_COPY.CONTENT.USE_DATA_TUTORIAL}
-              url={intl.locale === `es` ? USE_DATA_TUTORIAL_LINK_ES : USE_DATA_TUTORIAL_LINK}
-              openUrlNewTab={true}
-              internal={false}>
-              <p>
-                {ABOUT_COPY.CONTENT.USE_DATA_PARA}
-              </p>
-            </AboutCard>
-          </AboutCardsContainer>
         </J40MainGridContainer>
       </J40MainGridContainer>
 

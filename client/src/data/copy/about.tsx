@@ -19,11 +19,6 @@ export const CEJST_INSTRUCT_ES = process.env.GATSBY_CDN_TILES_BASE_URL +`/data-v
 export const CEJST_MEMO = `https://www.whitehouse.gov/wp-content/uploads/2023/01/M-23-09_Signed_CEQ_CPO.pdf`;
 export const CEJST_MEMO_ES = process.env.GATSBY_CDN_TILES_BASE_URL +`/data-versions/2.0/data/score/downloadable/M-23-09_Signed_CEQ_CPO_es.pdf`;
 
-export const USE_MAP_TUTORIAL_LINK = process.env.GATSBY_CDN_TILES_BASE_URL +`/data-versions/2.0/data/score/downloadable/Using-the-CEJST-Tutorial.pdf`;
-export const USE_MAP_TUTORIAL_LINK_ES = process.env.GATSBY_CDN_TILES_BASE_URL +`/data-versions/2.0/data/score/downloadable/Using-the-CEJST-Tutorial-es.pdf`;
-export const USE_DATA_TUTORIAL_LINK = process.env.GATSBY_CDN_TILES_BASE_URL +`/data-versions/2.0/data/score/downloadable/Using-the-CEJST-Spreadsheet-Tutorial.pdf`;
-export const USE_DATA_TUTORIAL_LINK_ES = process.env.GATSBY_CDN_TILES_BASE_URL +`/data-versions/2.0/data/score/downloadable/Using-the-CEJST-Spreadsheet-Tutorial-es.pdf`;
-
 export const PAGE = defineMessages({
   TITLE: {
     id: 'about.page.title.text',
@@ -36,7 +31,7 @@ export const CONTENT = {
   PARA1:
   <FormattedMessage
     id={'about.page.paragraph.1'}
-    defaultMessage={`In January of 2021, President Biden issued <link1>Executive Order 14008</link1>. The order directed the Council on Environmental Quality (CEQ) to develop a new tool. This tool is called the Climate and Economic Justice Screening Tool. The tool has an interactive map and uses datasets that are indicators of burdens in eight categories: climate change, energy, health, housing, legacy pollution, transportation, water and wastewater, and workforce development. The tool uses this information to identify communities that are experiencing these burdens. These are the communities that are disadvantaged because they are marginalized by underinvestment and overburdened by pollution.`}
+    defaultMessage={`This tool is called the Climate and Economic Justice Screening Tool. The tool has an interactive map and uses datasets that are indicators of burdens in eight categories: climate change, energy, health, housing, legacy pollution, transportation, water and wastewater, and workforce development. The tool uses this information to identify communities that are experiencing these burdens. These are the communities that are disadvantaged because they are marginalized by underinvestment and overburdened by pollution.`}
     description={'Navigate to the About page. This is the paragraph 1'}
     values={{
       link1: linkFn(EXEC_ORDER_LINK, false, true),
@@ -46,50 +41,9 @@ export const CONTENT = {
   PARA2:
   <FormattedMessage
     id={'about.page.paragraph.2'}
-    defaultMessage={`Federal agencies will use the tool to help identify disadvantaged communities that will benefit from programs included in the <link1>Justice40 Initiative</link1>. The Justice40 Initiative seeks to deliver 40% of the overall benefits of investments in climate, clean energy, and related areas to disadvantaged communities.`}
-    description={'Navigate to the About page. This is the paragraph 2'}
-    values={{
-      link1: linkFn(EXEC_ORDER_LINK, false, true),
-      italictag: italicFn,
-    }}
-  />,
-  PARA3:
-  <FormattedMessage
-    id={'about.page.paragraph.3'}
     defaultMessage={`
-      Federal agencies should also use the following:
-    `}
-    description={'Navigate to the About page. This is the paragraph 3'}
-  />,
-  LI1:
-  <FormattedMessage
-    id={'about.page.list.item.1'}
-    defaultMessage={`
-      <link1>Memorandum</link1> on Using the CEJST for the Justice40 Initiative
-    `}
-    description={'Navigate to the About page. This is the list item 1'}
-    values={{
-      link1: linkFn(CEJST_MEMO, false, true),
-    }}
-  />,
-  LI2:
-  <FormattedMessage
-    id={'about.page.list.item.2'}
-    defaultMessage={`
-     <link1>Instructions</link1> to Federal agencies on using the CEJST
-    `}
-    description={'Navigate to the About page. This is the list item 2'}
-    values={{
-      link1: linkFn(CEJST_INSTRUCT, false, true),
-      link1es: linkFn(CEJST_INSTRUCT_ES, false, true),
-    }}
-  />,
-  PARA4:
-  <FormattedMessage
-    id={'about.page.paragraph.4'}
-    defaultMessage={`
-      CEQ will continue to update the tool, after reviewing public feedback, 
-      research, and the availability of new data. The current version of the 
+      CEQ will update the tool, after reviewing public feedback,
+      research, and the availability of new data. The current version of the
       tool is version {version}.
     `}
     description={'Navigate to the About page. This is the paragraph 4'}
@@ -97,30 +51,19 @@ export const CONTENT = {
       version: VERSION_NUMBER,
     }}
   />,
-  PARA5:
+  PARA3:
   <FormattedMessage
-    id={'about.page.paragraph.5'}
+    id={'about.page.paragraph.3'}
     defaultMessage={`
       A Spanish version of the site will be available in the near future.
     `}
     description={'Navigate to the About page. This is the paragraph 5'}
   />,
-  USE_DATA_PARA:
-  <FormattedMessage
-    id={'about.page.use.data.paragraph'}
-    defaultMessage={`
-      The tool’s data is available for <link1>download</link1>. This data can be used to filter by state or county.
-    `}
-    description={'Navigate to the About page. This is the paragraph 4'}
-    values={{
-      link1: linkFn(PAGES_ENDPOINTS.DOWNLOADS, true, false),
-    }}
-  />,
   HOW_TO_USE_PARA1:
   <FormattedMessage
     id={'about.page.how.to.use.tool.para1'}
     defaultMessage={`
-      The tool shows information about the burdens that communities experience. It uses datasets to identify indicators of burdens. The tool shows these burdens in census tracts. Census tracts are small units of geography. Census tract boundaries for <link1>statistical areas</link1> are determined by the U.S. Census Bureau once every ten years. The tool utilizes the census tract boundaries from 2020. This was chosen because many of the data sources in the tool currently use the 2010 census boundaries.  The tool also shows land within the boundaries of Federally Recognized Tribes and point locations for Alaska Native Villages and landless Tribes in the lower 48 states.`}
+      The tool shows information about the burdens that communities experience. It uses datasets to identify indicators of burdens. The tool shows these burdens in census tracts. Census tracts are small units of geography. Census tract boundaries for <link1>statistical areas</link1> are determined by the U.S. Census Bureau once every ten years. The tool utilizes the census tract boundaries from 2010. The tool also shows land within the boundaries of Federally Recognized Tribes and point locations for Alaska Native Villages and landless Tribes in the lower 48 states.`}
     description={'Navigate to the About page. This is the paragraph 4'}
     values={{
       link1: linkFn('https://www.census.gov/programs-surveys/acs/geography-acs/geography-boundaries-by-year.html', false, true),
@@ -137,21 +80,6 @@ export const CONTENT = {
       link1: linkFn(PAGES_ENDPOINTS.METHODOLOGY, true, false),
     }}
   />,
-
-  USE_MAP_TUTORIAL: <FormattedMessage
-    id={'about.page.use.map.tutorial'}
-    defaultMessage={`
-      Download the CEJST tutorial (.pdf 9.6 MB)
-    `}
-    description={'Navigate to the About page. This the link to download the how to use map tutorial'}
-  />,
-  USE_DATA_TUTORIAL: <FormattedMessage
-    id={'about.page.use.data.tutorial'}
-    defaultMessage={`
-    Download the spreadsheet tutorial (.pdf 5.4 MB)
-    `}
-    description={'Navigate to the About page. This the link to download the how to use map tutorial'}
-  />,
 };
 
 
@@ -165,23 +93,6 @@ export const HOW_TO_USE_TOOL = defineMessages({
     id: 'about.page.how.to.use.tool.para2',
     defaultMessage: 'The tool ranks most of the burdens using percentiles. Percentiles show how much burden each tract experiences compared to other tracts. Certain burdens use percentages or a simple yes/no.',
     description: 'Navigate to the About page. This is the sub heading of How to use the tool paragraph1',
-  },
-  USE_MAP_HEADING: {
-    id: 'about.page.use.map.heading',
-    defaultMessage: 'Using the map',
-    description: 'Navigate to the About page. This is the sub heading of Using the map',
-  },
-  USE_MAP_PARA: {
-    id: 'about.page.use.map.para',
-    defaultMessage: `
-      Zoom in and select any census tract to see if it is considered disadvantaged.
-    `,
-    description: 'Navigate to the About page. This is the paragraph of Using the map',
-  },
-  USE_DATA_HEADING: {
-    id: 'about.page.use.data.heading',
-    defaultMessage: 'Using the data',
-    description: 'Navigate to the About page. This is the sub heading of Using the data',
   },
 });
 
@@ -272,12 +183,4 @@ export const HOW_YOU_CAN_HELP_LIST_ITEMS = {
       link2es: linkFn(CONTACT_SURVEY_LINKS.ES, false, true),
     }}
   />,
-  PARA1: <FormattedMessage
-    id={'about.page.how.you.can.help.para.1'}
-    defaultMessage={`
-      The Council on Environmental Quality plans to issue a Request for Information in 2023. This will give the public time to use the tool before providing comments.
-    `}
-    description={`Navigate to the about page. You will see How you can help list item 3`}
-  />,
-
 };

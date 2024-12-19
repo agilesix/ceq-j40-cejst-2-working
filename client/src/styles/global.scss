@@ -154,10 +154,10 @@ li.usa-nav__primary-item a:hover::after {
 .j40-main-grid-blue-bk {
   @include u-bg('blue-cool-5');
 
-  // This style is to remove the margin collapse occuring
-  @include u-border-top(1px);
-  @include u-border-top('solid');
-  @include u-border-top('blue-cool-5');
+  // avoid margin collapse
+  @include u-border-y(1px);
+  @include u-border-y('solid');
+  @include u-border-y('blue-cool-5');
 }
 
 #main-content {
