@@ -11,7 +11,7 @@ jobs:
   # JOB to run change detection
   detect-be-changes:
     name: Detect backend changes
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     # Required permissions
     permissions:
       pull-requests: read
